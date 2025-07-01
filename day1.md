@@ -1,10 +1,10 @@
 # Instal  tools
 ```
-1.) GIt
-2.) SQl Workbech
-3.) Node
-4.) VScode
-5.) Source tre (Github)
+1.) Git
+2.) Source tree (Github)
+3.) SQl Workbench
+4.) Node
+5.) VScode
 6.) Postman
 ```
 
