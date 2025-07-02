@@ -200,18 +200,18 @@ from sms
 where sms_from = "8012345678" and sms_to ="9012345678";
 
 -- query 4
-select sms_to, sms_from, sms, R.region_name
-from sms S
-inner join ranges Rg on S.sms_from between Rg.start_range and end_range and S.sms_to="9111234567"
-inner join region R on Rg.region_id = R.region_id and R.region_name="punjab";
+select sms_to, sms_from, sms, r.region_name
+from sms s
+inner join ranges rg on s.sms_from between rg.start_range and end_range and s.sms_to="9111234567"
+inner join region r on rg.region_id = r.region_id and r.region_name="punjab";
 
 
 -- query 5
-select sms_to, sms_from, sms, O.operator_name, R.region_name
-from sms S
-inner join ranges Rg ON S.sms_from BETWEEN Rg.start_range AND Rg.end_range and   S.sms_to = '9111234567'
-inner join operator O ON Rg.operator_id = O.operator_id AND O.operator_name = 'airtel'
-inner join region R ON Rg.region_id = R.region_id AND R.region_name = 'punjab';
+select sms_to, sms_from, sms, o.operator_name, r.region_name
+from sms s
+inner join ranges rg ON s.sms_from BETWEEN rg.start_range AND rg.end_range and   s.sms_to = '9111234567'
+inner join operator o ON rg.operator_id = o.operator_id AND o.operator_name = 'airtel'
+inner join region r ON rg.region_id = r.region_id AND r.region_name = 'punjab';
 
 
 -- query 6
@@ -220,8 +220,8 @@ from sms
 where sms_from like "8012345%";
 
 -- query 7
-select S.sms_to, S.sms_from, S.sms, delievery_status,  R.region_name
-from sms S
-inner join ranges Rg ON S.sms_from BETWEEN Rg.start_range AND Rg.end_range and S.delievery_status =false
-inner join region R ON Rg.region_id = R.region_id and   R.region_name = 'punjab';
+select s.sms_to, s.sms_from, s.sms, delievery_status,  r.region_name
+from sms s
+inner join ranges rg ON s.sms_from BETWEEN rg.start_range AND rg.end_range and s.delievery_status =false
+inner join region r ON rg.region_id = r.region_id and   r.region_name = 'punjab';
  
