@@ -1,0 +1,7 @@
+primary vs foreign key :-
+
+unique          , unique
+only one	, can be more than one
+not null	, can be null
+cant modify	, can modify
+auto incr.	, no auto incr.
