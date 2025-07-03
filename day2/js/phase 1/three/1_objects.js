@@ -1,9 +1,9 @@
 let obj = 
 {
-    name : "avinash kumar",
+    name : `avinash kumar`,
     age : 23,
     isStudent : false,
-    company : "codeinsght",
+    company : `codeinsght`,
 }
 
 console.log(Object.entries(obj)); 
@@ -13,24 +13,24 @@ console.log(Object.values(obj));
 
 // console.log(Object.values(obj)[0]); 
 
-obj.name = "new user";
-console.log(obj); 
+obj.name = `new user`;
+console.log(obj);
 
 // accessing object properties
 console.log(obj.name); // dot notation
 console.log(obj['name']); // bracket notation {use when property name is dynamic or have spaces or special characters}
 
 // adding new property to object
-obj.email = "newuser@example.com";
+obj.email = `newuser@example.com`;
 console.log(obj);
 
 
 
 let user ={
-  name : "avinash kumar",
+  name : `avinash kumar`  ,
   age : 23,
-  placed : "yes",
-  "local address" : "kharar, Mohali, Punjab" 
+  placed : `yes`,
+  "local address" : `kharar, Mohali, Punjab`
 }
 
 console.log(`object :-${user}`);
@@ -38,7 +38,7 @@ console.log(Object.entries(user));
 console.log(`object keys :- ${Object.keys(user)}`);
 console.log(`object values:- ${Object.values(user)}`);
 
-user.email = "avinash@gmail.com";
+user.email = `avinash@gmail.com`;
 // user.name = "new name";
 console.log(user);
 delete user.placed;

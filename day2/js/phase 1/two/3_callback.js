@@ -7,8 +7,8 @@ function greet(name,callback){
 }
 
 function checkout() {
-    console.log("checkout!");
+    console.log(`checkout!`);
 }
 
 checkout(); // simple callback of function
-greet("avinash", checkout);
+greet(`avinash`, checkout);

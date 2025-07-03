@@ -5,7 +5,7 @@ const add = (a, b) => {
 }
 a = 5;
 b = 6;
-console.log("add is :", add(a, b));
+console.log(`add is : ${add(a, b)}`);
 
 
 // parameter vs arguments
@@ -16,7 +16,7 @@ function myname(name){ // name is parameter
     console.log(`my name is ${name}`);
 }
 // function calling with an argument
-myname("Avinash Kumar");
+myname(`Avinash Kumar`);
 
 // function calling and then stoing the return value in a variable
 function cube(number){
@@ -32,7 +32,7 @@ function greet(name = 'user'){
     return `hello ${name}`; 
 }
 
-console.log(greet("avinash"));
+console.log(greet(`avinash`));
 console.log(greet()); 
 
 
@@ -45,4 +45,5 @@ function sums(...numbers){
     return sum;
 }
 
-console.log(sums(1,2,3,4,5,"avi")); // 55
+console.log(sums(1,2,3,4,5));       // 15
+console.log(sums(1,2,3,4,5,`avi`)); // 15avi

@@ -44,10 +44,10 @@ odd.forEach((item)=>{
 // item is index 
 let result = "";
 for(let index in odd){
-  process.stdout.write(odd[index] + " ");
+  process.stdout.write(odd[index] + ` `);
   // console.log(`${odd[index]}`);
   // or use trim method
-  result += odd[index] + " ";
+  result += odd[index] + ` `;
 }
 console.log();
 console.log(result.trim());
@@ -55,7 +55,7 @@ console.log(typeof result);
 console.log(typeof even); 
 
 let array = {
-    name : "avinsh kumar",
+    name : `avinsh kumar`,
     age : 23
 };
 array = [1,2,3,4,5,6,7,8,9,10];

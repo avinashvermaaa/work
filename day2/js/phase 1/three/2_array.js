@@ -18,9 +18,9 @@ let sq_even = even.map((item)=>{
 });
 console.log(sq_even);
 
-let names = ["Avinash", "Kumar"];
+let names = [`Avinash`, `Kumar`];
 let uppercased = names.map(name => name.toUpperCase());
-// ["AVINASH", "KUMAR"]
+// [`AVINASH`, `KUMAR`]
 
 console.log(names);
 console.log(uppercased);
@@ -43,9 +43,9 @@ console.log(max);
 console.log(ans);
 
 let books = [
-  { title: "JS Basics", price: 300 },
-  { title: "React Guide", price: 500 },
-  { title: "Node Handbook", price: 400 }
+  { title: `JS Basics`, price: 300 },
+  { title: `React Guide`, price: 500 },
+  { title: `Node Handbook`, price: 400 }
 ];
 
 let book = books.filter((book)=>{
