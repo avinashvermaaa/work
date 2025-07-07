@@ -1,0 +1,31 @@
+.navbar{
+    justify-content: space-between;
+    display : flex;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 2px;
+    background-color: lightcyan;
+}
+.logo{
+    font-size: 2rem;
+    color: darkslategray;
+    font-weight: bold;
+    text-decoration: none;
+}
+.logo:hover{
+    cursor: pointer;
+    color : darkcyan;
+}
+.nav-items{
+    list-style : none;
+    display: flex;
+    gap : 20px;
+}
+.nav-items a{
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: darkslategray;
+}
+.nav-items a:hover{
+    color: gray;
+}

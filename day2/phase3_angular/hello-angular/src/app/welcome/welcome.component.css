@@ -1,0 +1,17 @@
+.welcome {
+    text-align: center;
+    padding: 13rem;
+    background-color: gray;
+}
+.p{
+    font-size : 1.7rem;
+    color: black;
+}
+h2{
+    font-size : 2.5rem;
+    color: black;
+}
+.image{
+    height : 250px;
+    width: 250px;
+}

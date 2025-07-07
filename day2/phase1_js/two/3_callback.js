@@ -12,3 +12,5 @@ function checkout() {
 
 checkout(); // simple callback of function
 greet(`avinash`, checkout);
+
+greet(`avinash`,checkout);

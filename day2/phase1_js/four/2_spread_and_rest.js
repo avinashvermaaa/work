@@ -8,4 +8,4 @@ console.log(new_nums);
 function sum(...args) {
     return args.reduce((acc, num) => acc + num, 0);
 }
-console.log(sum(1, 2, 3,4,5,6)); // 21
+console.log(sum(...nums,6,7,8)); // 21
