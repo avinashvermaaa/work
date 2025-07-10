@@ -6,7 +6,6 @@ body {
   align-items: center;
   min-height: 100vh;
   font-family: 'Jost', sans-serif;
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 }
 
 :host {
@@ -14,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  background: linear-gradient(45deg, #007bff, red);
   font-family: 'Jost', sans-serif;
 }
 
@@ -22,9 +21,8 @@ body {
   width: 350px;
   height: 500px;
   overflow: hidden;
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-  border-radius: 10px;
-  box-shadow: 5px 20px 50px #000;
+  background: linear-gradient(70deg, #007bff, red);  border-radius: 10px;
+  box-shadow: 5px 10px 30px white;
 }
 
 .signup {
@@ -33,7 +31,7 @@ body {
   padding: 20px;
   transform: translateY(0);
   transition: 0.8s ease-in-out;
-    flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -46,25 +44,26 @@ body {
 }
 
 .signup label {
-  color: #573b8a;
+  /* color: #573b8a; */
+  color: #007bff;
   font-size: 2em;
   justify-content: center;
   text-align: center;
   display: flex;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 
 .mat-field {
   width: 100%;
-  margin: 15px 0;
 }
 button {
   width: 60%;
   height: 40px;
   margin-top: 20px;
-  color: #fff;
-  background: #573b8a;
+  /* color: #fff; */
+  /* background: #007bff; */
   font-size: 1em;
   font-weight: bold;
   border: none;
@@ -74,11 +73,11 @@ button {
 }
 
 button:hover {
-  background: #6d44b8;
+  background: linear-gradient(70deg, #007bff, red);
 }
 
 a {
-  color: #573b8a;
+  color: #007bff;
   text-decoration: none;
   font-weight: 500;
 }

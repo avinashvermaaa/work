@@ -3,6 +3,15 @@
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
       <label aria-hidden="true">Sign up</label>
 
+        <mat-form-field appearance="fill" class="mat-field">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" type="text" required />
+          <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
+            Username is required
+          </mat-error>
+      </mat-form-field>
+      
+
       <mat-form-field appearance="fill" class="mat-field">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" type="email" required />
