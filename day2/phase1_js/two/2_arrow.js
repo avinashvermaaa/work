@@ -1,6 +1,7 @@
 // Arrow function
 const add = (a, b) => {
 // have to return if a scope is opened with curly braces
+    this.${a} = 0;
  return a + b;
 }
 a = 5;

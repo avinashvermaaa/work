@@ -1,22 +1,25 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild, ElementRef } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-welcome',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
 
 export class WelcomeComponent {
   title: string = 'Welcome to Angular';
-  name : string = `User`;
-  isActive: boolean = true;
+  name : string = `Guest`;
+  imageUrl1: string = 'https://angular.io/assets/images/logos/angular/angular.png';
+  imageUrl2: string = 'https://picsum.photos/200';
+  
+  @ViewChild('myInput') inputRef!: ElementRef;
 
   greet(){
-    alert('Hello, welcome to Angular!');
-    this.isActive = !this.isActive; // Toggle the active state
-  }
+    const inputValue = this.inputRef.nativeElement.value;
 
-  imageUrl: string = 'https://angular.io/assets/images/logos/angular/angular.png';
+    alert(`hello ${inputValue}`);
+  }
 
 }

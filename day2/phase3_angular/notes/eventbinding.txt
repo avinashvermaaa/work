@@ -1,0 +1,9 @@
+use angular 17
+ng new app-name --no-standalone (v> 17)
+
+Binding Type	Syntax	Direction	Use Case Example
+
+Interpolation	{{ value }}	Component ➡ HTML	Show text, variables
+Property Binding	[prop]="value"	Component ➡ DOM	Set image src, disable button
+Event Binding	(event)="fn()"	DOM ➡ Component	Handle clicks, typing
+Two-Way Binding	[(ngModel)]	Bi-directional	Form inputs, live text updates
