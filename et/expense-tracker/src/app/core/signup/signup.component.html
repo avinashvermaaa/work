@@ -1,7 +1,7 @@
 <div class="main">
   <div class="signup">
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-      <label aria-hidden="true">Sign up</label>
+      <label aria-hidden="true">Signup</label>
 
         <mat-form-field appearance="fill" class="mat-field">
           <mat-label>Username</mat-label>
@@ -39,13 +39,16 @@
         </mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid"
+      <!-- <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid"
       [ngClass]="{ 'active-btn': signupForm.valid }" >
         Sign Up
+      </button> -->
+      <button mat-raised-button  type="submit"  >
+        <span class="signup-text">Sign Up</span>
       </button>
 
       <p style="text-align: center; margin-top: 10px;">
-        Already have an account?
+        Already have an account ?
         <a routerLink="/login">Login</a>
       </p>
     </form>

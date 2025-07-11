@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { SigninComponent } from './core/signin/signin.component'; 
 import { SignupComponent } from './core/signup/signup.component'; 
 
+// import { SigninComponent } from './features/auth/signin/signin.component'; 
+// import { SignupComponent } from './features/auth/signup/signup.component'; 
+
 
 const routes: Routes = [
   { path: 'login', component: SigninComponent },
