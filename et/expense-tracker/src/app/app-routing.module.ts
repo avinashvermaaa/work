@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SigninComponent } from './core/signin/signin.component'; 
+import { SignupComponent } from './core/signup/signup.component'; 
+
 
 const routes: Routes = [
+  { path: 'login', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' } ,
   {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    path: 'features',
+    loadChildren: () => import('./features/features.module').then(m => m.FeaturesModule)
   },
-  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/auth/login' }
 ];
 
 @NgModule({

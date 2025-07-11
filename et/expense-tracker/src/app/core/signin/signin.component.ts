@@ -3,18 +3,21 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service'; 
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.css']
 })
-export class LoginComponent {
+export class SigninComponent {
   email!: string;
   password!: string;
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private snackBar: MatSnackBar,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -36,7 +39,8 @@ export class LoginComponent {
                 verticalPosition: 'bottom',
                 panelClass: 'success-snackbar' 
               });
-            // Navigate to dashboard or other logic
+                    this.router.navigate(['/features/dashboard']);
+
           } else {
             console.log('Login failed: Invalid credentials.');
               this.snackBar.open('Invalid credentials!', 'Close', {
