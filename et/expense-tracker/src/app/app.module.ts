@@ -5,8 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { CoreModule } from './core/core.module';
-// import { FeaturesModule } from './features/features.module';
+
+import { AuthModule } from './features/auth/auth.module';
 
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -20,8 +20,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    CoreModule,
-    // FeaturesModule
+    AuthModule
   ],
   providers: [
     provideClientHydration(),

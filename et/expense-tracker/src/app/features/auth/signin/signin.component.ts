@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth.service'; 
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { RouterModule,Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -33,15 +33,18 @@ export class SigninComponent {
 
           if (response && response.length > 0) {
             console.log('Login successful!');
-              this.snackBar.open(`Welcome ${response[0].username}`, 'Close', {
-                duration: 3000, 
-                horizontalPosition: 'center', 
-                verticalPosition: 'bottom',
-                panelClass: 'success-snackbar' 
-              });
-                    this.router.navigate(['/features/dashboard']);
-
-          } else {
+            
+            this.snackBar.open(`Welcome ${response[0].username}`, 'Close', {
+              duration: 3000, 
+              horizontalPosition: 'center', 
+              verticalPosition: 'bottom',
+              panelClass: 'success-snackbar' 
+            });
+            this.router.navigate(['/dashboard']);
+            console.log('✅ Redirecting to /dashboard');
+          } 
+          
+          else {
             console.log('Login failed: Invalid credentials.');
               this.snackBar.open('Invalid credentials!', 'Close', {
                 duration: 3000, 
