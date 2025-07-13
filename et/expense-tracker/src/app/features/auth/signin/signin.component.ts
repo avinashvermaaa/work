@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../../auth.service'; 
+import { AuthService } from '../../../core/services/auth.service'; 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RouterModule,Router } from '@angular/router';
 

@@ -45,10 +45,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   exports: [
     SigninComponent,
     SignupComponent
-  ],
-  // providers: [
-  //   provideHttpClient(withFetch()) 
-  // ]
+  ]
 })
 export class AuthModule { 
       constructor() {
