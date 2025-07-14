@@ -134,6 +134,102 @@
       "date": "2025-07-14",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
+    },
+    {
+      "id": 9,
+      "userEmail": "avi@example.com",
+      "title": "Breakfast",
+      "amount": 80,
+      "category": "Food",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-14",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 10,
+      "userEmail": "avi@example.com",
+      "title": "Lunch",
+      "amount": 70,
+      "category": "Food",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-14",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 11,
+      "userEmail": "avi@example.com",
+      "title": "Dinner",
+      "amount": 120,
+      "category": "Food",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-14",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 12,
+      "userEmail": "avi@example.com",
+      "title": "Fuel",
+      "amount": 500,
+      "category": "Transport",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-14",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 13,
+      "userEmail": "avi@example.com",
+      "title": "Breakfast",
+      "amount": 80,
+      "category": "Food",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-14",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 14,
+      "userEmail": "avi@example.com",
+      "title": "Lunch",
+      "amount": 70,
+      "category": "Food",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-14",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 15,
+      "userEmail": "avi@example.com",
+      "title": "Dinner",
+      "amount": 120,
+      "category": "Food",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-14",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 16,
+      "userEmail": "avi@example.com",
+      "title": "Movie",
+      "amount": 1000,
+      "category": "Entertainment",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-14",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
     }
   ]
 
