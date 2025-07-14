@@ -4,7 +4,7 @@
     text-align: center;
     font-family: 'Inter', sans-serif;
     /* background-color: black; */
-    background-color: #333;
+    /* background-color: #333; */
     background: linear-gradient(70deg, #007bff, red);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 }
@@ -28,11 +28,6 @@ h1 {
     color: whitesmoke;
 }
 
-p {
-    font-size: 1.1em;
-    color: whitesmoke;
-}
-
 table {
     width: 100%;
 }
@@ -42,6 +37,6 @@ table {
     color: white;
 }
 
-.dashboard-container th.mat-sort-header-sorted {
-  color: white;
+th.mat-sort-header-sorted {
+  color: black;
 }

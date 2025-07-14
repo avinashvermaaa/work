@@ -6,29 +6,30 @@
     </div>
 
     <div class="dashboard-container">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+         class="mat-elevation-z8">
             <ng-container matColumnDef="title">
-                <th mat-header-cell *matHeaderCellDef> title </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> title </th>
                 <td mat-cell *matCellDef="let element"> {{element.title}} </td>
             </ng-container>
 
             <ng-container matColumnDef="amount">
-                <th mat-header-cell *matHeaderCellDef> amount </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by amount"> amount </th>
                 <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
             </ng-container>
 
             <ng-container matColumnDef="category">
-                <th mat-header-cell *matHeaderCellDef> category </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> category </th>
                 <td mat-cell *matCellDef="let element"> {{element.category}} </td>
             </ng-container>
             
             <ng-container matColumnDef="payment">
-                <th mat-header-cell *matHeaderCellDef> payment </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> payment </th>
                 <td mat-cell *matCellDef="let element"> {{element.payment}} </td>
             </ng-container>
 
             <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef> status </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> status </th>
                 <td mat-cell *matCellDef="let element"> {{element.status}} </td>
             </ng-container>
 
@@ -36,7 +37,7 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
-            
+
         <mat-paginator [pageSize]="10"
                [pageSizeOptions]="[5, 10, 25, 50]"
                showFirstLastButtons>
