@@ -13,10 +13,10 @@ body, html {
   /* background: linear-gradient(45deg, #ff6ec4, #7873f5);    */
   /* CodeSphere UI*/
   /* background: linear-gradient(45deg, #007bff, red); */
-  /* background: linear-gradient(70deg, #007bff, red); */
+  background: linear-gradient(70deg, #007bff, red);
   /* background: linear-gradient(135deg, #1d2b64, #f8cdda); */
 
-  background: #333; 
+  /* background: #333;  */
   /* main bhi black (nice black UI) */
   font-family: 'Jost', sans-serif;
 }
@@ -24,8 +24,8 @@ body, html {
 .main {
   width: 350px;
   height: 500px;
-  /* background: linear-gradient(70deg, #007bff, red); */
-  background: black;
+  background: linear-gradient(70deg, #007bff, red);
+  /* background: black; */
   border-radius: 10px;
   box-shadow: 5px 10px 30px black;
   overflow: hidden;
@@ -60,6 +60,8 @@ body, html {
   justify-content: center;
   text-align: center;
   display: flex;
+  
+  /* color: white; */
 
   background: linear-gradient(70deg, #007bff, red);
   -webkit-background-clip: text;
@@ -75,11 +77,12 @@ body, html {
 }
 
 .login-text{
-  color: whitesmoke;
+  color: white;
 }
 
 button {
   background: linear-gradient(70deg, #007bff, red);
+  /* background: black; */
   width: 60%;
   height: 40px;
   margin-top: 20px;
@@ -92,11 +95,12 @@ button {
 
 button:hover {
   background: linear-gradient(290deg, #007bff, red);
+  /* background: black; */
 }
 
-::ng-deep .login mat-error {
+/* ::ng-deep .login mat-error {
   color: white; 
-}
+} */
 
 a {
   color: white;

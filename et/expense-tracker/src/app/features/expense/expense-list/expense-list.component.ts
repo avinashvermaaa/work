@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
-import { Model } from '../../expense/model';
+import { Model } from '../model';
 import { ExpenseService } from '../../../core/services/expense.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-expense-list',
+  templateUrl: './expense-list.component.html',
+  styleUrls: ['./expense-list.component.css']
 })
 
-export class HomeComponent {
+export class ExpenseListComponent {
 
     constructor(private expenseService: ExpenseService) {
-      console.log('🌟 HomeComponent loaded');
+      console.log('🌟 Expense-List-Component loaded');
     }
 
   displayedColumns: string[] = ['title', 'amount', 'category', 'payment', 'status'];
   dataSource : Model[] =[];
-      
+
   ngOnInit(): void {
     this.loadExpenses();
   }
@@ -26,5 +26,6 @@ export class HomeComponent {
       next: (expenses) => this.dataSource = expenses,
       error: (err) => console.error('Failed to load expenses:', err)
     });
+    
   }
 }

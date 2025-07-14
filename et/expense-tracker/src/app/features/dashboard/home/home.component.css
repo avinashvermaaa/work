@@ -22,23 +22,34 @@
   padding: 40px;
   text-align: center;
   font-family: 'Inter', sans-serif;
-  /* background-color: #3f51b5; */
-  background-color: black;
+  /* background-color: black; */
   /* background-color: #333; */
+  background: linear-gradient(70deg,#007bff, red);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 }
 
-
-h1 {
-  color: whitesmoke;
+.dashboard-container table {
+    /* background-color: #333; */
+    background: linear-gradient(70deg, #386da7, rgb(27, 103, 190));
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
+    text-align: center;
+}
+.dashboard-container table th{
+    font-weight: bold;
+    color: black;
+    /* text-align: center; */
+}
+.dashboard-container table td{
+    color: white;
+    /* text-align: center; */
 }
 
-p {
-  color: whitesmoke;
-  font-size: 1.1em;
+.dashboard-container mat-paginator{
+    background: linear-gradient(70deg,red, #007bff);
+    color: white;
 }
+
  
-/* Optional: Responsive behavior */
   @media (max-width: 768px) {
     .dashboard-layout {
       flex-direction: column;

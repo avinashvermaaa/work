@@ -1,7 +1,10 @@
 <app-header></app-header>
 
 <div class="dashboard-layout">
-  <div class="left-pane">
+    <div class="dashboard-container">
+      <h1>Expense list </h1>
+    </div>
+
     <div class="dashboard-container">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="title">
@@ -33,37 +36,14 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
             
+              
+        <mat-paginator [length]="50"
+            [pageSize]="10"
+            [pageSizeOptions]="[5, 10, 25, 50]"
+            aria-label="Select page">
+        </mat-paginator>
 
-          <mat-paginator [length]="50"
-              [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 50]"
-              aria-label="Select page">
-          </mat-paginator>
-
-    </div>
-  </div>
-
-  <div class="right-pane">
-    <div class="dashboard-container">
-      <p>Dashboard BarGraph</p>
-      <h2>Monthly Bargraph Spending :- July</h2>
-      <p>Category 1 </p>
-      <p>Category 2 </p>
-      <p>Category 3 </p>
-    </div>
-
-    <div class="dashboard-container">
-      <p>Dashboard linechart</p>
-      <h2>Category-wise Spends Show => Onclick open line chart (just like phone app)</h2>
-      <p>Category 1 :- Rent </p>
-      <p>Category 2 :- Food</p>
-      <p>Category 3 :- Social Life</p>
-      <p>Category 4 :- Transport</p>
-      <p>Category 5 :- Entertainment</p>
-      <p>Category 6 :- Investment</p>
-      <p>Category 7 :- Education</p>
-    </div>
-  </div>
-</div>
+    </div>        
+</div>   
 
 <app-footer></app-footer>

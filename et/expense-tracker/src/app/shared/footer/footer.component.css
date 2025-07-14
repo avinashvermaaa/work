@@ -1,8 +1,8 @@
 .footer {
-  /* background: linear-gradient(70deg, #007bff, red); */
+  background: linear-gradient(70deg, #007bff, red);
   /* background: transparent; */
   /* background: #333; */
-  background: black;
+  /* background: black; */
   position: static;
 
   text-align: center;
@@ -14,14 +14,13 @@
 
 p{
   font-size: 1.2rem;
-  /* font-weight: bold; */
   padding: 10px;
   
   color : white;
-  background: linear-gradient(70deg, #007bff, red);
+  /* background: linear-gradient(70deg, #007bff, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.2;
-  overflow: visible;
+  overflow: visible; */
 }

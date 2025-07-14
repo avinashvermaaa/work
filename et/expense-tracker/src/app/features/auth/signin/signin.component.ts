@@ -33,7 +33,7 @@ export class SigninComponent {
 
           if (response && response.length > 0) {
             console.log('Login successful!');
-            
+            console.log(`${response[0].username}, ${response[0].email}`);
             this.snackBar.open(`Welcome ${response[0].username}`, 'Close', {
               duration: 3000, 
               horizontalPosition: 'center', 
@@ -41,7 +41,7 @@ export class SigninComponent {
               panelClass: 'success-snackbar' 
             });
             this.router.navigate(['/dashboard']);
-            console.log('✅ Redirecting to /dashboard');
+            console.log('🌟 Redirecting to /dashboard');
           } 
           
           else {

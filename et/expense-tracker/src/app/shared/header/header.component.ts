@@ -14,4 +14,12 @@ export class HeaderComponent {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+  
+  dashboard() {
+    this.router.navigate(['/dashboard']);
+  }
+  
+  expense() {
+    this.router.navigate(['/expense']);
+  }
 }

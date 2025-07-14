@@ -14,8 +14,8 @@ body {
   align-items: center;
   min-height: 100vh;
   /* background: linear-gradient(45deg, #007bff, red); */
-  /* background: linear-gradient(70deg, #007bff, red); */
-  background: #333;
+  background: linear-gradient(70deg, #007bff, red);
+  /* background: #333; */
   font-family: 'Jost', sans-serif;
 }
 
@@ -23,8 +23,8 @@ body {
   width: 350px;
   height: 500px;
   overflow: hidden;
-  /* background: linear-gradient(70deg, #007bff, red);  border-radius: 10px; */
-  background: black;
+  background: linear-gradient(70deg, #007bff, red);  border-radius: 10px;
+  /* background: black; */
   box-shadow: 5px 10px 30px black;
 }
 
@@ -48,14 +48,14 @@ body {
 }
 
 .signup label {
-  color: white;
   font-size: 2.2em;
   justify-content: center;
   text-align: center;
   display: flex;
   font-weight: bold;
-  /* margin-bottom: 10px; */
-    
+  margin-bottom: 10px;
+  
+  /* color: white; */
   background: linear-gradient(70deg, #007bff, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -69,11 +69,12 @@ body {
 }
 
 .signup-text{
-  color: whitesmoke;
+  color: white;
 }
 
 button {
   background: linear-gradient(70deg, #007bff, red);
+  /* background: black; */
   width: 60%;
   height: 40px;
   margin-top: 20px;
@@ -87,6 +88,8 @@ button {
 
 button:hover {
   background: linear-gradient(290deg, #007bff, red);
+  /* background: black; */
+  /* color: white; */
 }
 
 a {
