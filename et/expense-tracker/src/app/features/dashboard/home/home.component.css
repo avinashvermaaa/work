@@ -37,7 +37,6 @@
     /* border: 1px solid rgba(255, 255, 255, 0.125); */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
     
-    min-height: 30rem;
 }
 .dashboard-container table th{
     color: rgb(218, 209, 209);
@@ -68,7 +67,7 @@ p{
     .dashboard-layout {
       flex-direction: column;
     }
-  
+    
     .right-pane {
       flex-direction: column;
     }

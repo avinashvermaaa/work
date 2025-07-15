@@ -6,7 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
 import { MatSort } from '@angular/material/sort';
-import { ChartOptions } from 'chart.js';
+import { ChartOptions,ChartData  } from 'chart.js';
 // import { Label } from 'ng2-charts';
 
 
@@ -28,7 +28,7 @@ export class HomeComponent {
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
 
-    // Pie Chart Properties
+    // Pie Chart 
     pieChartLabels: string[] = [];
     pieChartData: number[] = [];
 
@@ -40,6 +40,47 @@ export class HomeComponent {
         }
       }
     };  
+
+    // Bar Chart 
+    barChartOptions: ChartOptions<'bar'> = {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          callbacks: {
+            label: (context) => `₹${context.raw}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Date' }
+        },
+      y: {
+        type: 'linear',
+        title: { display: true, text: 'Total Expense' },
+        min: 100,
+        max: 2000,
+        ticks: {
+          callback: (value) => `₹${value}`,
+          stepSize: 200,
+        }
+      }
+      }
+    };
+
+    barChartData: ChartData<'bar'> = {
+      labels: [],
+      datasets: [
+        {
+          label: 'Daily Expenses',
+          data: [],
+          backgroundColor: 'black'
+        }
+      ]
+    };
 
     
   ngOnInit(): void {
@@ -53,7 +94,10 @@ export class HomeComponent {
         this.dataSource.data = expenses;
         this.dataSource.paginator = this.paginator; 
         this.dataSource.sort = this.sort;
+
         this.preparePieChart(expenses);
+        this.prepareBarChart(expenses); 
+
       },
       error: (err) => console.error('Failed to load expenses:', err)
     });
@@ -70,5 +114,21 @@ export class HomeComponent {
     this.pieChartLabels = Object.keys(categoryMap);
     this.pieChartData = Object.values(categoryMap);
   }
+
+  prepareBarChart(expenses: Model[]): void {
+  const dailyTotals: { [date: string]: number } = {};
+
+  for (const expense of expenses) {
+    const date = new Date(expense.date).toLocaleDateString('en-IN', {
+      day: '2-digit', month: 'short'
+    });
+
+    dailyTotals[date] = (dailyTotals[date] || 0) + expense.amount;
+  }
+
+  this.barChartData.labels = Object.keys(dailyTotals);
+  this.barChartData.datasets[0].data = Object.values(dailyTotals);
+}
+
 
 }

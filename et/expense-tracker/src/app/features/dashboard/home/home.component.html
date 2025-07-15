@@ -3,6 +3,8 @@
 <div class="dashboard-layout">
   <div class="left-pane">
     <div class="dashboard-container">
+        <!-- <div class="table-wrapper"> -->
+
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           
             <ng-container matColumnDef="date">
@@ -59,8 +61,8 @@
       <h2>Expense Category Breakdown</h2>
       
       <canvas baseChart
-      style="max-width: 300px; max-height: 300px; margin: auto; display: block; cursor: pointer;"
-        [data]="{
+      style="max-width: 300px; max-height: 222px; margin: auto; display: block; cursor: pointer;"
+      [data]="{
           labels: pieChartLabels,
           datasets: [{ data: pieChartData }]
         }"
@@ -70,16 +72,16 @@
     </div>
 
     <div class="dashboard-container">
-      <p>Dashboard linechart</p>
-      <h2>Category-wise Spends Show => Onclick open line chart (just like phone app)</h2>
-      <p>Category 1 :- Rent </p>
-      <p>Category 2 :- Food</p>
-      <p>Category 3 :- Social Life</p>
-      <p>Category 4 :- Transport</p>
-      <p>Category 5 :- Entertainment</p>
-      <p>Category 6 :- Investment</p>
-      <p>Category 7 :- Education</p>
+      <h2>Daily Expense Summary (Column Chart)</h2>
+      <canvas baseChart
+        style="max-width: 300px; min-height: 300px; margin: auto; display: block; cursor: pointer;"
+        class="large-bar-chart"
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [type]="'bar'">
+      </canvas>
     </div>
+
   </div>
 </div>
 
