@@ -4,22 +4,31 @@
     text-align: center;
     font-family: 'Inter', sans-serif;
     /* background-color: black; */
-    /* background-color: #333; */
-    background: linear-gradient(70deg, #007bff, red);
+    /* background-color: #7873f5; */
+    background-color: #7d7ace;
+    /* background-image: url("https://i.sstatic.net/bkC9s.jpg"); */
+
+    /* background: radial-gradient(gray,#72b969,black); */
+    border: 1px solid rgba(255, 255, 255, 0.125);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 }
 .dashboard-container table {
-    /* background-color: #333; */
-    background: linear-gradient(70deg, #386da7, rgb(27, 103, 190));
+    
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(18, 22, 17, 0.466);
+    
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 }
 .dashboard-container table th{
-    font-weight: bold;
-    color: black;
-    /* text-align: center; */
+    color: rgb(218, 209, 209);
+        /* text-align: center; */
 }
 .dashboard-container table td{
-    color: white;
+    color: rgb(218, 209, 209);
     /* text-align: center; */
 }
 
@@ -33,8 +42,10 @@ table {
 }
 
 .dashboard-container mat-paginator{
-    background: linear-gradient(70deg,red, #007bff);
-    color: white;
+    /* background: transparent; */
+    background: linear-gradient(235deg, #333,#7d7ace);
+    color: rgb(218, 209, 209);
+    font-size: 1rem;
 }
 
 th.mat-sort-header-sorted {

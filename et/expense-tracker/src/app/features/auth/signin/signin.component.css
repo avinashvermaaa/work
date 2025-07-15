@@ -11,31 +11,38 @@ body, html {
   min-height: 100vh;
   /* Pyara sa Pastel UI*/
   /* background: linear-gradient(45deg, #ff6ec4, #7873f5);    */
+  /* background: linear-gradient(45deg, #5a5156, #0a0a0f);    */
   /* CodeSphere UI*/
   /* background: linear-gradient(45deg, #007bff, red); */
-  background: linear-gradient(70deg, #007bff, red);
   /* background: linear-gradient(135deg, #1d2b64, #f8cdda); */
-
+  
   /* background: #333;  */
-  /* main bhi black (nice black UI) */
+  background: #0f1014; 
+
   font-family: 'Jost', sans-serif;
 }
 
 .main {
   width: 350px;
   height: 500px;
-  background: linear-gradient(70deg, #007bff, red);
-  /* background: black; */
+  /* background: linear-gradient(70deg, #007bff, red); */
+  /* background: linear-gradient(135deg, #1d2b64, #f8cdda); */
+  background: black;
+  /* background: rgba(59,130,246,.5); */
+  /* background: #333; */
+  /* background: linear-gradient(70deg, #007bff, red); */
   border-radius: 10px;
-  box-shadow: 5px 10px 30px black;
+  box-shadow: 5px 5px 20px whitesmoke;
   overflow: hidden;
   padding: 0;
 }
 
 .login {
   height: 490px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-  backdrop-filter: blur(800px);
+  /* background: linear-gradient(70deg, #007bff, red); */
+  /* background: linear-gradient(135deg, #64b4b4, #ec4b73); */
+  /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); */
+  /* backdrop-filter: blur(800px); */
   border-radius: 40% / 10%;       
   /* 60 / 10*/
 
@@ -61,8 +68,8 @@ body, html {
   text-align: center;
   display: flex;
   
-  /* color: white; */
-
+  
+  /* color: black; */
   background: linear-gradient(70deg, #007bff, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -75,14 +82,17 @@ body, html {
   width: 80%;
   margin: 15px 0;
 }
+input{
+  /* background-color: #0f1014; */
+}
 
 .login-text{
-  color: white;
+  /* color: white; */
 }
 
 button {
   background: linear-gradient(70deg, #007bff, red);
-  /* background: black; */
+  /* background: red; */
   width: 60%;
   height: 40px;
   margin-top: 20px;
@@ -98,9 +108,10 @@ button:hover {
   /* background: black; */
 }
 
-/* ::ng-deep .login mat-error {
+/* @override -> mat error color  */
+::ng-deep .login mat-error {
   color: white; 
-} */
+}
 
 a {
   color: white;
