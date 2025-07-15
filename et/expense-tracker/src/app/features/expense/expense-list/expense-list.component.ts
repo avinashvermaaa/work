@@ -20,7 +20,7 @@ export class ExpenseListComponent {
       console.log('🌟 Expense-List-Component loaded');
     }
 
-    displayedColumns: string[] = ['title', 'amount', 'category', 'payment', 'status'];
+    displayedColumns: string[] = ['date','title', 'amount', 'category', 'payment', 'status','notes','receipt'];
     dataSource = new MatTableDataSource<Model>();
 
     @ViewChild(MatPaginator) paginator!: MatPaginator;

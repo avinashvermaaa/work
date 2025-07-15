@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -41,7 +42,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+
+    NgChartsModule
   ],
     exports: [HomeComponent] 
 

@@ -4,30 +4,42 @@
   <div class="left-pane">
     <div class="dashboard-container">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date"> Date </th>
+                <td mat-cell *matCellDef="let element"> {{ element.date | date:'shortDate' }} </td>
+            </ng-container>
+
             <ng-container matColumnDef="title">
-                <th mat-header-cell *matHeaderCellDef> title </th>
+                <th mat-header-cell *matHeaderCellDef> Title </th>
                 <td mat-cell *matCellDef="let element"> {{element.title}} </td>
             </ng-container>
 
             <ng-container matColumnDef="amount">
-                <th mat-header-cell *matHeaderCellDef> amount </th>
+                <th mat-header-cell *matHeaderCellDef> Amount </th>
                 <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
             </ng-container>
 
             <ng-container matColumnDef="category">
-                <th mat-header-cell *matHeaderCellDef> category </th>
+                <th mat-header-cell *matHeaderCellDef> Category </th>
                 <td mat-cell *matCellDef="let element"> {{element.category}} </td>
             </ng-container>
             
             <ng-container matColumnDef="payment">
-                <th mat-header-cell *matHeaderCellDef> payment </th>
+                <th mat-header-cell *matHeaderCellDef> Payment </th>
                 <td mat-cell *matCellDef="let element"> {{element.payment}} </td>
             </ng-container>
 
             <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDef> status </th>
+                <th mat-header-cell *matHeaderCellDef> Status </th>
                 <td mat-cell *matCellDef="let element"> {{element.status}} </td>
             </ng-container>
+
+            <ng-container matColumnDef="notes">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name"> Notes </th>
+                <td mat-cell *matCellDef="let element"> {{element.notes}} </td>
+            </ng-container>
+            
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -44,11 +56,17 @@
 
   <div class="right-pane">
     <div class="dashboard-container">
-      <p>Dashboard BarGraph</p>
-      <h2>Monthly Bargraph Spending :- July</h2>
-      <p>Category 1 </p>
-      <p>Category 2 </p>
-      <p>Category 3 </p>
+      <h2>Expense Category Breakdown</h2>
+      
+      <canvas baseChart
+      style="max-width: 300px; max-height: 300px; margin: auto; display: block; cursor: pointer;"
+        [data]="{
+          labels: pieChartLabels,
+          datasets: [{ data: pieChartData }]
+        }"
+        [options]="pieChartOptions"
+        [type]="'pie'">
+      </canvas>
     </div>
 
     <div class="dashboard-container">
