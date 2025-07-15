@@ -10,14 +10,10 @@ body, html {
   align-items: center;
   min-height: 100vh;
   /* Pyara sa Pastel UI*/
-  /* background: linear-gradient(45deg, #ff6ec4, #7873f5);    */
-  /* background: linear-gradient(45deg, #5a5156, #0a0a0f);    */
-  /* CodeSphere UI*/
-  /* background: linear-gradient(45deg, #007bff, red); */
-  /* background: linear-gradient(135deg, #1d2b64, #f8cdda); */
+  background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466));
   
-  /* background: #333;  */
-  background: #0f1014; 
+  /* background: #0f1014;  */
+  /* background: linear-gradient(45deg, #5a5156, #0a0a0f);    */
 
   font-family: 'Jost', sans-serif;
 }
@@ -26,13 +22,14 @@ body, html {
   width: 350px;
   height: 500px;
   /* background: linear-gradient(70deg, #007bff, red); */
-  /* background: linear-gradient(135deg, #1d2b64, #f8cdda); */
-  background: black;
   /* background: rgba(59,130,246,.5); */
-  /* background: #333; */
-  /* background: linear-gradient(70deg, #007bff, red); */
+
+  /* earlier black UI */
+  /* background: black; */
+  
+  background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466));
   border-radius: 10px;
-  box-shadow: 5px 5px 20px whitesmoke;
+  box-shadow: 5px 5px 20px black;
   overflow: hidden;
   padding: 0;
 }
@@ -40,10 +37,9 @@ body, html {
 .login {
   height: 490px;
   /* background: linear-gradient(70deg, #007bff, red); */
-  /* background: linear-gradient(135deg, #64b4b4, #ec4b73); */
-  /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
   /* backdrop-filter: blur(800px); */
-  border-radius: 40% / 10%;       
+  border-radius: 60% / 15%;       
   /* 60 / 10*/
 
   transform: translateY(0);
@@ -62,15 +58,15 @@ body, html {
 }
 
 .login label {
-  font-size: 2.2em;
-  font-weight: bold;
+  font-size: 2.5em;
   justify-content: center;
   text-align: center;
   display: flex;
+  font-weight: bold;
   
   
-  /* color: black; */
-  background: linear-gradient(70deg, #007bff, red);
+  /* background: white; */
+  background: linear-gradient(135deg, #007bff, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -87,12 +83,12 @@ input{
 }
 
 .login-text{
-  /* color: white; */
+  color: whitesmoke;
 }
 
 button {
   background: linear-gradient(70deg, #007bff, red);
-  /* background: red; */
+  /* color: white; */
   width: 60%;
   height: 40px;
   margin-top: 20px;

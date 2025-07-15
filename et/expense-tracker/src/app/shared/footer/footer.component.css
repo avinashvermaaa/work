@@ -1,7 +1,6 @@
 .footer {
-  /* background: transparent; */
-  background: #333;
-      /* background-color: #7873f5; */
+  /* background: #333; */
+    background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466));
 
   position: static;
   /* position: fixed; */
@@ -10,7 +9,6 @@
   bottom: 0;
   width: 100%;
   margin-top: 10px;
-  /* box-shadow: 0 8px 20px rgba(0, 0, 0, 1); */
 }
 
 p{
