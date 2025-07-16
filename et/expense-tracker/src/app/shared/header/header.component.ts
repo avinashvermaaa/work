@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
@@ -8,7 +9,16 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @ViewChild(MatMenuTrigger, { static: false }) menuTrigger: MatMenuTrigger | undefined;
+
   constructor(private authService: AuthService, private router: Router) {}
+
+    ngAfterViewInit() {
+    // To prevent errors related to accessing 'menu' before it is initialized
+    if (this.menuTrigger) {
+      console.log('menuTrigger is initialized');
+    }
+  }
 
   logout() {
     this.authService.logout();
@@ -24,5 +34,11 @@ export class HeaderComponent {
   }
   theme() {
     this.router.navigate(['/theme']);
+  }
+
+  toggleMenu() {
+    if (this.menuTrigger) {
+      this.menuTrigger.openMenu();  // Use open() to show the menu
+    }
   }
 }

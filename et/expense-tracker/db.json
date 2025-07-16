@@ -323,7 +323,7 @@
       "category": "Entertainment",
       "payment": "UPI",
       "status": true,
-      "date": "2025-07-09",
+      "date": "2025-07-08",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
     },
@@ -371,7 +371,7 @@
       "category": "Transport",
       "payment": "UPI",
       "status": true,
-      "date": "2025-07-08",
+      "date": "2025-07-07",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
     },
@@ -407,7 +407,7 @@
       "category": "Food",
       "payment": "UPI",
       "status": true,
-      "date": "2025-07-07",
+      "date": "2025-07-06",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
     },
@@ -419,7 +419,55 @@
       "category": "Health",
       "payment": "UPI",
       "status": true,
-      "date": "2025-07-07",
+      "date": "2025-07-06",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 33,
+      "userEmail": "avi@example.com",
+      "title": "Lunch",
+      "amount": 70,
+      "category": "Food",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-06",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 34,
+      "userEmail": "avi@example.com",
+      "title": "Dinner",
+      "amount": 120,
+      "category": "Food",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-05",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 35,
+      "userEmail": "avi@example.com",
+      "title": "protein",
+      "amount": 599,
+      "category": "Health",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-05",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com"
+    },
+    {
+      "id": 36,
+      "userEmail": "avi@example.com",
+      "title": "rent",
+      "amount": 500,
+      "category": "Rent",
+      "payment": "UPI",
+      "status": true,
+      "date": "2025-07-05",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
     }

@@ -2,68 +2,73 @@
   display: flex;
   justify-content: space-between;
   padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   gap: 20px;
 }
 
-.left-pane {
+.left-pane , .right-pane {
   flex: 1;
 }
 
 .right-pane {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.dashboard-container {
-  padding: 40px;
+.dashboard-container-left , .dashboard-container-right  {
+  /* padding: 20px; */
   text-align: center;
   font-family: 'Inter', sans-serif;
-  /* background-color: #7d7ace; */
   
   /* background: linear-gradient(135deg,var(--primary-color),var(--accent-color)); */
-    /* background: var(--primary-color); */
-    background: var(--accent-color);
+  background: var(--accent-color);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
 
+}
 
-    /* background: #333; ; */
-  /* background: linear-gradient(135deg, #64b4b4, #ec4b73); */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
+.dashboard-container-right {
+  padding: 20px;
+  /* background: var(--accent-colors); */
 }
 
 
-.dashboard-container table {
+.dashboard-container-left table {
     /* background-color: rebeccapurple; */
     
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(18, 22, 17, 0.466);
+    background-color: rgba(20, 20, 20, 0.466);
     
-    /* border: 1px solid rgba(255, 255, 255, 0.125); */
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
     
+    min-height: 20rem;
+
+    border-collapse: separate;
+    overflow: hidden; 
 }
-.dashboard-container table th{
-    color: rgb(218, 209, 209);
+.dashboard-container-left table th{
+    color: white;
     border-bottom: 1px solid #ddd;
-    border-color: #7d7ace;
+    border-color: white;
    
     /* text-align: center; */
 }
-.dashboard-container table td{
+.dashboard-container-left table td{
     /* border: 0.5px solid; */
     border-color: rgb(63, 60, 60);
-    color: rgb(218, 209, 209);
+    color: white;
 }
 
 
-.dashboard-container mat-paginator{
+.dashboard-container-left mat-paginator{
   background: transparent;
     /* background: linear-gradient(235deg,rgba(18, 22, 17, 0.466),var(--accent-color)); */
-    /* background: linear-gradient(235deg, ,#7d7ace); */
     color: white;
 }
 
@@ -118,8 +123,11 @@ cursor: pointer;
 /* min-width: 300px;
 min-height: 400px; */
 
-margin: auto; 
-display: block; 
-cursor: pointer;
-
+  width: 100% !important;
+  max-width: 100%;
+  height: 300px !important;
+  max-height: 400px;
+  margin: auto;
+  display: block;
+  cursor: pointer;
 }

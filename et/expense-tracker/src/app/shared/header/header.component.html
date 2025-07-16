@@ -1,10 +1,27 @@
-<mat-toolbar  class="header">🧾
-  <span class="header-title"> Expense Tracker</span>
+
+<mat-toolbar class="header">🧾
+  <span class="header-title">Expense Tracker</span>
   <span class="spacer"></span>
-  <!-- <button mat-button routerLink="/dashboard">Dashboard</button> -->
-  <!-- <button mat-button routerLink="/expense">Expense</button> -->
-  <button mat-button (click)="dashboard()">Dashboard</button>
-  <button mat-button (click)="expense()">Expense</button>
-  <button mat-button (click)="theme()">Theme</button>
-  <button mat-button (click)="logout()">Logout</button>
+
+  <!-- Hamburger Menu for smaller screens -->
+  <button mat-icon-button class="hamburger-menu" [matMenuTriggerFor]="menu" aria-label="Menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Main Navigation Menu (for larger screens) -->
+  <div class="desktop-menu">
+    <button mat-button (click)="dashboard()">Dashboard</button>
+    <button mat-button (click)="expense()">Expense</button>
+    <button mat-button (click)="theme()">Theme</button>
+    <button mat-button (click)="logout()">Logout</button>
+  </div>
+
+  <!-- Dropdown Menu for Small Screens (Hamburger) -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="dashboard()">Dashboard</button>
+    <button mat-menu-item (click)="expense()">Expense</button>
+    <button mat-menu-item (click)="theme()">Theme</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
 </mat-toolbar>
+

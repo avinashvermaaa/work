@@ -22,7 +22,7 @@ export class HomeComponent {
       console.log('🌟 HomeComponent loaded');
     }
 
-    displayedColumns: string[] = ['date','title', 'amount', 'category', 'payment', 'status','notes'];
+    displayedColumns: string[] = ['date','title', 'amount', 'category'];
     dataSource = new MatTableDataSource<Model>();
   
     @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -43,48 +43,78 @@ export class HomeComponent {
     };  
 
     // Bar Chart 
-    barChartOptions: ChartOptions<'bar'> = {
-      responsive: true,
-      plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: {
-          callbacks: {
-            label: (context) => `₹${context.raw}`
-          }
-        }
+barChartOptions: ChartOptions<'bar'> = {
+  responsive: true,
+  maintainAspectRatio: false,  
+  plugins: {
+    legend: { display: false },
+    tooltip: {
+      callbacks: {
+        label: (context) => `₹${context.raw}`
+      }
+    }
+  },
+  layout: {
+    padding: {
+      top: 10,
+      bottom: 10,
+      left: 15,
+      right: 15
+    }
+  },
+  scales: {
+    x: {
+      title: {
+        display: true,
+        text: 'Date',
+        color: 'white',
+        font : {size : 16}
       },
-      scales: {
-        x: {
-          title: { display: true, text: 'Date', color : 'rgb(218, 209, 209)' },
-          ticks: { color: 'white', font: { size: 11,  }
-      }
+      ticks: {
+        color: 'white',
+        font: {
+          size: 16,
+          weight: 'bold'
         },
+        autoSkip: false,
+        maxRotation: 50,
+        minRotation: 0
+      },
+      grid: {
+        display: false
+      }
+    },
+    y: {
+      title: {
+        display: true,
+        text: 'Total Expenses',
+        color: 'white',
+        font : {size : 20}
+      },
+      min: 0,
+      ticks: {
+        color: 'white',
+        font: {
+          size: 16,
+        },
+        callback: (value) => `₹${value}`,
+        stepSize: 200
+      },
+      grid: {
+        color: 'rgba(255,255,255,0.1)'
+      }
+    }
+  }
+};
 
-      y: {
-        type: 'linear',
-        title: { display: true, text: 'Total Expense', color : 'white' },
-        min: 100,
-        max: 2000,
-        ticks: {
-          color: 'white', font: { size: 9, },
-          callback: (value) => `₹${value}`,
-          stepSize: 200,
-        }
-      }
-      }
-    };
 
     barChartData: ChartData<'bar'> = {
       labels: [],
-      datasets: [
-        {
+      datasets: [ {
           label: 'Daily Expenses',
-          data: [],
-          backgroundColor: 'rgb(218, 209, 209)',
-        }
-      ]
+          data: []
+          // backgroundColor: 'rgb(218, 209, 209)',
+        } ]
     };
 
     
@@ -121,19 +151,38 @@ export class HomeComponent {
   }
 
   prepareBarChart(expenses: Model[]): void {
-  const dailyTotals: { [date: string]: number } = {};
+    const dailyTotals: { [date: string]: number } = {};
 
-  for (const expense of expenses) {
-    const date = new Date(expense.date).toLocaleDateString('en-IN', {
-      day: '2-digit', month: 'short'
-    });
+    for (const expense of expenses) {
+        const date = new Date(expense.date).toLocaleDateString('en-IN', {
+          day: '2-digit', month: 'short'
+        });
 
-    dailyTotals[date] = (dailyTotals[date] || 0) + expense.amount;
+        dailyTotals[date] = (dailyTotals[date] || 0) + expense.amount;
+    }
+
+      // this.barChartData.labels = Object.keys(dailyTotals);
+      // this.barChartData.datasets[0].data = Object.values(dailyTotals);
+      console.log('Bar Chart Labels:', this.barChartData.labels);
+      console.log('Bar Chart Data:', this.barChartData.datasets[0].data);
+
+    const colorPalette = [
+        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'
+    ];
+
+      this.barChartData = {
+      labels: Object.keys(dailyTotals),
+      datasets: [ {
+          label: 'Daily Expenses',
+          data: Object.values(dailyTotals),
+            backgroundColor: colorPalette.slice(0, Object.keys(dailyTotals).length),
+            borderColor: colorPalette.slice(0, Object.keys(dailyTotals).length).map(color => color.replace('0.2', '1')),
+            borderWidth: 1
+        } ]
+    };
+
   }
-
-  this.barChartData.labels = Object.keys(dailyTotals);
-  this.barChartData.datasets[0].data = Object.values(dailyTotals);
-}
 
 
 }
