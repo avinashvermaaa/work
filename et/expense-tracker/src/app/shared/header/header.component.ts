@@ -22,4 +22,7 @@ export class HeaderComponent {
   expense() {
     this.router.navigate(['/expense']);
   }
+  theme() {
+    this.router.navigate(['/theme']);
+  }
 }

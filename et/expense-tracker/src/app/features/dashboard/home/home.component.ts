@@ -37,7 +37,7 @@ export class HomeComponent {
       plugins: {
         legend: {
           position: 'top',
-          labels: { color: 'black', font: { size: 12, weight: 'bold' }}
+          labels: { color: 'white', font: { size: 12, weight: 'bold' }}
         }
       }
     };  
@@ -57,18 +57,18 @@ export class HomeComponent {
       },
       scales: {
         x: {
-          title: { display: true, text: 'Date', color : 'black' },
-          ticks: { color: 'black', font: { size: 8, weight: 'bold' }
+          title: { display: true, text: 'Date', color : 'white' },
+          ticks: { color: 'white', font: { size: 9,  }
       }
         },
 
       y: {
         type: 'linear',
-        title: { display: true, text: 'Total Expense', color : 'black' },
+        title: { display: true, text: 'Total Expense', color : 'white' },
         min: 100,
         max: 2000,
         ticks: {
-          color: 'black', font: { size: 10, weight: 'bold' },
+          color: 'white', font: { size: 9, },
           callback: (value) => `₹${value}`,
           stepSize: 200,
         }
@@ -82,7 +82,7 @@ export class HomeComponent {
         {
           label: 'Daily Expenses',
           data: [],
-          backgroundColor: 'black',
+          backgroundColor: 'white',
         }
       ]
     };

@@ -22,7 +22,11 @@
   padding: 40px;
   text-align: center;
   font-family: 'Inter', sans-serif;
-  background-color: #7d7ace;
+  /* background-color: #7d7ace; */
+  
+  /* background: linear-gradient(135deg,var(--primary-color),var(--accent-color)); */
+  background: var(--primary-color);
+
     /* background: #333; ; */
   /* background: linear-gradient(135deg, #64b4b4, #ec4b73); */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
@@ -55,7 +59,8 @@
 
 
 .dashboard-container mat-paginator{
-    background: linear-gradient(235deg, rgba(18, 22, 17, 0.466),#7d7ace);
+    background: linear-gradient(235deg,rgba(18, 22, 17, 0.466),var(--primary-color));
+    /* background: linear-gradient(235deg, ,#7d7ace); */
     color: white;
 }
 

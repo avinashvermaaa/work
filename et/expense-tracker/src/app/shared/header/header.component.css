@@ -5,7 +5,10 @@
    /* background: black; */
       /* background:rgba(18, 22, 17, 0.466); */
 
-    background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),#7d7ace);
+    /* background: var(--primary-color); */
+    background: linear-gradient(135deg,var(--primary-color),var(--accent-color));
+
+    /* background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),#7d7ace); */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
   }
   
@@ -24,13 +27,12 @@
   padding: 8px 8px; 
   border-radius: 8px;
   /* background: rgba(0, 0, 0, 1); */
-  background: rgba(5, 5, 5, 0.466);
-  
+  /* background: rgba(5, 5, 5, 0.466); */
   color: rgb(218, 209, 209);
 }
 
 .header button:hover{
-  background: #333;
-  /* background: rgba(0, 0, 0, 1); */
+  /* background: #333; */
+  background: rgba(0, 0, 0, 1);
   cursor: pointer;
 }

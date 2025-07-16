@@ -11,6 +11,9 @@ import { AuthModule } from './features/auth/auth.module';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+import { ThemeModule } from './shared/theme/theme.module'; // adjust path as needed
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +23,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    ThemeModule
   ],
   providers: [
     provideClientHydration(),

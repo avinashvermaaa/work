@@ -11,8 +11,8 @@ body, html {
   min-height: 100vh;
   /* Pyara sa Pastel UI*/
   /* background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466)); */
-    /* background: #0f1014;  */
-  background: #0f1014; 
+  /* background: #0f1014;  */
+  background: var(--primary-color);
   /* background: linear-gradient(45deg, #5a5156, #0a0a0f);    */
 
   font-family: 'Jost', sans-serif;
@@ -25,7 +25,9 @@ body, html {
   /* background: rgba(59,130,246,.5); */
 
   /* earlier black UI */
-  background: black;
+  /* background: black; */
+
+  background: var(--accent-color);
   
   /* background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466)); */
   border-radius: 10px;
@@ -63,13 +65,14 @@ body, html {
   font-weight: bold;
   
   
-  /* background: white; */
-  background: linear-gradient(135deg, #007bff, red);
+    /* color: var(--accent-color); */
+  color: white;
+  /* background: linear-gradient(135deg, #007bff, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.2;
-  overflow: visible;
+  overflow: visible; */
 }
 
 .mat-field {
@@ -85,7 +88,10 @@ input{
 }
 
 button {
-  background: linear-gradient(70deg, #007bff, red);
+  /* background: linear-gradient(70deg, #007bff, red); */
+
+  background: linear-gradient(70deg,var(--primary-color),var(--accent-color));
+
   /* color: white; */
   width: 60%;
   height: 40px;
@@ -98,8 +104,9 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(290deg, #007bff, red);
-  /* background: black; */
+  /* background: linear-gradient(290deg, #007bff, red); */
+  background: linear-gradient(290deg,var(--primary-color),var(--accent-color));
+
 }
 
 /* @override -> mat error color  */

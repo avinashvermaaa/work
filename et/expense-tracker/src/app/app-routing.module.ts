@@ -16,6 +16,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/expense/expense.module').then(m => m.ExpenseModule)
   },
+  {
+    path: 'theme',
+    canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./shared/theme/theme.module').then(m => m.ThemeModule)
+  },
   { 
     path : '', 
     loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule),
