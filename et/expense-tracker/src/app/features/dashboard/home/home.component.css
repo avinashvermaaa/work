@@ -23,9 +23,11 @@
   text-align: center;
   font-family: 'Inter', sans-serif;
   background-color: #7d7ace;
+    /* background: #333; ; */
   /* background: linear-gradient(135deg, #64b4b4, #ec4b73); */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 }
+
 
 .dashboard-container table {
     /* background-color: rebeccapurple; */
@@ -68,13 +70,19 @@ p{
       flex-direction: column;
     }
     
+      .left-pane, .right-pane {
+    width: 100%;
+  }
+    .dashboard-container {
+    padding: 20px;
+  }
     .right-pane {
       flex-direction: column;
     }
   }
 
 
-/*
+
 .dashboard-container canvas {
   max-width: 300px;
   max-height: 300px;
@@ -91,4 +99,21 @@ p{
   padding: 20px;
   margin: 10px;
 }
-*/
+
+.pie-chart{
+max-width: 300px; 
+max-height: 222px; 
+margin: auto; 
+display: block; 
+cursor: pointer;
+
+}
+
+.bar-chart{
+min-width: 300px;
+min-height: 400px; 
+margin: auto; 
+display: block; 
+cursor: pointer;
+
+}

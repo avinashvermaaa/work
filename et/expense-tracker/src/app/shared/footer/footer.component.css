@@ -1,6 +1,6 @@
 .footer {
   /* background: #333; */
-    background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466));
+    background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),#7d7ace);
 
   position: static;
   /* position: fixed; */
@@ -16,10 +16,4 @@ p{
   padding: 10px;
   
   color : whitesmoke;
-  /* background: linear-gradient(70deg, #007bff, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.2;
-  overflow: visible; */
 }

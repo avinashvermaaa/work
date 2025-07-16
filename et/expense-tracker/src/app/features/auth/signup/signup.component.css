@@ -14,9 +14,9 @@ body {
   align-items: center;
   min-height: 100vh;
   /* Pyara sa Pastel UI*/
-  background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466));
+  /* background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466)); */
 
-  /* background: #0f1014;  */
+  background: #0f1014; 
   /* background: linear-gradient(45deg, #5a5156, #0a0a0f);    */
 
   font-family: 'Jost', sans-serif;
@@ -30,22 +30,19 @@ body {
   /* background: rgba(59,130,246,.5); */
 
   /* earlier black UI */
-  /* background: black; */
-  background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466));
+  background: black;
+  /* background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466)); */
 
   border-radius: 10px;
-  box-shadow: 5px 5px 20px black;
+  /* box-shadow: 5px 5px 20px black; */
+  box-shadow: 5px 5px 20px whitesmoke;
 }
 
 .signup {
-  /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); */
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-  /* backdrop-filter: blur(800px); */  
   border-radius: 60% / 15%;        
   /* 60 / 10*/
   
-  transform: translateY(0);
-  transition: 0.8s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: center;

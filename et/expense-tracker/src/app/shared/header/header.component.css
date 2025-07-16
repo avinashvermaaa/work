@@ -4,26 +4,14 @@
   z-index: 1000;
    /* background: black; */
       /* background:rgba(18, 22, 17, 0.466); */
-   /* background: repeating-radial-gradient(red,black); */
-       /* background: linear-gradient(135deg, #64b4b4, #ec4b73); */
 
-    background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466));
-    /* background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),#7d7ace); */
-   box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
-   /* box-shadow: 0 5px 5px whitesmoke; */
+    background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),#7d7ace);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
   }
   
 .header-title {
-    /* font-weight: bold; */
-    font-size: 20px;
-    color: rgb(218, 209, 209);;
-  
-    /* background: linear-gradient(70deg, #007bff, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.2;
-    overflow: visible; */
+  font-size: 20px;
+  color: rgb(218, 209, 209);;
 }
 
 .spacer {
@@ -35,23 +23,14 @@
   font-size: 16px;           
   padding: 8px 8px; 
   border-radius: 8px;
-  /* background: #333; */
-  background: rgba(0, 0, 0, 1);
-    /* background: linear-gradient(70deg, #007bff, red); */
-
-  color: rgb(218, 209, 209);
-
-  /* button text gradient */
+  /* background: rgba(0, 0, 0, 1); */
+  background: rgba(5, 5, 5, 0.466);
   
-  /* background: linear-gradient(70deg, #007bff, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.2;
-  overflow: visible; */
+  color: rgb(218, 209, 209);
 }
 
 .header button:hover{
-  background: linear-gradient(70deg, red, #007bff);
+  background: #333;
+  /* background: rgba(0, 0, 0, 1); */
   cursor: pointer;
 }

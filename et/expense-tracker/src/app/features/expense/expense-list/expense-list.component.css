@@ -3,10 +3,11 @@
     margin-top: 15px;
     text-align: center;
     font-family: 'Inter', sans-serif;
-    /* background-color: #7873f5; */
     background-color: #7d7ace;
-      /* background: #0f1014;  */
+    
+    /* background: linear-gradient(180deg, #7d7ace, rgba(18, 22, 17, 0.466)); */
 
+    /* background: radial-gradient(gray,#7d7ace,rgba(18, 22, 17, 0.466)); */
     /* background: radial-gradient(gray,#72b969,black); */
     /* border: 1px solid rgba(255, 255, 255, 0.125); */
 
