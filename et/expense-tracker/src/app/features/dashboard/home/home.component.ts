@@ -57,8 +57,8 @@ export class HomeComponent {
       },
       scales: {
         x: {
-          title: { display: true, text: 'Date', color : 'white' },
-          ticks: { color: 'white', font: { size: 9,  }
+          title: { display: true, text: 'Date', color : 'rgb(218, 209, 209)' },
+          ticks: { color: 'white', font: { size: 11,  }
       }
         },
 
@@ -82,7 +82,7 @@ export class HomeComponent {
         {
           label: 'Daily Expenses',
           data: [],
-          backgroundColor: 'white',
+          backgroundColor: 'rgb(218, 209, 209)',
         }
       ]
     };

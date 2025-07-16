@@ -5,10 +5,12 @@
     font-family: 'Inter', sans-serif;
     background-color: #7d7ace;
     
+    /* background: radial-gradient(gray,#7d7ace,rgba(18, 22, 17, 0.466)); */
     /* background: radial-gradient(gray,#72b969,black); */
     /* border: 1px solid rgba(255, 255, 255, 0.125); */
-
-    background: var(--primary-color);
+    
+    /* background: linear-gradient(135deg,var(--primary-color),var(--accent-color)); */
+    background: var(--accent-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 
 }
@@ -47,8 +49,8 @@ table {
 }
 
 .dashboard-container mat-paginator{
-    /* background: transparent; */
-    background: linear-gradient(235deg, rgba(18, 22, 17, 0.466),var(--primary-color));
+    background: transparent;
+    /* background: linear-gradient(235deg, rgba(18, 22, 17, 0.466),var(--primary-color)); */
     /* background: linear-gradient(235deg, rgba(18, 22, 17, 0.466),#7d7ace); */
     color: rgb(218, 209, 209);
     font-size: 1rem;

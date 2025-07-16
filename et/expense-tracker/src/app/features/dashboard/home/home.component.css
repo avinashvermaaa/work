@@ -25,7 +25,9 @@
   /* background-color: #7d7ace; */
   
   /* background: linear-gradient(135deg,var(--primary-color),var(--accent-color)); */
-  background: var(--primary-color);
+    /* background: var(--primary-color); */
+    background: var(--accent-color);
+
 
     /* background: #333; ; */
   /* background: linear-gradient(135deg, #64b4b4, #ec4b73); */
@@ -59,7 +61,8 @@
 
 
 .dashboard-container mat-paginator{
-    background: linear-gradient(235deg,rgba(18, 22, 17, 0.466),var(--primary-color));
+  background: transparent;
+    /* background: linear-gradient(235deg,rgba(18, 22, 17, 0.466),var(--accent-color)); */
     /* background: linear-gradient(235deg, ,#7d7ace); */
     color: white;
 }
@@ -90,9 +93,8 @@ p{
 
 .dashboard-container canvas {
   max-width: 300px;
-  max-height: 300px;
-  margin: 0 auto;
-  display: block;
+
+  /* max-height: 400px; */
 }
 
 .dashboard-container h2 {
@@ -101,12 +103,10 @@ p{
 }
 
 .right-pane .dashboard-container {
-  padding: 20px;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 .pie-chart{
-max-width: 300px; 
 max-height: 222px; 
 margin: auto; 
 display: block; 
@@ -115,8 +115,9 @@ cursor: pointer;
 }
 
 .bar-chart{
-min-width: 300px;
-min-height: 400px; 
+/* min-width: 300px;
+min-height: 400px; */
+
 margin: auto; 
 display: block; 
 cursor: pointer;

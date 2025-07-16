@@ -1,13 +1,17 @@
 <app-header></app-header>
 <h1>Select Theme</h1>
-    <div class="theme-picker">
-      <label>Primary Color:
-        <input type="color" [(ngModel)]="primaryColor" />
-      </label>
-      <label>Accent Color : 
-        <input type="color" [(ngModel)]="accentColor" />
-      </label>
-      <button (click)="applyTheme()">Apply Theme</button>
-    </div>
+<div class = "theme-container">
+  
+  <div class="theme-picker">
+    <label>Primary Color:
+      <input type="color" [(ngModel)]="primaryColor" />
+    </label>
+    <label>Accent Color : 
+      <input type="color" [(ngModel)]="accentColor" />
+    </label>
+    <button (click)="applyTheme()">Apply Theme</button>
+  </div>
+
+</div>
     
 <app-footer></app-footer>
