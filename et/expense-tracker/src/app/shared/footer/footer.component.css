@@ -11,12 +11,13 @@
   bottom: 0;
   width: 100%;
   margin-top: 10px;
-  box-shadow: 2px 2px 8px var(--accent-color);
+  margin-bottom: 0px;
+  /* box-shadow: 2px 2px 8px var(--accent-color); */
 }
 
 p{
   font-size: 1.2rem;
   padding: 10px;
-  
+
   color : whitesmoke;
 }

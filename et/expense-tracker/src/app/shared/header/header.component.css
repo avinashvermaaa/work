@@ -28,11 +28,17 @@
   border-radius: 8px;
   /* background: rgba(0, 0, 0, 1); */
   /* background: rgba(5, 5, 5, 0.466); */
+
+    border: 2px solid;
+  border-color: var(--accent-color);
+
   color: rgb(218, 209, 209);
 }
 
 .header button:hover{
   /* background: #333; */
-  background: rgba(0, 0, 0, 1);
+  /* background: rgba(0, 0, 0, 1); */
+  background: linear-gradient(70deg,var(--primary-color),var(--accent-color));
+
   cursor: pointer;
 }

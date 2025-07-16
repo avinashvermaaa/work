@@ -2,25 +2,28 @@
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-:root {
-  --primary-color: #7d7ace;
-  --accent-color: rgba(5, 5, 5, 0.466);
+*/
+/* :root{
+--primary-color : rgb(237,144,38);
+--accent-color  : rgb(63,3,3);
 } */
-
-
 :root {
   --primary-color: #7d7ace; 
   --accent-color: rgba(5, 5, 5, 0.466);
 }
 
+html,body{
+    height: 100%;
+}
 body {
-  background-color: var(--primary-color);
-  color: white;
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: var(--primary-color);
+    color: white;
 }
 
 button {
-  background-color: var(--accent-color);
-  color: white;
-  border: none;
-  cursor: pointer;
+    background-color: var(--accent-color);
+    color: white;
+    cursor: pointer;
 }
