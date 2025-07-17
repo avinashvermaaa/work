@@ -37,7 +37,6 @@
       "password": "125125"
     }
   ],
-
   "expense": [
     {
       "id": 1,
@@ -472,51 +471,55 @@
       "receipt": "https://some-link.com"
     }
   ],
-
-    "theme": [
+  "themes": [
     {
-      "id": "fb3a",
-      "theme-name" : "black",
-      "primary-color": "rgb(237,144,38);",
-      "secondary-color": "rgb(5,5,5,0.5);",
-      "applied": "false"
+      "id": "4",
+      "theme-name": "red-black",
+      "primary-color": "#dd2727",
+      "secondary-color": "#2b2222",
+      "applied": "true"
     },
     {
-      "id": "4b82",
-      "theme-name" : "black",
-      "primary-color": "#16a085;",
-      "secondary-color": "1a1a1a;",
-      "applied": "false"
+      "id": "be16",
+      "theme-name": "blue-black",
+      "primary-color": "#7d7ace",
+      "secondary-color": "rgba(5, 5, 5, 0.466)",
+      "applied": "true"
     },
     {
-      "id": "baa1",
-      "theme-name" : "black",
-      "primary-color": "#2980b9;",
-      "secondary-color": "#1a1a1a;",
-      "applied": "false"
+      "id": "df99",
+      "theme-name": "red-acchha-black",
+      "primary-color": "#d21e1e",
+      "secondary-color": "#1c1212",
+      "applied": "true"
     },
     {
-      "id": "3859",
-      "theme-name" : "black",
-      "primary-color": "#7d7ace;",
-      "secondary-color": "rgba(5, 5, 5, 0.466);",
-      "applied": "false"
+      "id": "5824",
+      "theme-name": "deepblue-black",
+      "primary-color": "#2a3d6a",
+      "secondary-color": "rgba(5, 5, 5, 0.5)",
+      "applied": "true"
     },
     {
-      "id": "221e",
-      "theme-name" : "black",
-      "primary-color": " #1a1a1a;",
-      "secondary-color": "#212121;",
-      "applied": "false"
+      "id": "c185",
+      "theme-name": "SteelBlue-Black",
+      "primary-color": "#34495e",
+      "secondary-color": "#1a1a1a",
+      "applied": "true"
     },
     {
-      "id": "020d",
-      "theme-name" : "black",
-      "primary-color": "#2a3d6a;",
-      "secondary-color": "rgba(5, 5, 5, 0.5);",
+      "id": "7a34",
+      "theme-name": "DarkGreen-Black",
+      "primary-color": "#16a085",
+      "secondary-color": "#1a1a1a",
+      "applied": "true"
+    },
+    {
+      "id": "249d",
+      "theme-name": "delete ",
+      "primary-color": "#851720",
+      "secondary-color": "#17ff17",
       "applied": "true"
     }
   ]
-
-
 }

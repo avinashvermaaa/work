@@ -53,15 +53,9 @@ button {
   --accent-color: rgba(5, 5, 5, 0.466) ;
 } */
 
-
-/* steel blue black */
-/* :root {
-  --primary-color: #2c2e3a; 
-  --accent-color: #1a1a1a;;
-} */
 /* green black-gray */
 :root {
-  --primary-color: #16a085 ; 
+  --primary-color: #16a085; 
   --accent-color: #1a1a1a;
 }
 

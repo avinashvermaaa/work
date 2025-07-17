@@ -1,45 +1,55 @@
 <app-header></app-header>
 
-<h1>Select Theme</h1>
-
 <div class="theme-container">
-
-  <div class="theme-picker">
-    <label>Primary Color:
-      <input type="color" [(ngModel)]="primaryColor" />
-    </label>
-    <label>Accent Color : 
-      <input type="color" [(ngModel)]="accentColor" />
-    </label>
-    <button (click)="applyTheme()">Apply Theme</button>
-  </div>
-
   <div class="theme-table">
-    <h3>Available Themes</h3>
+    
+    <button class ="add-theme" (click)="openThemeDialog()">Add Custom Theme</button>
+    <!-- <h3>Available Themes</h3> -->
     <table>
       <thead>
         <tr>
+          <th>Theme Name</th>
           <th>Primary Color</th>
           <th>Accent Color</th>
-          <th>Action</th>
+          <th>Applied Status</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let theme of themes">
-          <td [style.backgroundColor]="theme.primaryColor">{{ theme.primaryColor }}</td>
-          <td [style.backgroundColor]="theme.accentColor">{{ theme.accentColor }}</td>
+          <td>{{ theme['theme-name'] }}</td>
+          <td [style.backgroundColor]="theme['primary-color']">{{ theme['primary-color'] }}</td>
+          <td [style.backgroundColor]="theme['secondary-color']">{{ theme['secondary-color'] }}</td>
+          <td>{{ theme.applied === 'true' ? 'Applied' : 'Inactive' }}</td>
           <td>
-            <button
-              [disabled]="theme.isApplied"
-              (click)="applyPredefinedTheme(theme)">
-              Apply
-            </button>
+            <button  (click)="applyPredefinedTheme(theme)">✅</button>
+            <button (click)="openThemeDialog(theme)">✏️</button>
+            <button (click)="deleteTheme(theme.id)">🗑️</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
+</div>
+
+<div *ngIf="selectedTheme" class="theme-dialog">
+  <h3>{{ selectedTheme.id ? 'Edit Theme' : 'Add Theme' }}</h3>
+  <label>Theme Name:
+    <input [(ngModel)]="selectedTheme['theme-name']" />
+  </label>
+<label>Primary Color:
+  <input type="color" [(ngModel)]="selectedTheme['primary-color']" />
+  <!-- <span [style.background]="selectedTheme['primary-color']" class="color-swatch"></span> -->
+</label>
+
+<label>Accent Color:
+  <input type="color" [(ngModel)]="selectedTheme['secondary-color']" />
+  <!-- <span [style.background]="selectedTheme['secondary-color']" class="color-swatch"></span> -->
+</label>
+
+  <button class="save-btn" (click)="saveTheme()">Save</button>
+  <button class="cancel-btn" (click)="selectedTheme = null">Cancel</button>
 </div>
 
 <app-footer></app-footer>

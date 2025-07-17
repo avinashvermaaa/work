@@ -1,6 +1,7 @@
 export interface ThemeModel {
-    id?: number; 
-    primary_color: string;
-    secondary_color: string;
-    applied: boolean;
+  id?: number;
+  'theme-name': string;
+  'primary-color': string;
+  'secondary-color': string;
+  applied: string;
 }
