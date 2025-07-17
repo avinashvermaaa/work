@@ -1,3 +1,19 @@
+.filter-section {
+  width: 350px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-section input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .dashboard-container {
     padding: 10px;
     margin-top: 15px;
@@ -22,7 +38,7 @@
     border: 1px solid rgba(255, 255, 255, 0.125);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
 
-    min-height: 20rem;
+    min-height: 35rem;
 
     border-collapse: separate;
     overflow: hidden; 

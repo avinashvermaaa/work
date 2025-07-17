@@ -25,15 +25,23 @@ export class ExpenseListComponent {
 
     @ViewChild(MatPaginator) paginator!: MatPaginator;
     @ViewChild(MatSort) sort!: MatSort;
+  
+  ngOnInit(): void {
+    this.loadExpenses();
+      this.dataSource.filterPredicate = (data: Model, filter: string): boolean => {
+    return data.title.toLowerCase().includes(filter);
+  };
+  }
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+  
+  applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+  this.dataSource.filter = filterValue;
+}
 
-    ngOnInit(): void {
-      this.loadExpenses();
-    }
-    
-    ngAfterViewInit() {
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    }
     
     loadExpenses(): void {
       this.expenseService.getExpenses().subscribe({

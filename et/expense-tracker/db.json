@@ -45,7 +45,7 @@
       "amount": 80,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-14",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -57,7 +57,7 @@
       "amount": 70,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-14",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -69,7 +69,7 @@
       "amount": 120,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-14",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -81,7 +81,7 @@
       "amount": 500,
       "category": "Transport",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-14",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -93,7 +93,7 @@
       "amount": 80,
       "category": "Food",
       "payment": "Cash",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-13",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -105,7 +105,7 @@
       "amount": 70,
       "category": "Food",
       "payment": "Cash",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-13",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -117,7 +117,7 @@
       "amount": 120,
       "category": "Food",
       "payment": "Cash",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-13",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -129,7 +129,7 @@
       "amount": 1000,
       "category": "Entertainment",
       "payment": "Cash",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-13",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -141,7 +141,7 @@
       "amount": 80,
       "category": "Food",
       "payment": "Card",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-12",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -153,7 +153,7 @@
       "amount": 70,
       "category": "Food",
       "payment": "Card",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-12",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -165,7 +165,7 @@
       "amount": 120,
       "category": "Food",
       "payment": "Card",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-12",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -177,7 +177,7 @@
       "amount": 500,
       "category": "Transport",
       "payment": "Card",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-12",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -189,7 +189,7 @@
       "amount": 80,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-11",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -201,7 +201,7 @@
       "amount": 70,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-11",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -213,7 +213,7 @@
       "amount": 120,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-11",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -225,7 +225,7 @@
       "amount": 1000,
       "category": "Entertainment",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-11",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -237,7 +237,7 @@
       "amount": 80,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-10",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -249,7 +249,7 @@
       "amount": 70,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-10",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -261,7 +261,7 @@
       "amount": 120,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-10",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -273,7 +273,7 @@
       "amount": 500,
       "category": "Transport",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-10",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -285,7 +285,7 @@
       "amount": 80,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-09",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -297,7 +297,7 @@
       "amount": 70,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-09",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -309,7 +309,7 @@
       "amount": 120,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-09",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -321,7 +321,7 @@
       "amount": 1000,
       "category": "Entertainment",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-08",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -333,7 +333,7 @@
       "amount": 80,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-08",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -345,7 +345,7 @@
       "amount": 70,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-08",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -357,7 +357,7 @@
       "amount": 120,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-08",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -369,7 +369,7 @@
       "amount": 500,
       "category": "Transport",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-07",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -381,7 +381,7 @@
       "amount": 80,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-07",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -393,7 +393,7 @@
       "amount": 70,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-07",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -405,7 +405,7 @@
       "amount": 120,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-06",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -417,7 +417,7 @@
       "amount": 599,
       "category": "Health",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-06",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -429,7 +429,7 @@
       "amount": 70,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-06",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -441,7 +441,7 @@
       "amount": 120,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-05",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -453,7 +453,7 @@
       "amount": 599,
       "category": "Health",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-05",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -465,7 +465,7 @@
       "amount": 500,
       "category": "Rent",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-05",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
@@ -477,7 +477,7 @@
       "amount": 123,
       "category": "Food",
       "payment": "UPI",
-      "status": false,
+      "status": "Failed",
       "date": "2025-07-05",
       "notes": "Snacks",
       "receipt": "https://some-link.com"
@@ -489,12 +489,11 @@
       "amount": 123,
       "category": "Food",
       "payment": "UPI",
-      "status": true,
+      "status": "Paid",
       "date": "2025-07-05",
       "notes": "Snacks",
       "receipt": "https://some-link.com"
     }
-
   ],
   "themes": [
     {
@@ -502,49 +501,56 @@
       "theme-name": "red-black",
       "primary-color": "#dd2727",
       "secondary-color": "#2b2222",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "be16",
       "theme-name": "blue-black",
       "primary-color": "#7d7ace",
       "secondary-color": "rgba(5, 5, 5, 0.466)",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "df99",
       "theme-name": "red-acchha-black",
       "primary-color": "#d21e1e",
       "secondary-color": "#1c1212",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "5824",
       "theme-name": "deepblue-black",
       "primary-color": "#2a3d6a",
       "secondary-color": "rgba(5, 5, 5, 0.5)",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "c185",
       "theme-name": "SteelBlue-Black",
       "primary-color": "#34495e",
       "secondary-color": "#1a1a1a",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "7a34",
       "theme-name": "DarkGreen-Black",
       "primary-color": "#16a085",
       "secondary-color": "#1a1a1a",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "249d",
-      "theme-name": "delete ",
+      "theme-name": "delete",
       "primary-color": "#851720",
       "secondary-color": "#17ff17",
-      "applied": "true"
+      "applied": "false"
+    },
+    {
+      "id": "e208",
+      "theme-name": "avia",
+      "primary-color": "#cb4d4d",
+      "secondary-color": "#442222",
+      "applied": "false"
     }
   ]
 }

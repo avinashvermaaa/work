@@ -20,7 +20,7 @@
           <td>{{ theme['theme-name'] }}</td>
           <td [style.backgroundColor]="theme['primary-color']">{{ theme['primary-color'] }}</td>
           <td [style.backgroundColor]="theme['secondary-color']">{{ theme['secondary-color'] }}</td>
-          <td>{{ theme.applied === 'true' ? 'Applied' : 'Inactive' }}</td>
+          <td>{{ theme.applied === 'true' ? '✅' : '' }}</td>
           <td>
             <button  (click)="applyPredefinedTheme(theme)">✅</button>
             <button (click)="openThemeDialog(theme)">✏️</button>
