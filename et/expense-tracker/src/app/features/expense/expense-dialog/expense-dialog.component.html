@@ -1,1 +1,83 @@
-<p>expense-dialog works!</p>
+<h2 mat-dialog-title>{{ data ? 'Edit' : 'Add' }} Expense</h2>
+
+<mat-dialog-content [formGroup]="form">
+  <mat-tab-group [(selectedIndex)]="currentTab">
+    
+    <!-- Tab 1: Basic Info -->
+    <mat-tab [label]="'Basic Info ' + getTabIcon(0)">
+      <div>
+        <mat-form-field class="full-width">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" />
+          <mat-error *ngIf="controls['title'].invalid">Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" formControlName="amount" />
+          <mat-error *ngIf="controls['amount'].invalid">Min ₹1</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Category</mat-label>
+          <input matInput formControlName="category" />
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Payment Method</mat-label>
+          <input matInput formControlName="payment" />
+        </mat-form-field>
+      </div>
+    </mat-tab>
+
+    <!-- Tab 2: Timing & Status -->
+    <mat-tab [label]="'Timing & Status ' + getTabIcon(1)">
+      <mat-form-field class="full-width">
+        <mat-label>Date</mat-label>
+        <input matInput type="date" formControlName="date" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="Paid">Paid</mat-option>
+          <mat-option value="Unpaid">Unpaid</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-tab>
+
+    <!-- Tab 3: Notes & Receipt -->
+    <mat-tab [label]="'Notes & Receipt ' + getTabIcon(2)">
+      <mat-form-field class="full-width">
+        <mat-label>Notes</mat-label>
+        <textarea matInput formControlName="notes"></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Receipt URL</mat-label>
+        <input matInput formControlName="receipt" />
+      </mat-form-field>
+    </mat-tab>
+
+    <!-- Tab 4: Summary -->
+    <mat-tab label="Summary">
+      <div class="summary">
+        <p><strong>Title:</strong> {{ controls['title'].value }}</p>
+        <p><strong>Amount:</strong> ₹{{ controls['amount'].value }}</p>
+        <p><strong>Category:</strong> {{ controls['category'].value }}</p>
+        <p><strong>Payment:</strong> {{ controls['payment'].value }}</p>
+        <p><strong>Date:</strong> {{ controls['date'].value }}</p>
+        <p><strong>Status:</strong> {{ controls['status'].value }}</p>
+        <p><strong>Notes:</strong> {{ controls['notes'].value }}</p>
+        <p><strong>Receipt:</strong> {{ controls['receipt'].value }}</p>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button *ngIf="currentTab > 0 && currentTab < 3" (click)="prevTab()">Back</button>
+  <button mat-button *ngIf="currentTab < 3" (click)="nextTab()">Continue</button>
+  <button mat-button color="primary" *ngIf="currentTab === 3" (click)="save()">Save</button>
+</mat-dialog-actions>

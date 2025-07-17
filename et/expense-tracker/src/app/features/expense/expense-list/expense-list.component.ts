@@ -7,6 +7,10 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Model } from '../model';
 import { ExpenseService } from '../../../core/services/expense.service';
 
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ExpenseDialogComponent } from '../expense-dialog/expense-dialog.component';
+
 @Component({
   selector: 'app-expense-list',
   templateUrl: './expense-list.component.html',
@@ -19,9 +23,41 @@ export class ExpenseListComponent  {
     'payment', 'status', 'notes', 'receipt','actions'
   ];
 
-  onEdit(expense: Model): void {
-    console.log('Edit clicked for:', expense);
-  }
+onEdit(expense: Model): void {
+  const dialogRef = this.dialog.open(ExpenseDialogComponent, {
+    width: '600px',
+    data: { ...expense }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      const updated = { ...expense, ...result };
+      this.expenseService.updateExpense(updated.id, updated).subscribe(() => {
+        this.loadExpenses();
+        console.log('✅ Expense updated:', updated);
+
+        this.snackBar.open('Expense updated successfully', 'Close', { duration: 3000 });
+      });
+    }
+  });
+}
+
+
+openAddDialog(): void {
+  const dialogRef = this.dialog.open(ExpenseDialogComponent, {
+    width: '600px',
+    data: {}
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.expenseService.addExpense(result).subscribe(() => {
+        this.loadExpenses();
+        this.snackBar.open('Expense added successfully', 'Close', { duration: 3000 });
+      });
+    }
+  });
+}
 
 onDelete(expense: Model): void {
   const confirmDelete = confirm(`Are you sure you want to delete: ${expense.title}?`);
@@ -45,7 +81,9 @@ onDelete(expense: Model): void {
 
   constructor(
     private expenseService: ExpenseService,
-    private _liveAnnouncer: LiveAnnouncer
+    private _liveAnnouncer: LiveAnnouncer,
+    private dialog: MatDialog,
+  private snackBar: MatSnackBar
   ) {
     console.log('🌟 Expense-List-Component loaded');
   }

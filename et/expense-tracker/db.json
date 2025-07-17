@@ -501,56 +501,49 @@
       "theme-name": "red-black",
       "primary-color": "#dd2727",
       "secondary-color": "#2b2222",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "be16",
       "theme-name": "blue-black",
       "primary-color": "#7d7ace",
       "secondary-color": "rgba(5, 5, 5, 0.466)",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "df99",
       "theme-name": "red-acchha-black",
       "primary-color": "#d21e1e",
       "secondary-color": "#1c1212",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "5824",
       "theme-name": "deepblue-black",
       "primary-color": "#2a3d6a",
       "secondary-color": "rgba(5, 5, 5, 0.5)",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "c185",
       "theme-name": "SteelBlue-Black",
       "primary-color": "#34495e",
       "secondary-color": "#1a1a1a",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "7a34",
       "theme-name": "DarkGreen-Black",
       "primary-color": "#16a085",
       "secondary-color": "#1a1a1a",
-      "applied": "false"
-    },
-    {
-      "id": "249d",
-      "theme-name": "delete",
-      "primary-color": "#851720",
-      "secondary-color": "#17ff17",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "e208",
       "theme-name": "avia",
       "primary-color": "#cb4d4d",
       "secondary-color": "#442222",
-      "applied": "false"
+      "applied": "true"
     }
   ]
 }
