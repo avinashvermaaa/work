@@ -76,3 +76,27 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
+
+
+
+.search-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.paid-status {
+  color: green;
+  font-weight: 600;
+}
+
+.unpaid-status {
+  color: red;
+  font-weight: 600;
+}

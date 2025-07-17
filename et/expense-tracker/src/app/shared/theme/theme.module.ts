@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import {  MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SharedModule,
     FormsModule,
 
-    MatTableModule,MatPaginatorModule,MatSnackBarModule
+    MatTableModule,MatPaginatorModule,MatSnackBarModule,
+    MatIconModule
   ]
 })
 export class ThemeModule { }

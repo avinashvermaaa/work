@@ -1,5 +1,5 @@
 export interface Model {
-    id?: number; 
+    id: number; 
     title: string;
     amount: number;
     category: string;
