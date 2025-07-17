@@ -471,6 +471,51 @@
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
     }
+  ],
+
+    "theme": [
+    {
+      "id": "fb3a",
+      "theme-name" : "black",
+      "primary-color": "rgb(237,144,38);",
+      "secondary-color": "rgb(5,5,5,0.5);",
+      "applied": "false"
+    },
+    {
+      "id": "4b82",
+      "theme-name" : "black",
+      "primary-color": "#16a085;",
+      "secondary-color": "1a1a1a;",
+      "applied": "false"
+    },
+    {
+      "id": "baa1",
+      "theme-name" : "black",
+      "primary-color": "#2980b9;",
+      "secondary-color": "#1a1a1a;",
+      "applied": "false"
+    },
+    {
+      "id": "3859",
+      "theme-name" : "black",
+      "primary-color": "#7d7ace;",
+      "secondary-color": "rgba(5, 5, 5, 0.466);",
+      "applied": "false"
+    },
+    {
+      "id": "221e",
+      "theme-name" : "black",
+      "primary-color": " #1a1a1a;",
+      "secondary-color": "#212121;",
+      "applied": "false"
+    },
+    {
+      "id": "020d",
+      "theme-name" : "black",
+      "primary-color": "#2a3d6a;",
+      "secondary-color": "rgba(5, 5, 5, 0.5);",
+      "applied": "true"
+    }
   ]
 
 

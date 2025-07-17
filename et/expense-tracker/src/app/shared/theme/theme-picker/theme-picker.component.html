@@ -1,7 +1,9 @@
 <app-header></app-header>
+
 <h1>Select Theme</h1>
-<div class = "theme-container">
-  
+
+<div class="theme-container">
+
   <div class="theme-picker">
     <label>Primary Color:
       <input type="color" [(ngModel)]="primaryColor" />
@@ -12,6 +14,32 @@
     <button (click)="applyTheme()">Apply Theme</button>
   </div>
 
+  <div class="theme-table">
+    <h3>Available Themes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Primary Color</th>
+          <th>Accent Color</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let theme of themes">
+          <td [style.backgroundColor]="theme.primaryColor">{{ theme.primaryColor }}</td>
+          <td [style.backgroundColor]="theme.accentColor">{{ theme.accentColor }}</td>
+          <td>
+            <button
+              [disabled]="theme.isApplied"
+              (click)="applyPredefinedTheme(theme)">
+              Apply
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
-    
+
 <app-footer></app-footer>

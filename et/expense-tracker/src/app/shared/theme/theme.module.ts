@@ -6,6 +6,10 @@ import { ThemePickerComponent } from './theme-picker/theme-picker.component';
 
 import { FormsModule } from '@angular/forms';
 
+import {  MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ThemeRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+
+    MatTableModule,MatPaginatorModule,MatSnackBarModule
   ]
 })
 export class ThemeModule { }

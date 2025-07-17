@@ -7,7 +7,9 @@
     
     /* border: 1px solid rgba(255, 255, 255, 0.125); */
     
-    /* background: linear-gradient(135deg,var(--primary-color),var(--accent-color)); */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 16px;
     background: var(--accent-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
 
@@ -23,6 +25,8 @@ h1{
   align-items: flex-start;
   gap: 15px;
   padding: 20px;
+  margin-bottom: 20px;
+
 }
 
 input[type="color"] {
@@ -37,8 +41,36 @@ button{
   /* border-color: var(--accent-color); */
   /* border-color: linear-gradient(70deg,var(--primary-color),var(--accent-color)); */
 }
+
+button:disabled {
+  cursor: not-allowed;
+}
+
 button:hover{
   /* background: rgba(0, 0, 0, 1); */
   background: linear-gradient(70deg,var(--primary-color),var(--accent-color));
 }
 
+
+.theme-picker label {
+  margin-right: 10px;
+}
+
+.theme-table {
+  margin-top: 40px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}

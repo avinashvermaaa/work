@@ -5,7 +5,7 @@ export interface Model {
     category: string;
     payment: string;
     status: boolean;
-    date: string;           // ISO format : 'YYYY-MM-DD'
+    date: string;           // ISO format me : 'YYYY-MM-DD'
     notes?: string;
     receipt?: string;
 

@@ -20,10 +20,10 @@ button {
 --accent-color  : rgb(5,5,5,0.5);
 } */
 
-:root {
+/* :root {
   --primary-color: #7d7ace; 
   --accent-color: rgba(5, 5, 5, 0.466);
-}
+} */
 
 /* (Charcoal Black),black-UI  */
 /* :root {
@@ -48,10 +48,10 @@ button {
 } */
 
 /* steel blue */
-:root {
+/* :root {
   --primary-color: #34495e; 
   --accent-color: rgba(5, 5, 5, 0.466) ;
-}
+} */
 
 
 /* steel blue black */
@@ -60,10 +60,10 @@ button {
   --accent-color: #1a1a1a;;
 } */
 /* green black-gray */
-/* :root {
+:root {
   --primary-color: #16a085 ; 
   --accent-color: #1a1a1a;
-} */
+}
 
 /* ((Bright Blue), (black-gray)  */
 /* :root {
