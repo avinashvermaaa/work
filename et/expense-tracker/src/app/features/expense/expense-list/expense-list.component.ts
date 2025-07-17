@@ -45,7 +45,7 @@ export class ExpenseListComponent {
       });
     }
 
-    announceSortChange( sortState: Sort){
+    sortData( sortState: Sort){
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {

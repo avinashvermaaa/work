@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { NgChartsModule } from 'ng2-charts';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatSnackBarModule,
     MatPaginatorModule,
 
-    NgChartsModule
+    NgChartsModule,
+    MatSort, MatSortModule
   ],
     exports: [HomeComponent] 
 

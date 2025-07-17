@@ -1,13 +1,14 @@
-import { Component, ViewChild, OnInit} from '@angular/core';
+import { Component, ViewChild, OnInit, AfterViewInit} from '@angular/core';
 import { Model } from '../../expense/model';
 import { ExpenseService } from '../../../core/services/expense.service';
 
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 
-import { MatSort } from '@angular/material/sort';
+import { MatSort,Sort, MatSortModule  } from '@angular/material/sort';
 import { ChartOptions,ChartData  } from 'chart.js';
 // import { Label } from 'ng2-charts';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 
 @Component({
@@ -18,8 +19,15 @@ import { ChartOptions,ChartData  } from 'chart.js';
 
 export class HomeComponent {
 
-    constructor(private expenseService: ExpenseService) {
+    constructor(private expenseService: ExpenseService, private _liveAnnouncer: LiveAnnouncer) {
       console.log('🌟 HomeComponent loaded');
+    }
+    ngOnInit(): void {
+      this.loadExpenses();
+    }
+    ngAfterViewInit() {
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     }
 
     displayedColumns: string[] = ['date','title', 'amount', 'category'];
@@ -117,11 +125,6 @@ barChartOptions: ChartOptions<'bar'> = {
         } ]
     };
 
-    
-  ngOnInit(): void {
-    this.loadExpenses();
-  }
-
 
   loadExpenses(): void {
     this.expenseService.getExpenses().subscribe({
@@ -183,6 +186,14 @@ barChartOptions: ChartOptions<'bar'> = {
     };
 
   }
+
+      sortData( sortState: Sort){
+      if (sortState.direction) {
+        this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+      } else {
+        this._liveAnnouncer.announce('Sorting cleared');
+      }
+      }
 
 
 }
