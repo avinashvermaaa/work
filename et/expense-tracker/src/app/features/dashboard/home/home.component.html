@@ -4,6 +4,13 @@
   <div class="left-pane">
     <div class="dashboard-container-left">
 
+  <div class="filter-section">
+    <input id="filter" type="text" (input)="applyFilter($event)" placeholder="Search by title...🔍" />
+    <label for="filter">    Expand Table:- </label>
+      <button class ="nav-expense" (click)="expense()"> ⛶ </button> 
+  </div>
+
+
         <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" 
         class="mat-elevation-z8">
           

@@ -9,7 +9,7 @@ import { MatSort,Sort, MatSortModule  } from '@angular/material/sort';
 import { ChartOptions,ChartData  } from 'chart.js';
 // import { Label } from 'ng2-charts';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,16 +19,30 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 export class HomeComponent {
 
-    constructor(private expenseService: ExpenseService, private _liveAnnouncer: LiveAnnouncer) {
-      console.log('🌟 HomeComponent loaded');
-    }
-    ngOnInit(): void {
-      this.loadExpenses();
-    }
-    ngAfterViewInit() {
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    }
+  
+  constructor(private expenseService: ExpenseService, private _liveAnnouncer: LiveAnnouncer,private router: Router) {
+    console.log('🌟 HomeComponent loaded');
+  }
+  ngOnInit(): void {
+    this.loadExpenses();
+      this.dataSource.filterPredicate = (data: Model, filter: string): boolean => {
+    return data.title.toLowerCase().includes(filter);
+  };
+  }
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+  
+  expense() {
+    this.router.navigate(['/expense']);
+  }
+
+  applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+  this.dataSource.filter = filterValue;
+}
+
 
     displayedColumns: string[] = ['date','title', 'amount', 'category'];
     dataSource = new MatTableDataSource<Model>();
