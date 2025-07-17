@@ -8,11 +8,13 @@ import { HeaderComponent } from './header/header.component';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { HighlightStatusDirective } from './directives/highlight-status.directive';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    HighlightStatusDirective
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
   ],
     exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HighlightStatusDirective
   ]
 })
 export class SharedModule { }
