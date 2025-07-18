@@ -6,7 +6,8 @@
   margin: 20px;
   padding: 20px;
   border-radius: 16px;
-  background: var(--accent-color);
+  /* background: var(--accent-color); */
+  background: transparent;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
 }
 
@@ -15,6 +16,7 @@ h1 {
   font-size: 2rem;
   color: var(--primary-color); 
   font-weight: 600;
+  /* background: var(--accent-color); */
 }
 
 .theme-picker {
@@ -54,13 +56,18 @@ button {
 button.add-theme{
   padding: 0.6rem 0.6rem;
 }
+button.add-theme:hover{
+  background: var(--accent-color);
+}
+
+
 button:disabled {
   
   opacity: 0.6;
 }
 
 button:hover {
-  background: linear-gradient(70deg, var(--primary-color), var(--accent-color));
+  /* background: linear-gradient(70deg, var(--primary-color), var(--accent-color)); */
   color: white;
   border-color: var(--accent-color); 
 }
@@ -72,6 +79,8 @@ button:hover {
 
 table {
   width: 100%;
+    background: var(--accent-color);
+
   border-collapse: collapse;
   margin-top: 20px;
 }
@@ -126,8 +135,9 @@ button {
 button.save-btn {
   padding: 0.6rem 0.6rem;
   background-color: black;
+  
   color: white;
-  border-color: var(--primary-color);
+  /* border-color: var(--primary-color); */
 }
 
 button.save-btn:hover {

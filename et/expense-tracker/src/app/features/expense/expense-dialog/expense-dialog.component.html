@@ -3,8 +3,7 @@
 <mat-dialog-content [formGroup]="form">
   <mat-tab-group [(selectedIndex)]="currentTab">
     
-    <!-- Tab 1: Basic Info -->
-    <mat-tab [label]="'Basic Info ' + getTabIcon(0)">
+    <mat-tab [label]="'Basic Info '">
       <div>
         <mat-form-field class="full-width">
           <mat-label>Title</mat-label>
@@ -21,45 +20,54 @@
         <mat-form-field class="full-width">
           <mat-label>Category</mat-label>
           <input matInput formControlName="category" />
+          <mat-error *ngIf="controls['category'].invalid">Required</mat-error>
         </mat-form-field>
-
+        
         <mat-form-field class="full-width">
           <mat-label>Payment Method</mat-label>
-          <input matInput formControlName="payment" />
+          <mat-select formControlName="payment">
+            <!-- <mat-icon>done_all</mat-icon> -->
+            <mat-option value="Cash">Cash</mat-option>
+            <mat-option value="UPI">UPI</mat-option>
+            <mat-option value="Card">Card</mat-option>
+            <mat-option value="Crypto">Crypto</mat-option>
+            <mat-option value="Bank Transfer">Bank Transfer</mat-option>
+          </mat-select>
+          <mat-error *ngIf="controls['payment'].invalid">Required</mat-error>
         </mat-form-field>
       </div>
     </mat-tab>
 
-    <!-- Tab 2: Timing & Status -->
-    <mat-tab [label]="'Timing & Status ' + getTabIcon(1)">
+    <mat-tab [label]="'Timing & Status '">
       <mat-form-field class="full-width">
         <mat-label>Date</mat-label>
         <input matInput type="date" formControlName="date" />
+        <mat-error *ngIf="controls['date'].invalid">Required</mat-error>
       </mat-form-field>
-
+      
       <mat-form-field class="full-width">
         <mat-label>Status</mat-label>
         <mat-select formControlName="status">
           <mat-option value="Paid">Paid</mat-option>
-          <mat-option value="Unpaid">Unpaid</mat-option>
+          <mat-option value="Unpaid">Failed</mat-option>
         </mat-select>
       </mat-form-field>
     </mat-tab>
-
-    <!-- Tab 3: Notes & Receipt -->
-    <mat-tab [label]="'Notes & Receipt ' + getTabIcon(2)">
+    
+    <mat-tab [label]="'Notes & Receipt '">
       <mat-form-field class="full-width">
         <mat-label>Notes</mat-label>
         <textarea matInput formControlName="notes"></textarea>
+        <mat-error *ngIf="controls['notes'].invalid">Required</mat-error>
       </mat-form-field>
-
+      
       <mat-form-field class="full-width">
         <mat-label>Receipt URL</mat-label>
         <input matInput formControlName="receipt" />
+        <mat-error *ngIf="controls['receipt'].invalid">Required</mat-error>
       </mat-form-field>
     </mat-tab>
 
-    <!-- Tab 4: Summary -->
     <mat-tab label="Summary">
       <div class="summary">
         <p><strong>Title:</strong> {{ controls['title'].value }}</p>

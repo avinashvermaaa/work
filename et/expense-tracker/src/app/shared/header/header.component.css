@@ -1,6 +1,6 @@
 .header {
   position: sticky;
-  position: static;
+  /* position: static; */
   top: 0;
   z-index: 1000;
    /* background: black; */
@@ -9,7 +9,7 @@
       /* background: linear-gradient(235deg,var(--primary-color),var(--accent-color)); */
 
     /* background: var(--primary-color); */
-    /* background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),#7d7ace); */
+    background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),#7d7ace);
     background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),var(--primary-color));
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
   }
@@ -33,7 +33,8 @@
 
     border: 1px solid;
   border-color: var(--accent-color);
-  /* background: transparent; */
+  background: transparent;
+  background : var(--accent-color);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 1);
 
 
@@ -45,7 +46,7 @@
   /* background: #333; */
   /* background: rgba(0, 0, 0, 1); */
   /* background: linear-gradient(70deg,var(--primary-color),var(--accent-color)); */
-  background: var(--primary-color);
+  background: var(--accent-color);
 
   cursor: pointer;
 }

@@ -41,6 +41,8 @@ button {
   --primary-color: #2a3d6a; 
   --accent-color: rgba(5, 5, 5, 0.5);
 } */
+ 
+ 
 /* pink, black */
 /* :root {
   --primary-color: rgb(205,121,142); 
@@ -54,10 +56,10 @@ button {
 } */
 
 /* green black-gray */
-:root {
+/* :root {
   --primary-color: #16a085; 
   --accent-color: #1a1a1a;
-}
+} */
 
 /* ((Bright Blue), (black-gray)  */
 /* :root {
@@ -71,8 +73,8 @@ button {
   --accent-color: #1a1a1a;;
 } */
 /* green black */
-/* :root {
+:root {
   --primary-color: #2ecc71  ; 
   --accent-color: #1a1a1a;;
-} */
+}
 
