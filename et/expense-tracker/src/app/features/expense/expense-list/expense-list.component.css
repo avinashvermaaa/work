@@ -23,23 +23,31 @@
 button.add-expense{
   padding: 8px;
   background: transparent;
-  border : 1px solid;
+  border : 2px solid;
   border-radius: 8px;
-  border-color: gray;
+  border-color: black;
+    border-radius: 8px;
+    background : var(--primary-color);
+
   box-shadow: 0px 8px 12px black;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 1);
+
   text-align: center;
   color: white;
   font-size: 1rem;
 }
+
+button.add-expense:hover{
+background-color: var(--accent-color);
+}
+
 .add-expense mat-icon {
   margin-right: 8px;
   vertical-align: top;
 }
 
 
-button.add-expense:hover{
-background-color: var(--accent-color);
-}
+
 
 .dashboard-container {
     padding: 10px;
