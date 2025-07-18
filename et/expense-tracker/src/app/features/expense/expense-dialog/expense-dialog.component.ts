@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ExpenseDialogComponent {
   currentTab = 0;
+  submitted = false;
   form: FormGroup;
 
   constructor(
@@ -33,8 +34,12 @@ export class ExpenseDialogComponent {
   }
 
   nextTab(): void {
+    this.submitted = true;
     if (this.isTabValid(this.currentTab)) {
       this.currentTab++;
+      this.submitted = false;
+    } else {
+      this.markFieldsTouched(this.currentTab);
     }
   }
 
@@ -51,18 +56,41 @@ export class ExpenseDialogComponent {
                this.controls['amount'].valid &&
                this.controls['category'].valid &&
                this.controls['payment'].valid;
-
       case 1:
         return this.controls['date'].valid &&
                this.controls['status'].valid;
-
       case 2:
         return this.controls['notes'].valid &&
                this.controls['receipt'].valid;
-
       default:
         return true;
     }
+  }
+
+  getTabIcon(index: number): string {
+    return this.isTabValid(index) ? 'check_circle' : 'error';
+  }
+
+  showError(field: string): boolean {
+    return (this.controls[field].touched || this.submitted) && this.controls[field].invalid;
+  }
+
+  markFieldsTouched(index: number): void {
+    const fieldGroups: { [key: number]: string[] } = {
+      0: ['title', 'amount', 'category', 'payment'],
+      1: ['date', 'status'],
+      2: ['notes', 'receipt'],
+    };
+
+    fieldGroups[index]?.forEach(field => {
+      this.controls[field].markAsTouched();
+    });
+  }
+
+  markAllFieldsTouched(): void {
+    Object.values(this.controls).forEach(control => {
+      control.markAsTouched();
+    });
   }
 
   cancel(): void {
@@ -70,12 +98,11 @@ export class ExpenseDialogComponent {
   }
 
   save(): void {
+    this.submitted = true;
     if (this.form.valid) {
       this.dialogRef.close(this.form.value);
+    } else {
+      this.markAllFieldsTouched();
     }
-  }
-
-  getTabIcon(index: number): string {
-    return this.isTabValid(index) ? 'check_circle' : 'error';
   }
 }

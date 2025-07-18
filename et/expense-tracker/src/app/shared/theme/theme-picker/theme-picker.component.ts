@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../../../core/services/theme.service';
 import { ThemeModel } from '../../../shared/theme/theme-model';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
+
 @Component({
   selector: 'app-theme-picker',
   templateUrl: './theme-picker.component.html',
@@ -11,6 +16,8 @@ export class ThemePickerComponent implements OnInit {
   primaryColor = '#7d7ace';
   accentColor = 'rgba(5, 5, 5, 0.466)';
   themes: ThemeModel[] = [];
+  // displayedColumns: ThemeModel[] = [];
+displayedColumns: string[] = ['themeName', 'primaryColor', 'accentColor', 'appliedStatus', 'actions'];
   selectedTheme: ThemeModel | null = null;
 
   constructor(private themeService: ThemeService) {}

@@ -11,7 +11,6 @@ export class HighlightStatusDirective implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     const element = this.el.nativeElement;
     
-    // Reset classes
     this.renderer.removeClass(element, 'paid-status');
     this.renderer.removeClass(element, 'unpaid-status');
 
@@ -21,7 +20,6 @@ export class HighlightStatusDirective implements OnChanges {
       this.renderer.addClass(element, 'unpaid-status');
     }
 
-    // Add button padding always
     this.renderer.setStyle(element, 'padding', '6px 14px');
   }
 }

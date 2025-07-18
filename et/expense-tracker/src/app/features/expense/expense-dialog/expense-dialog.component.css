@@ -1,0 +1,17 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; 
+  padding-bottom: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.done-icon {
+  position: absolute;
+  top: 35px;
+  right: 8px;
+  z-index: 10;
+}

@@ -3,50 +3,76 @@
 <div class="theme-container">
   <div class="theme-table">
     
-    <button class ="add-theme" (click)="openThemeDialog()">Add Custom Theme</button>
-    <!-- <h3>Available Themes</h3> -->
-    <table>
-      <thead>
-        <tr>
-          <th>Theme Name</th>
-          <th>Primary Color</th>
-          <th>Accent Color</th>
-          <th>Applied Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let theme of themes">
-          <td>{{ theme['theme-name'] }}</td>
-          <td [style.backgroundColor]="theme['primary-color']">{{ theme['primary-color'] }}</td>
-          <td [style.backgroundColor]="theme['secondary-color']">{{ theme['secondary-color'] }}</td>
-          <td>{{ theme.applied === 'true' ? '✅' : '' }}</td>
-          <td>
-            <button mat-icon-button (click)="applyPredefinedTheme(theme)"><mat-icon>done</mat-icon></button>
-            <button mat-icon-button (click)="openThemeDialog(theme)"><mat-icon>edit</mat-icon></button>
-            <button mat-icon-button (click)="deleteTheme(theme.id)"><mat-icon>delete</mat-icon></button>
-          </td>
-        </tr>
-      </tbody>
+    <div class="add-theme-container">
+      <button class="add-theme" (click)="openThemeDialog()">
+        <mat-icon>add</mat-icon>
+        Add Theme
+        </button>
+    </div>
+    <table mat-table [dataSource]="themes" class="mat-elevation-z8">
+
+      <!-- Theme Name Column -->
+      <ng-container matColumnDef="themeName">
+        <th mat-header-cell *matHeaderCellDef> Theme Name </th>
+        <td mat-cell *matCellDef="let theme"> {{ theme['theme-name'] }} </td>
+      </ng-container>
+
+      <!-- Primary Color Column -->
+      <ng-container matColumnDef="primaryColor">
+        <th mat-header-cell *matHeaderCellDef> Primary Color </th>
+        <td mat-cell *matCellDef="let theme" [style.backgroundColor]="theme['primary-color']">
+          {{ theme['primary-color'] }}
+        </td>
+      </ng-container>
+
+      <!-- Accent Color Column -->
+      <ng-container matColumnDef="accentColor">
+        <th mat-header-cell *matHeaderCellDef> Accent Color </th>
+        <td mat-cell *matCellDef="let theme" [style.backgroundColor]="theme['secondary-color']">
+          {{ theme['secondary-color'] }}
+        </td>
+      </ng-container>
+
+      <!-- Applied Status Column -->
+      <ng-container matColumnDef="appliedStatus">
+        <th mat-header-cell *matHeaderCellDef> Applied Status </th>
+        <td mat-cell *matCellDef="let theme">
+          {{ theme.applied === 'true' ? 'Active' : 'Inactive' }}
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let theme">
+          <button mat-icon-button (click)="applyPredefinedTheme(theme)"><mat-icon>done</mat-icon></button>
+          <button mat-icon-button (click)="openThemeDialog(theme)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button (click)="deleteTheme(theme.id)"><mat-icon>delete</mat-icon></button>
+        </td>
+      </ng-container>
+
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
-
 </div>
 
+<!-- Theme Dialog -->
 <div *ngIf="selectedTheme" class="theme-dialog">
   <h3>{{ selectedTheme.id ? 'Edit Theme' : 'Add Theme' }}</h3>
+
   <label>Theme Name:
     <input [(ngModel)]="selectedTheme['theme-name']" />
   </label>
-<label>Primary Color:
-  <input type="color" [(ngModel)]="selectedTheme['primary-color']" />
-  <!-- <span [style.background]="selectedTheme['primary-color']" class="color-swatch"></span> -->
-</label>
 
-<label>Accent Color:
-  <input type="color" [(ngModel)]="selectedTheme['secondary-color']" />
-  <!-- <span [style.background]="selectedTheme['secondary-color']" class="color-swatch"></span> -->
-</label>
+  <label>Primary Color:
+    <input type="color" [(ngModel)]="selectedTheme['primary-color']" />
+  </label>
+
+  <label>Accent Color:
+    <input type="color" [(ngModel)]="selectedTheme['secondary-color']" />
+  </label>
 
   <button class="save-btn" (click)="saveTheme()">Save</button>
   <button class="cancel-btn" (click)="selectedTheme = null">Cancel</button>
