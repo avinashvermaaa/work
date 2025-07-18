@@ -47,6 +47,11 @@
     <div class="dashboard-container-right">
       <h2>Expense Category Breakdown</h2>
       
+  <label for="monthSelect">Select Month:</label>
+  <select id="monthSelect" [(ngModel)]="selectedMonth" (change)="onMonthChange()">
+    <option *ngFor="let month of availableMonths" [value]="month.value">{{ month.label }}</option>
+  </select>
+
       <canvas baseChart
       class ="pie-chart"
       [data]="{

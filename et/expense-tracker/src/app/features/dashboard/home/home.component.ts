@@ -34,6 +34,11 @@ export class HomeComponent {
     this.dataSource.paginator = this.paginator;
   }
   
+  selectedMonth: string = ''; // e.g. '2025-06'
+availableMonths: { value: string, label: string }[] = [];
+allExpenses: Model[] = [];
+
+
   expense() {
     this.router.navigate(['/expense']);
   }
@@ -140,32 +145,72 @@ barChartOptions: ChartOptions<'bar'> = {
     };
 
 
-  loadExpenses(): void {
-    this.expenseService.getExpenses().subscribe({
-      next: (expenses) => {
-        this.dataSource.data = expenses;
+loadExpenses(): void {
+  this.expenseService.getExpenses().subscribe({
+    next: (expenses) => {
+      this.dataSource.data = expenses;
+      this.allExpenses = expenses; // Save for filtering
+
+      // Extract unique months for dropdown
+      const monthsSet = new Set<string>();
+      expenses.forEach(exp => {
+        const month = new Date(exp.date).toISOString().slice(0, 7); // 'YYYY-MM'
+        monthsSet.add(month);
+      });
+
+      this.availableMonths = Array.from(monthsSet).sort().map(month => {
+        const [year, monthNum] = month.split('-');
+        const monthName = new Date(+year, +monthNum - 1).toLocaleString('default', { month: 'long' });
+        return { value: month, label: `${monthName} ${year}` };
+      });
+
+      // Default: latest month
+      this.selectedMonth = this.availableMonths[this.availableMonths.length - 1]?.value || '';
+      this.updateChartsForMonth();
+
+              this.dataSource.data = expenses;
         this.dataSource.paginator = this.paginator; 
         this.dataSource.sort = this.sort;
 
         this.preparePieChart(expenses);
         this.prepareBarChart(expenses); 
+    },
+    error: (err) => console.error('Failed to load expenses:', err)
+  });
+}
 
-      },
-      error: (err) => console.error('Failed to load expenses:', err)
-    });
+onMonthChange(): void {
+  this.updateChartsForMonth();
+}
+
+updateChartsForMonth(): void {
+  const filteredExpenses = this.allExpenses.filter(exp => {
+    const month = new Date(exp.date).toISOString().slice(0, 7); // 'YYYY-MM'
+    return month === this.selectedMonth;
+  });
+
+  this.preparePieChart(filteredExpenses);
+}
+
+
+preparePieChart(expenses: Model[]): void {
+  if (expenses.length === 0) {
+    this.pieChartLabels = ['No Data'];
+    this.pieChartData = [1];
+    return;
   }
 
-  preparePieChart(expenses: Model[]): void {
-    const categoryMap: { [key: string]: number } = {};
+  const categoryMap: { [key: string]: number } = {};
 
-    for (const expense of expenses) {
-      const category = expense.category || 'Unknown';
-      categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
-    }
-
-    this.pieChartLabels = Object.keys(categoryMap);
-    this.pieChartData = Object.values(categoryMap);
+  for (const expense of expenses) {
+    const category = expense.category || 'Unknown';
+    categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
   }
+
+  this.pieChartLabels = Object.keys(categoryMap);
+  this.pieChartData = Object.values(categoryMap);
+}
+
 
   prepareBarChart(expenses: Model[]): void {
     const dailyTotals: { [date: string]: number } = {};
