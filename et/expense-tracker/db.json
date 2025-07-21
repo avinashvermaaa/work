@@ -417,18 +417,6 @@
       "userEmail": "avinashmdp88@gmail.com"
     },
     {
-      "id": "36",
-      "title": "Food",
-      "amount": 500,
-      "category": "Food",
-      "payment": "UPI",
-      "status": "Paid",
-      "date": "2025-07-05",
-      "notes": "Lunch with friends",
-      "receipt": "https://some-link.com",
-      "userEmail": "avinashmdp88@gmail.com"
-    },
-    {
       "id": "37",
       "title": "Snacks",
       "amount": 123,
@@ -873,18 +861,6 @@
       "userEmail": "avinashmdp88@gmail.com"
     },
     {
-      "id": "6e7b",
-      "title": "kjsd",
-      "amount": 564,
-      "category": "Food",
-      "payment": "Cash",
-      "date": "2025-07-20",
-      "status": "Paid",
-      "notes": "asd",
-      "receipt": "adads",
-      "userEmail": "avinashmdp88@gmail.com"
-    },
-    {
       "id": "2bc8",
       "title": "qwert",
       "amount": 456,
@@ -931,6 +907,18 @@
       "notes": "foood",
       "receipt": "food",
       "userEmail": "qwert@gmail.com"
+    },
+    {
+      "id": "1adb",
+      "title": "lunch",
+      "amount": 80,
+      "category": "food",
+      "payment": "Crypto",
+      "date": "2025-07-22",
+      "status": "Paid",
+      "notes": "asdasd",
+      "receipt": "ASDASD",
+      "userEmail": "dsa@gmail.com"
     }
   ],
   "themes": [
@@ -981,7 +969,7 @@
       "theme-name": "SteelBlue Black",
       "primary-color": "#34495e",
       "secondary-color": "rgba(5, 5, 5, 0.466)",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "2",
@@ -995,7 +983,7 @@
       "theme-name": "BrightBlue Black",
       "primary-color": "#2980b9",
       "secondary-color": "#1a1a1a",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "4",
