@@ -23,45 +23,49 @@ export class SigninComponent {
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
+onLogin(): void {
+  if (this.loginForm.valid) {
+    const { email, password } = this.loginForm.value;
 
-  onLogin(): void {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
+    this.authService.login(email, password).subscribe(
+      (response) => {
+        if (response && response.length > 0) {
+          const user = response[0];
 
-      this.authService.login(email, password).subscribe(
-        (response) => {
+          // ✅ Save email to localStorage
+          localStorage.setItem('userEmail', user.email);
 
-          if (response && response.length > 0) {
-            console.log('Login successful!');
-            console.log(`${response[0].username}, ${response[0].email}`);
-            this.snackBar.open(`Welcome ${response[0].username}`, 'Close', {
-              duration: 3000, 
-              horizontalPosition: 'center', 
-              verticalPosition: 'bottom',
-              panelClass: 'success-snackbar' 
-            });
-            this.router.navigate(['/dashboard']);
-            console.log('🌟 Redirecting to /dashboard');
-          } 
-          
-          else {
-            console.log('Login failed: Invalid credentials.');
-              this.snackBar.open('Invalid credentials!', 'Close', {
-                duration: 3000, 
-                horizontalPosition: 'center', 
-                verticalPosition: 'bottom',
-                panelClass: 'success-snackbar' 
-              });
-          }
-        },
-        (error) => {
-          console.error('Login error:', error);
+          console.log('Login successful!');
+          console.log(`${user.username}, ${user.email}`);
+
+          this.snackBar.open(`Welcome ${user.username}`, 'Close', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+            panelClass: 'success-snackbar'
+          });
+
+          this.router.navigate(['/dashboard']);
+          console.log('🌟 Redirecting to /dashboard');
+        } else {
+          console.log('Login failed: Invalid credentials.');
+          this.snackBar.open('Invalid credentials!', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+            panelClass: 'success-snackbar'
+          });
         }
-      );
-    } else {
-      console.warn('Form is invalid');
-    }
+      },
+      (error) => {
+        console.error('Login error:', error);
+      }
+    );
+  } else {
+    console.warn('Form is invalid');
   }
+}
+
 
   onSubmit() {
     this.onLogin(); // delegate to onLogin

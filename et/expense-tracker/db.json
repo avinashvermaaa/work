@@ -1,40 +1,10 @@
 {
   "users": [
     {
-      "id": "fb3a",
-      "username": "dsa",
-      "email": "dsa@gmail.com",
-      "password": "123123"
-    },
-    {
-      "id": "4b82",
-      "username": "asd",
-      "email": "asd@gmail.com",
-      "password": "123123"
-    },
-    {
-      "id": "baa1",
-      "username": "test",
-      "email": "test@gmail.com",
-      "password": "123123"
-    },
-    {
       "id": "3859",
       "username": "avinash",
       "email": "avinashmdp88@gmail.com",
       "password": "123123"
-    },
-    {
-      "id": "221e",
-      "username": "zxc",
-      "email": "zxc@gmail.com",
-      "password": "123123"
-    },
-    {
-      "id": "020d",
-      "username": "a",
-      "email": "avinashmdp88@gmail.com",
-      "password": "125125"
     },
     {
       "id": "a736",
@@ -46,7 +16,6 @@
   "expense": [
     {
       "id": "2",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -54,11 +23,11 @@
       "status": "Paid",
       "date": "2025-07-14",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "3",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -66,11 +35,11 @@
       "status": "Paid",
       "date": "2025-07-14",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "5",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -78,11 +47,11 @@
       "status": "Paid",
       "date": "2025-07-13",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "6",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -90,11 +59,11 @@
       "status": "Paid",
       "date": "2025-07-13",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "7",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -102,11 +71,11 @@
       "status": "Paid",
       "date": "2025-07-13",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "8",
-      "userEmail": "avi@example.com",
       "title": "Movie",
       "amount": 1000,
       "category": "Entertainment",
@@ -114,11 +83,11 @@
       "status": "Paid",
       "date": "2025-07-13",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "9",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -126,11 +95,11 @@
       "status": "Paid",
       "date": "2025-07-12",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "10",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -138,11 +107,11 @@
       "status": "Paid",
       "date": "2025-07-12",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "11",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -150,11 +119,11 @@
       "status": "Paid",
       "date": "2025-07-12",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "12",
-      "userEmail": "avi@example.com",
       "title": "Fuel",
       "amount": 500,
       "category": "Transport",
@@ -162,11 +131,11 @@
       "status": "Paid",
       "date": "2025-07-12",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "13",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -174,11 +143,11 @@
       "status": "Paid",
       "date": "2025-07-11",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "14",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -186,11 +155,11 @@
       "status": "Paid",
       "date": "2025-07-11",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "15",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -198,11 +167,11 @@
       "status": "Paid",
       "date": "2025-07-11",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "16",
-      "userEmail": "avi@example.com",
       "title": "Movie",
       "amount": 1000,
       "category": "Entertainment",
@@ -210,11 +179,11 @@
       "status": "Paid",
       "date": "2025-07-11",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "17",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -222,11 +191,11 @@
       "status": "Paid",
       "date": "2025-07-10",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "18",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -234,11 +203,11 @@
       "status": "Paid",
       "date": "2025-07-10",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "19",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -246,11 +215,11 @@
       "status": "Paid",
       "date": "2025-07-10",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "20",
-      "userEmail": "avi@example.com",
       "title": "Fuel",
       "amount": 500,
       "category": "Transport",
@@ -258,11 +227,11 @@
       "status": "Paid",
       "date": "2025-07-10",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "21",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -270,11 +239,11 @@
       "status": "Paid",
       "date": "2025-07-09",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "22",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -282,11 +251,11 @@
       "status": "Paid",
       "date": "2025-07-09",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "23",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -294,11 +263,11 @@
       "status": "Paid",
       "date": "2025-07-09",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "24",
-      "userEmail": "avi@example.com",
       "title": "Movie",
       "amount": 1000,
       "category": "Entertainment",
@@ -306,11 +275,11 @@
       "status": "Paid",
       "date": "2025-07-08",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "25",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -318,11 +287,11 @@
       "status": "Paid",
       "date": "2025-07-08",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "26",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -330,11 +299,11 @@
       "status": "Paid",
       "date": "2025-07-08",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "27",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -342,11 +311,11 @@
       "status": "Paid",
       "date": "2025-07-08",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "28",
-      "userEmail": "avi@example.com",
       "title": "Fuel",
       "amount": 500,
       "category": "Transport",
@@ -354,11 +323,11 @@
       "status": "Paid",
       "date": "2025-07-07",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "29",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -366,11 +335,11 @@
       "status": "Paid",
       "date": "2025-07-07",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "30",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -378,11 +347,11 @@
       "status": "Paid",
       "date": "2025-07-07",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "31",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -390,11 +359,11 @@
       "status": "Paid",
       "date": "2025-07-06",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "32",
-      "userEmail": "avi@example.com",
       "title": "protein",
       "amount": 599,
       "category": "Health",
@@ -402,11 +371,11 @@
       "status": "Paid",
       "date": "2025-07-06",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "33",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -414,11 +383,11 @@
       "status": "Paid",
       "date": "2025-07-06",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "34",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -426,11 +395,11 @@
       "status": "Paid",
       "date": "2025-07-05",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "35",
-      "userEmail": "avi@example.com",
       "title": "protein",
       "amount": 599,
       "category": "Health",
@@ -438,11 +407,11 @@
       "status": "Paid",
       "date": "2025-07-05",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "36",
-      "userEmail": "avi@example.com",
       "title": "rent",
       "amount": 500,
       "category": "Rent",
@@ -450,11 +419,11 @@
       "status": "Paid",
       "date": "2025-07-05",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "37",
-      "userEmail": "avi@example.com",
       "title": "Snacks",
       "amount": 123,
       "category": "Food",
@@ -462,11 +431,11 @@
       "status": "Failed",
       "date": "2025-07-05",
       "notes": "Snacks",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "38",
-      "userEmail": "avi@example.com",
       "title": "Snacks",
       "amount": 123,
       "category": "Food",
@@ -474,11 +443,11 @@
       "status": "Paid",
       "date": "2025-07-05",
       "notes": "Snacks",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "39",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -486,11 +455,11 @@
       "status": "Paid",
       "date": "2025-06-14",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "40",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -498,11 +467,11 @@
       "status": "Paid",
       "date": "2025-06-14",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "41",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -510,11 +479,11 @@
       "status": "Paid",
       "date": "2025-06-14",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "42",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -522,11 +491,11 @@
       "status": "Paid",
       "date": "2025-06-13",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "43",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -534,11 +503,11 @@
       "status": "Paid",
       "date": "2025-06-13",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "44",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -546,11 +515,11 @@
       "status": "Paid",
       "date": "2025-06-13",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "45",
-      "userEmail": "avi@example.com",
       "title": "Movie",
       "amount": 1000,
       "category": "Entertainment",
@@ -558,11 +527,11 @@
       "status": "Paid",
       "date": "2025-06-13",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "46",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -570,11 +539,11 @@
       "status": "Paid",
       "date": "2025-06-12",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "47",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -582,11 +551,11 @@
       "status": "Paid",
       "date": "2025-06-12",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "48",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -594,11 +563,11 @@
       "status": "Paid",
       "date": "2025-06-12",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "49",
-      "userEmail": "avi@example.com",
       "title": "Fuel",
       "amount": 500,
       "category": "Transport",
@@ -606,11 +575,11 @@
       "status": "Paid",
       "date": "2025-06-12",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "50",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -618,11 +587,11 @@
       "status": "Paid",
       "date": "2025-06-11",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "51",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -630,11 +599,11 @@
       "status": "Paid",
       "date": "2025-06-11",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "52",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -642,11 +611,11 @@
       "status": "Paid",
       "date": "2025-06-11",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "53",
-      "userEmail": "avi@example.com",
       "title": "Movie",
       "amount": 1000,
       "category": "Entertainment",
@@ -654,11 +623,11 @@
       "status": "Paid",
       "date": "2025-06-11",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "54",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -666,11 +635,11 @@
       "status": "Paid",
       "date": "2025-06-10",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "55",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -678,11 +647,11 @@
       "status": "Paid",
       "date": "2025-06-10",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "56",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -690,11 +659,11 @@
       "status": "Paid",
       "date": "2025-06-10",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "57",
-      "userEmail": "avi@example.com",
       "title": "Fuel",
       "amount": 500,
       "category": "Transport",
@@ -702,11 +671,11 @@
       "status": "Paid",
       "date": "2025-06-10",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "58",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -714,11 +683,11 @@
       "status": "Paid",
       "date": "2025-06-09",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "59",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -726,11 +695,11 @@
       "status": "Paid",
       "date": "2025-06-09",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "60",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -738,11 +707,11 @@
       "status": "Paid",
       "date": "2025-06-09",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "61",
-      "userEmail": "avi@example.com",
       "title": "Movie",
       "amount": 1000,
       "category": "Entertainment",
@@ -750,11 +719,11 @@
       "status": "Paid",
       "date": "2025-06-08",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "62",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -762,11 +731,11 @@
       "status": "Paid",
       "date": "2025-06-08",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "63",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -774,11 +743,11 @@
       "status": "Paid",
       "date": "2025-06-08",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "64",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -786,11 +755,11 @@
       "status": "Paid",
       "date": "2025-06-08",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "65",
-      "userEmail": "avi@example.com",
       "title": "Fuel",
       "amount": 500,
       "category": "Transport",
@@ -798,11 +767,11 @@
       "status": "Paid",
       "date": "2025-06-07",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "66",
-      "userEmail": "avi@example.com",
       "title": "Breakfast",
       "amount": 80,
       "category": "Food",
@@ -810,11 +779,11 @@
       "status": "Paid",
       "date": "2025-06-07",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "67",
-      "userEmail": "avi@example.com",
       "title": "Lunch",
       "amount": 70,
       "category": "Food",
@@ -822,11 +791,11 @@
       "status": "Paid",
       "date": "2025-06-07",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "68",
-      "userEmail": "avi@example.com",
       "title": "Dinner",
       "amount": 120,
       "category": "Food",
@@ -834,11 +803,11 @@
       "status": "Paid",
       "date": "2025-06-06",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "69",
-      "userEmail": "avi@example.com",
       "title": "protein",
       "amount": 599,
       "category": "Health",
@@ -846,11 +815,11 @@
       "status": "Paid",
       "date": "2025-06-06",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "70",
-      "userEmail": "avi@example.com",
       "title": "protein",
       "amount": 599,
       "category": "Health",
@@ -858,7 +827,8 @@
       "status": "Paid",
       "date": "2025-05-31",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
     },
     {
       "id": "9304",
@@ -869,7 +839,44 @@
       "date": "2025-07-21",
       "status": "Paid",
       "notes": "asd",
-      "receipt": "dsa"
+      "receipt": "dsa",
+      "userEmail": "avinashmdp88@gmail.com"
+    },
+    {
+      "id": "22e2",
+      "title": "avinash",
+      "amount": 456,
+      "category": "food",
+      "payment": "Cash",
+      "date": "2025-07-21",
+      "status": "Paid",
+      "notes": "asjdh",
+      "receipt": "asjh",
+      "userEmail": "avinashmdp88@gmail.com"
+    },
+    {
+      "id": "6e7b",
+      "title": "kjsd",
+      "amount": 564,
+      "category": "food",
+      "payment": "Cash",
+      "date": "2025-07-20",
+      "status": "Paid",
+      "notes": "asd",
+      "receipt": "adads",
+      "userEmail": "avinashmdp88@gmail.com"
+    },
+    {
+      "id": "2bc8",
+      "title": "qwert",
+      "amount": 456,
+      "category": "food",
+      "payment": "Crypto",
+      "date": "2025-07-21",
+      "status": "Paid",
+      "notes": "qwert",
+      "receipt": "qwert",
+      "userEmail": "qwert@gmail.com"
     }
   ],
   "themes": [

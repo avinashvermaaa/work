@@ -73,39 +73,56 @@ export class ExpenseListComponent implements OnInit, AfterViewInit {
     });
   }
 
-  openAddDialog(): void {
-    const dialogRef = this.dialog.open(ExpenseDialogComponent, {
-      width: '600px',
-      data: {}
-    });
+openAddDialog(): void {
+  const dialogRef = this.dialog.open(ExpenseDialogComponent, {
+    width: '600px',
+    data: {}
+  });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.expenseService.addExpense(result).subscribe(() => {
-          this.loadExpenses();
-          this.snackBar.open('Expense added successfully', 'Close', { duration: 3000 });
-        });
-      }
-    });
-  }
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      const userEmail = localStorage.getItem('userEmail');
+      const { userEmail: _, ...cleaned } = result;
+      const newExpense = { ...cleaned, userEmail };
 
-  onEdit(expense: Model): void {
-    const dialogRef = this.dialog.open(ExpenseDialogComponent, {
-      width: '600px',
-      data: { ...expense }
-    });
+      this.expenseService.addExpense(newExpense).subscribe(() => {
+        this.loadExpenses();
+        this.snackBar.open('Expense added successfully', 'Close', { duration: 3000 });
+      });
+    }
+  });
+}
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        const updated = { ...expense, ...result };
-        this.expenseService.updateExpense(updated.id, updated).subscribe(() => {
-          this.loadExpenses();
-          console.log('Expense updated:', updated);
-          this.snackBar.open('Expense updated successfully', 'Close', { duration: 3000 });
-        });
-      }
-    });
-  }
+
+onEdit(expense: Model): void {
+  const dialogRef = this.dialog.open(ExpenseDialogComponent, {
+    width: '600px',
+    data: { ...expense }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      const userEmail = localStorage.getItem('userEmail');
+
+      // 🧠 Strip userEmail from result before merging
+      const { userEmail: _, ...cleanedResult } = result;
+
+      const updated: Model = {
+        ...expense,           // keep original ID
+        ...cleanedResult,     // updated fields
+        userEmail: userEmail || '' // ensure userEmail is present
+      };
+
+      this.expenseService.updateExpense(updated.id, updated).subscribe(() => {
+        this.loadExpenses();
+        this.snackBar.open('Expense updated successfully', 'Close', { duration: 3000 });
+      });
+    }
+  });
+}
+
+
+
 
   onDelete(expense: Model): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {

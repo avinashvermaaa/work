@@ -1,4 +1,5 @@
 export interface Model {
+    // id: string | number; 
     id: number; 
     title: string;
     amount: number;
@@ -8,5 +9,5 @@ export interface Model {
     date: string;           // ISO format me : 'YYYY-MM-DD'
     notes?: string;
     receipt?: string;
-
+    userEmail?: string;  
 }
