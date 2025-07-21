@@ -8,13 +8,13 @@
     },
     {
       "id": "a736",
-      "username": "avinash",
+      "username": "qwert",
       "email": "qwert@gmail.com",
       "password": "123123"
     },
     {
       "id": "edd9",
-      "username": "avinash",
+      "username": "dsa",
       "email": "dsa@gmail.com",
       "password": "123123"
     }
@@ -418,9 +418,9 @@
     },
     {
       "id": "36",
-      "title": "rent",
+      "title": "Food",
       "amount": 500,
-      "category": "Rent",
+      "category": "Food",
       "payment": "UPI",
       "status": "Paid",
       "date": "2025-07-05",
@@ -840,7 +840,7 @@
       "id": "9304",
       "title": "cab",
       "amount": 1100,
-      "category": "transport",
+      "category": "Transport",
       "payment": "Cash",
       "date": "2025-07-21",
       "status": "Paid",
@@ -852,7 +852,7 @@
       "id": "22e2",
       "title": "avinash",
       "amount": 456,
-      "category": "food",
+      "category": "Food",
       "payment": "Cash",
       "date": "2025-07-21",
       "status": "Paid",
@@ -864,7 +864,7 @@
       "id": "6e7b",
       "title": "kjsd",
       "amount": 564,
-      "category": "food",
+      "category": "Food",
       "payment": "Cash",
       "date": "2025-07-20",
       "status": "Paid",
@@ -876,12 +876,48 @@
       "id": "2bc8",
       "title": "qwert",
       "amount": 456,
-      "category": "food",
+      "category": "Food",
       "payment": "Crypto",
       "date": "2025-07-21",
       "status": "Paid",
       "notes": "qwert",
       "receipt": "qwert",
+      "userEmail": "qwert@gmail.com"
+    },
+    {
+      "id": "5ec9",
+      "title": "foood",
+      "amount": 600,
+      "category": "Food",
+      "payment": "Crypto",
+      "date": "2025-06-18",
+      "status": "Paid",
+      "notes": "foood",
+      "receipt": "food",
+      "userEmail": "qwert@gmail.com"
+    },
+    {
+      "id": "2bc9",
+      "title": "fuel",
+      "amount": 500,
+      "category": "fuel",
+      "payment": "Crypto",
+      "date": "2025-07-22",
+      "status": "Paid",
+      "notes": "qwert",
+      "receipt": "qwert",
+      "userEmail": "qwert@gmail.com"
+    },
+    {
+      "id": "5ec8",
+      "title": "fuel",
+      "amount": 654,
+      "category": "fuel",
+      "payment": "Crypto",
+      "date": "2025-06-17",
+      "status": "Paid",
+      "notes": "foood",
+      "receipt": "food",
       "userEmail": "qwert@gmail.com"
     }
   ],
@@ -905,7 +941,7 @@
       "theme-name": "red-acchha-black",
       "primary-color": "#d21e1e",
       "secondary-color": "#1c1212",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "c185",
@@ -926,13 +962,6 @@
       "theme-name": "avia",
       "primary-color": "#cb4d4d",
       "secondary-color": "#442222",
-      "applied": "false"
-    },
-    {
-      "id": "ce4f",
-      "theme-name": "white",
-      "primary-color": "#4b3a3a",
-      "secondary-color": "#000000",
       "applied": "false"
     },
     {
@@ -968,13 +997,6 @@
       "theme-name": "qwert",
       "primary-color": "#363535",
       "secondary-color": "#d13333",
-      "applied": "false"
-    },
-    {
-      "id": "18a0",
-      "theme-name": "boak",
-      "primary-color": "#5955ce",
-      "secondary-color": "#8a2e2e",
       "applied": "false"
     }
   ]

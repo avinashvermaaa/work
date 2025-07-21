@@ -179,3 +179,11 @@ button.cancel-btn:hover {
   border: 1px solid #ccc;
   vertical-align: middle;
 }
+
+
+.mat-paginator {
+  color: white;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
