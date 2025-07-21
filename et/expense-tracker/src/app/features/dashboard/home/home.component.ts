@@ -183,15 +183,17 @@ prepareBarChart(expenses: Model[]): void {
 
   const dailyTotals: { [date: string]: number } = {};
   for (const expense of expenses) {
-    const date = new Date(expense.date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' });
-    dailyTotals[date] = (dailyTotals[date] || 0) + expense.amount;
+    const rawDate = new Date(expense.date);
+    const dateKey = rawDate.toISOString().slice(0, 10); // YYYY-MM-DD for sorting
+    dailyTotals[dateKey] = (dailyTotals[dateKey] || 0) + expense.amount;
   }
 
   const sortedEntries = Object.entries(dailyTotals)
-    // sort by total
-    .sort(([, a], [, b]) => b - a);
+    .sort(([a], [b]) => new Date(a).getTime() - new Date(b).getTime());
 
-  const labels = sortedEntries.map(([date]) => date);
+  const labels = sortedEntries.map(([date]) =>
+    new Date(date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' })
+  );
   const data = sortedEntries.map(([, amount]) => amount);
 
   const colorPalette = [
