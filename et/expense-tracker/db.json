@@ -960,7 +960,7 @@
       "theme-name": "GitHub Black UI",
       "primary-color": "#171717",
       "secondary-color": "#080808",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "d1a9",
@@ -995,7 +995,7 @@
       "theme-name": "BrightBlue Black",
       "primary-color": "#2980b9",
       "secondary-color": "#1a1a1a",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "4",

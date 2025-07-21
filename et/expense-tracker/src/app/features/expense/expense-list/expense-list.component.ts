@@ -75,7 +75,8 @@ export class ExpenseListComponent implements OnInit, AfterViewInit {
 
 openAddDialog(): void {
   const dialogRef = this.dialog.open(ExpenseDialogComponent, {
-    width: '600px',
+    minWidth: '600px',
+    minHeight: '540px',
     data: {}
   });
 
@@ -96,7 +97,8 @@ openAddDialog(): void {
 
 onEdit(expense: Model): void {
   const dialogRef = this.dialog.open(ExpenseDialogComponent, {
-    width: '600px',
+    minWidth: '600px',
+    minHeight: '540px',
     data: { ...expense }
   });
 
