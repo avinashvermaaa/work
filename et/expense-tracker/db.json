@@ -923,80 +923,101 @@
   ],
   "themes": [
     {
-      "id": "4",
-      "theme-name": "red-black",
+      "id": "be15",
+      "theme-name": "Red Gray",
       "primary-color": "#dd2727",
       "secondary-color": "#2b2222",
       "applied": "false"
     },
     {
-      "id": "be16",
-      "theme-name": "blue-black",
-      "primary-color": "#7d7ace",
-      "secondary-color": "rgba(5, 5, 5, 0.466)",
-      "applied": "false"
-    },
-    {
       "id": "df99",
-      "theme-name": "red-acchha-black",
+      "theme-name": "Red Black",
       "primary-color": "#d21e1e",
       "secondary-color": "#1c1212",
       "applied": "false"
     },
     {
-      "id": "c185",
-      "theme-name": "SteelBlue-Black",
-      "primary-color": "#34495e",
-      "secondary-color": "#1a1a1a",
-      "applied": "false"
-    },
-    {
-      "id": "7a34",
-      "theme-name": "DarkGreen-Black",
-      "primary-color": "#16a085",
-      "secondary-color": "#1a1a1a",
-      "applied": "false"
-    },
-    {
       "id": "e208",
-      "theme-name": "avia",
+      "theme-name": "Carrot theme",
       "primary-color": "#cb4d4d",
       "secondary-color": "#442222",
       "applied": "false"
     },
     {
       "id": "5d16",
-      "theme-name": "github black rich UI",
+      "theme-name": "GitHub Black UI",
       "primary-color": "#171717",
       "secondary-color": "#080808",
       "applied": "false"
     },
     {
-      "id": "6fe9",
-      "theme-name": "blackia",
-      "primary-color": "#080808",
-      "secondary-color": "#171717",
-      "applied": "false"
-    },
-    {
       "id": "d1a9",
-      "theme-name": "gray waala shade",
+      "theme-name": "Gray Wala Shade",
       "primary-color": "#4b3a3a",
       "secondary-color": "rgba(5, 5, 5, 0.466)",
       "applied": "false"
     },
     {
-      "id": "44f5",
-      "theme-name": "askdjhasd",
-      "primary-color": "#7d7ace",
-      "secondary-color": "#f00f0f",
+      "id": "c9e1",
+      "theme-name": "Purple Black",
+      "primary-color": "#9b59b6",
+      "secondary-color": "#1a1a1a",
       "applied": "false"
     },
     {
-      "id": "3010",
-      "theme-name": "qwert",
-      "primary-color": "#363535",
-      "secondary-color": "#d13333",
+      "id": "1",
+      "theme-name": "SteelBlue Black",
+      "primary-color": "#34495e",
+      "secondary-color": "rgba(5, 5, 5, 0.466)",
+      "applied": "false"
+    },
+    {
+      "id": "2",
+      "theme-name": "DarkGreen Black",
+      "primary-color": "#2ecc71",
+      "secondary-color": "#1a1a1a",
+      "applied": "false"
+    },
+    {
+      "id": "3",
+      "theme-name": "BrightBlue Black",
+      "primary-color": "#2980b9",
+      "secondary-color": "#1a1a1a",
+      "applied": "true"
+    },
+    {
+      "id": "4",
+      "theme-name": "Pink Black",
+      "primary-color": "rgb(205,121,142)",
+      "secondary-color": "rgba(0, 0, 0, 0.466)",
+      "applied": "false"
+    },
+    {
+      "id": "5",
+      "theme-name": "NavyBlue Black",
+      "primary-color": "#2a3d6a",
+      "secondary-color": "rgba(5, 5, 5, 0.5)",
+      "applied": "false"
+    },
+    {
+      "id": "6",
+      "theme-name": "Charcoal Black",
+      "primary-color": "#1a1a1a",
+      "secondary-color": "#212121",
+      "applied": "false"
+    },
+    {
+      "id": "7",
+      "theme-name": "Initial Purple Black",
+      "primary-color": "#7d7ace",
+      "secondary-color": "rgba(5, 5, 5, 0.466)",
+      "applied": "false"
+    },
+    {
+      "id": "8",
+      "theme-name": "Coffee Black",
+      "primary-color": "rgb(237,144,38)",
+      "secondary-color": "rgba(5, 5, 5, 0.5)",
       "applied": "false"
     }
   ]

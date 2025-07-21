@@ -10,10 +10,9 @@ import { AuthService } from './auth.service';
 export class ExpenseService {
   private baseUrl = 'http://localhost:3000/expense';
 
-  constructor(
-    private http: HttpClient,
-    private authService: AuthService
-  ) {}
+  constructor( private http: HttpClient, private authService: AuthService ) {
+
+    }
 
   getExpenses(): Observable<Model[]> {
     const userEmail = this.authService.getUserEmail();

@@ -8,12 +8,8 @@
 }
 
 button.nav-expense{
-  /* padding: 0.3rem 0.3rem; */
 }
-p{
-  /* margin-left: 470px; */
-  /* padding-left: 24rem; */
-}
+
 .left-pane , .right-pane {
   flex: 1;
 }
@@ -25,17 +21,10 @@ p{
 }
 
 .dashboard-container-left , .dashboard-container-right  {
-  /* padding: 20px; */
   text-align: center;
   font-family: 'Inter', sans-serif;
-  
-  /* background: linear-gradient(135deg,var(--primary-color),var(--accent-color)); */
-  /* background: var(--accent-color); */
   background: transparent;
   border-radius: 16px;
-  /* border: 1px solid rgba(255, 255, 255, 0.125);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 1); */
-  
 }
 
 .dashboard-container-right {
@@ -43,13 +32,10 @@ p{
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
-  /* background: var(--accent-colors); */
 }
 
 
 .dashboard-container-left table {
-  /* background-color: rebeccapurple; */
-  
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(20, 20, 20, 0.466);
@@ -58,29 +44,25 @@ p{
   
   border: 1px solid rgba(255, 255, 255, 0.125);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
-    min-height: 45rem;
+  min-height: 45rem;
 
-    border-collapse: separate;
-    overflow: hidden; 
+  border-collapse: separate;
+  overflow: hidden; 
 }
 .dashboard-container-left table th{
-    color: white;
-    border-bottom: 1px solid #ddd;
-    border-color: white;
-   
-    /* text-align: center; */
+  color: white;
+  border-bottom: 1px solid #ddd;
+  border-color: white;
 }
 .dashboard-container-left table td{
-    /* border: 0.5px solid; */
-    border-color: rgb(63, 60, 60);
-    color: white;
+  border-color: rgb(63, 60, 60);
+  color: white;
 }
 
 
 .dashboard-container-left mat-paginator{
   background: transparent;
-    /* background: linear-gradient(235deg,rgba(18, 22, 17, 0.466),var(--accent-color)); */
-    color: white;
+  color: white;
 }
 
 h{
@@ -109,8 +91,6 @@ p{
 
 .dashboard-container canvas {
   max-width: 300px;
-
-  /* max-height: 400px; */
 }
 
 .dashboard-container h2 {
@@ -131,9 +111,6 @@ cursor: pointer;
 }
 
 .bar-chart{
-/* min-width: 300px;
-min-height: 400px; */
-
   width: 100% !important;
   max-width: 100%;
   height: 300px !important;

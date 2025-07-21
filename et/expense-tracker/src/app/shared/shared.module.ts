@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 
-
+// Components
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HighlightStatusDirective } from './directives/highlight-status.directive';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
-
+// Angular Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -37,17 +37,17 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
 
 
-
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatTabsModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatIconModule,
-        MatSnackBarModule,
-        MatPaginatorModule,
-        MatTableModule
+    // Material Modules
+      MatFormFieldModule,
+      MatInputModule,
+      MatSelectModule,
+      MatTabsModule,
+      MatDialogModule,
+      MatButtonModule,
+      MatIconModule,
+      MatSnackBarModule,
+      MatPaginatorModule,
+      MatTableModule
   ],
     exports: [
     HeaderComponent,

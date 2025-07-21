@@ -10,30 +10,14 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* Pyara sa Pastel UI*/
-  /* background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466)); */
-
-  /* background: #0f1014;  */
-
-    background: var(--primary-color);
-
-  /* background: linear-gradient(45deg, #5a5156, #0a0a0f);    */
+  background: var(--primary-color);
 }
 
 .main {
   width: 350px;
   height: 500px;
   overflow: hidden;
-  /* background: linear-gradient(70deg, #007bff, red); */
-  /* background: rgba(59,130,246,.5); */
-
-  /* earlier black UI */
-  /* background: black; */
-
-    background: var(--accent-color);
-
-  /* background: linear-gradient(135deg, #7d7ace, rgba(18, 22, 17, 0.466)); */
-
+  background: var(--accent-color);
   border-radius: 16px;
   box-shadow: 5px 5px 20px black;
 }
@@ -41,7 +25,6 @@ body {
 .signup {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
   border-radius: 60% / 15%;        
-  /* 60 / 10*/
   
   display: flex;
   flex-direction: column;
@@ -65,15 +48,7 @@ body {
   display: flex;
   font-weight: bold;
   margin-bottom: 10px;
-  
-  /* color: var(--accent-color); */
   color: white;
-  /* background: linear-gradient(135deg, #007bff, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.2;
-  overflow: visible; */
 }
 
 .mat-field {
@@ -85,7 +60,6 @@ body {
 }
 
 button {
-  /* background: linear-gradient(70deg, #007bff, red); */
   background: linear-gradient(70deg,var(--primary-color),var(--accent-color));
 
   width: 60%;
@@ -95,14 +69,11 @@ button {
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  /* cursor: not-allowed; */
   cursor: pointer;
 }
 
 button:hover {
-  /* background: linear-gradient(290deg, #007bff, red); */
   background: linear-gradient(290deg,var(--primary-color),var(--accent-color));
-
 }
 
 a {
@@ -115,7 +86,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* @override -> mat error color  */
 ::ng-deep .signup mat-error {
   color:  white; 
 }

@@ -9,7 +9,9 @@ import { ThemeModel } from '../../shared/theme/theme-model';
 export class ThemeService {
   private baseUrl = 'http://localhost:3000/themes'; 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    
+  }
 
   getThemes(): Observable<ThemeModel[]> {
     return this.http.get<ThemeModel[]>(this.baseUrl);

@@ -32,7 +32,7 @@ onLogin(): void {
         if (response && response.length > 0) {
           const user = response[0];
 
-          // ✅ Save email to localStorage
+          
           localStorage.setItem('userEmail', user.email);
 
           console.log('Login successful!');
@@ -68,6 +68,6 @@ onLogin(): void {
 
 
   onSubmit() {
-    this.onLogin(); // delegate to onLogin
+    this.onLogin(); 
   }
 }

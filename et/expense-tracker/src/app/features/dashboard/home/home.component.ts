@@ -70,16 +70,16 @@ allExpenses: Model[] = [];
     };  
 
     // Bar Chart 
-barChartOptions: ChartOptions<'bar'> = {
-  responsive: true,
-  maintainAspectRatio: false,  
-  plugins: {
-    legend: { display: false },
-    tooltip: {
-      callbacks: {
-        label: (context) => `₹${context.raw}`
-      }
-    }
+  barChartOptions: ChartOptions<'bar'> = {
+      responsive: true,
+      maintainAspectRatio: false,  
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (context) => `₹${context.raw}`
+          }
+        }
   },
   layout: {
     padding: {
@@ -135,26 +135,25 @@ barChartOptions: ChartOptions<'bar'> = {
 };
 
 
-    barChartData: ChartData<'bar'> = {
-      labels: [],
-      datasets: [ {
-          label: 'Daily Expenses',
-          data: []
-          // backgroundColor: 'rgb(218, 209, 209)',
-        } ]
-    };
+barChartData: ChartData<'bar'> = {
+  labels: [],
+  datasets: [ {
+      label: 'Daily Expenses',
+      data: []
+    } ]
+  };
 
 
 loadExpenses(): void {
   this.expenseService.getExpenses().subscribe({
     next: (expenses) => {
       this.dataSource.data = expenses;
-      this.allExpenses = expenses; // Save for filtering
+      this.allExpenses = expenses; 
 
-      // Extract unique months for dropdown
+      
       const monthsSet = new Set<string>();
       expenses.forEach(exp => {
-        const month = new Date(exp.date).toISOString().slice(0, 7); // 'YYYY-MM'
+        const month = new Date(exp.date).toISOString().slice(0, 7); 
         monthsSet.add(month);
       });
 
@@ -223,8 +222,6 @@ preparePieChart(expenses: Model[]): void {
         dailyTotals[date] = (dailyTotals[date] || 0) + expense.amount;
     }
 
-      // this.barChartData.labels = Object.keys(dailyTotals);
-      // this.barChartData.datasets[0].data = Object.values(dailyTotals);
       console.log('Bar Chart Labels:', this.barChartData.labels);
       console.log('Bar Chart Data:', this.barChartData.datasets[0].data);
 

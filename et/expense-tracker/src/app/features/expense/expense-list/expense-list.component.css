@@ -52,8 +52,6 @@ button.add-expense:hover{
 }
 
 
-
-
 .dashboard-container {
     padding: 10px;
     margin-top: 15px;
@@ -80,10 +78,8 @@ button.add-expense:hover{
     border-bottom: 1px solid #ddd;
     border-color: white;
    
-    /* text-align: center; */
 }
 .dashboard-container table td{
-    /* border: 0.5px solid; */
     border-color: rgb(63, 60, 60);
     color: white;
 }
@@ -99,8 +95,6 @@ table {
 
 .dashboard-container mat-paginator{
     background: transparent;
-    /* background: linear-gradient(235deg, rgba(18, 22, 17, 0.466),var(--primary-color)); */
-    /* background: linear-gradient(235deg, rgba(18, 22, 17, 0.466),#7d7ace); */
     color: white;
     font-size: 1rem;
 }

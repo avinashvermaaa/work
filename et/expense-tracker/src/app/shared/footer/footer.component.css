@@ -1,11 +1,5 @@
 .footer {
-  /* background: #333; */
-  /* background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),#7d7ace); */
-  
-    background: var(--primary-color);
-    /* background: linear-gradient(135deg,var(--primary-color),var(--accent-color)); */
-    
-
+  background: var(--primary-color);
   position: static;
   /* position: fixed; */
 
@@ -14,14 +8,11 @@
   width: 100%;
   margin-top: 10px;
   margin-bottom: 0px;
-  /* box-shadow: 2px 2px 8px var(--accent-color); */
   box-shadow: 0 -4px 4px rgba(0, 0, 0, 1);
-
 }
 
 p{
   font-size: 1.2rem;
   padding: 10px;
-
   color : white;
 }

@@ -14,7 +14,7 @@ export class HeaderComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
     ngAfterViewInit() {
-    // To prevent errors related to accessing 'menu' before it is initialized
+   
     if (this.menuTrigger) {
       console.log('menuTrigger is initialized');
     }
@@ -38,7 +38,7 @@ export class HeaderComponent {
 
   toggleMenu() {
     if (this.menuTrigger) {
-      this.menuTrigger.openMenu();  // Use open() to show the menu
+      this.menuTrigger.openMenu(); 
     }
   }
 }

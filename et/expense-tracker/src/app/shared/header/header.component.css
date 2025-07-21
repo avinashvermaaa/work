@@ -3,10 +3,9 @@
   /* position: static; */
   top: 0;
   z-index: 1000;
-  /* background: var(--primary-color); */
-    background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),var(--primary-color));
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
-  }
+  background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),var(--primary-color));
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
+}
   
 .header-title {
   font-size: 20px;
@@ -34,7 +33,6 @@
 .header button:hover{
     border-color: var(--accent-color);
     border-color: #333; 
-
 }
 
 
