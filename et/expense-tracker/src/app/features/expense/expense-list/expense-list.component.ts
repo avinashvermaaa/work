@@ -104,13 +104,13 @@ onEdit(expense: Model): void {
     if (result) {
       const userEmail = localStorage.getItem('userEmail');
 
-      // 🧠 Strip userEmail from result before merging
+      
       const { userEmail: _, ...cleanedResult } = result;
 
       const updated: Model = {
-        ...expense,           // keep original ID
-        ...cleanedResult,     // updated fields
-        userEmail: userEmail || '' // ensure userEmail is present
+        ...expense,           
+        ...cleanedResult,     
+        userEmail: userEmail
       };
 
       this.expenseService.updateExpense(updated.id, updated).subscribe(() => {

@@ -29,7 +29,7 @@ export class AuthService {
           this.loggedIn = true;
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userEmail', res[0].email);
-          this.userEmailSubject.next(res[0].email); // ✅ push to observable
+          this.userEmailSubject.next(res[0].email); 
         }
       })
     );

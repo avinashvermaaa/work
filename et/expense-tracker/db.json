@@ -11,12 +11,18 @@
       "username": "avinash",
       "email": "qwert@gmail.com",
       "password": "123123"
+    },
+    {
+      "id": "edd9",
+      "username": "avinash",
+      "email": "dsa@gmail.com",
+      "password": "123123"
     }
   ],
   "expense": [
     {
       "id": "2",
-      "title": "Lunch",
+      "title": "Lunchwawa",
       "amount": 70,
       "category": "Food",
       "payment": "Crypto",
@@ -885,7 +891,7 @@
       "theme-name": "red-black",
       "primary-color": "#dd2727",
       "secondary-color": "#2b2222",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "be16",
@@ -899,7 +905,7 @@
       "theme-name": "red-acchha-black",
       "primary-color": "#d21e1e",
       "secondary-color": "#1c1212",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "c185",
@@ -962,6 +968,13 @@
       "theme-name": "qwert",
       "primary-color": "#363535",
       "secondary-color": "#d13333",
+      "applied": "false"
+    },
+    {
+      "id": "18a0",
+      "theme-name": "boak",
+      "primary-color": "#5955ce",
+      "secondary-color": "#8a2e2e",
       "applied": "false"
     }
   ]
