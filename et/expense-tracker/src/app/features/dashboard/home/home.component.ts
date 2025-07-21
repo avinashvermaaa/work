@@ -14,49 +14,46 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-
   constructor(private expenseService: ExpenseService, private _liveAnnouncer: LiveAnnouncer,private router: Router) {
     console.log('🌟 HomeComponent loaded');
   }
-
-
   selectedMonth: string = '';
-  availableMonths: { value: string, label: string }[] = [];
-  allExpenses: Model[] = [];
+availableMonths: { value: string, label: string }[] = [];
+allExpenses: Model[] = [];
 
-  displayedColumns: string[] = ['date', 'title', 'amount', 'category'];
-  dataSource = new MatTableDataSource<Model>();
+    displayedColumns: string[] = ['date','title', 'amount', 'category'];
+    dataSource = new MatTableDataSource<Model>();
+  
+    @ViewChild(MatPaginator) paginator!: MatPaginator;
+    @ViewChild(MatSort) sort!: MatSort;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+    // Pie Chart 
+    pieChartLabels: string[] = [];
+    pieChartData: number[] = [];
 
-  // Pie Chart
-  pieChartLabels: string[] = [];
-  pieChartData: number[] = [];
-
-  pieChartOptions: ChartOptions<'pie'> = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: { color: 'white', font: { size: 12, weight: 'bold' } }
-      }
-    }
-  };
-
-  barChartOptions: ChartOptions<'bar'> = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: {
-          label: (context) => `₹${context.raw}`
+    pieChartOptions: ChartOptions<'pie'> = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: 'white', font: { size: 12, weight: 'bold' }}
         }
       }
-    },
-    layout: {
-      padding: { top: 10, bottom: 10, left: 15, right: 15 }
+    };  
+
+barChartOptions: ChartOptions<'bar'> = {
+      responsive: true,
+      maintainAspectRatio: false,  
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: (context) => `₹${context.raw}`
+          }
+        }
+  },
+  layout: {
+    padding: {top: 10, bottom: 10, left: 15, right: 15 }
     },
     scales: {
       x: {
@@ -111,63 +108,63 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue;
   }
 
-  loadExpenses(): void {
-    this.expenseService.getExpenses().subscribe({
-      next: (expenses) => {
-        this.allExpenses = expenses;
-        this.dataSource.data = expenses;
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+loadExpenses(): void {
+  this.expenseService.getExpenses().subscribe({
+    next: (expenses) => {
+      this.allExpenses = expenses;
+      this.dataSource.data = expenses;
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
 
-        const monthsSet = new Set<string>();
-        expenses.forEach(exp => {
-          const month = new Date(exp.date).toISOString().slice(0, 7); // 'YYYY-MM'
-          monthsSet.add(month);
-        });
+      const monthsSet = new Set<string>();
+      expenses.forEach(exp => {
+        const month = new Date(exp.date).toISOString().slice(0, 7); // 'YYYY-MM'
+        monthsSet.add(month);
+      });
 
-        this.availableMonths = Array.from(monthsSet).sort().map(month => {
-          const [year, monthNum] = month.split('-');
-          const monthName = new Date(+year, +monthNum - 1).toLocaleString('default', { month: 'long' });
-          return { value: month, label: `${monthName} ${year}` };
-        });
+      this.availableMonths = Array.from(monthsSet).sort().map(month => {
+        const [year, monthNum] = month.split('-');
+        const monthName = new Date(+year, +monthNum - 1).toLocaleString('default', { month: 'long' });
+        return { value: month, label: `${monthName} ${year}` };
+      });
+      // Default: latest month
+      this.selectedMonth = this.availableMonths[this.availableMonths.length - 1]?.value || '';
+      this.updateChartsForMonth();
+    },
+    error: (err) => console.error('Failed to load expenses:', err)
+  });
+}
 
-        this.selectedMonth = this.availableMonths[this.availableMonths.length - 1]?.value || '';
-        this.updateChartsForMonth(); 
-      },
-      error: (err) => console.error('Failed to load expenses:', err)
-    });
+onMonthChange(): void {
+  this.updateChartsForMonth();
+}
+
+updateChartsForMonth(): void {
+  const filteredExpenses = this.allExpenses.filter(exp => {
+    const month = new Date(exp.date).toISOString().slice(0, 7);
+    return month === this.selectedMonth;
+  });
+
+  this.preparePieChart(filteredExpenses);
+  this.prepareBarChart(filteredExpenses);
+}
+
+preparePieChart(expenses: Model[]): void {
+  if (expenses.length === 0) {
+    this.pieChartLabels = ['No Data'];
+    this.pieChartData = [1];
+    return;
   }
 
-  onMonthChange(): void {
-    this.updateChartsForMonth();
+  const categoryMap: { [key: string]: number } = {};
+  for (const expense of expenses) {
+    const category = expense.category || 'Unknown';
+    categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
   }
 
-  updateChartsForMonth(): void {
-    const filteredExpenses = this.allExpenses.filter(exp => {
-      const month = new Date(exp.date).toISOString().slice(0, 7);
-      return month === this.selectedMonth;
-    });
-
-    this.preparePieChart(filteredExpenses);
-    this.prepareBarChart(filteredExpenses);
-  }
-
-  preparePieChart(expenses: Model[]): void {
-    if (expenses.length === 0) {
-      this.pieChartLabels = ['No Data'];
-      this.pieChartData = [1];
-      return;
-    }
-
-    const categoryMap: { [key: string]: number } = {};
-    for (const expense of expenses) {
-      const category = expense.category || 'Unknown';
-      categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
-    }
-
-    this.pieChartLabels = Object.keys(categoryMap);
-    this.pieChartData = Object.values(categoryMap);
-  }
+  this.pieChartLabels = Object.keys(categoryMap);
+  this.pieChartData = Object.values(categoryMap);
+}
 
 prepareBarChart(expenses: Model[]): void {
   if (expenses.length === 0) {
