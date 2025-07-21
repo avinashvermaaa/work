@@ -6,6 +6,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-theme-picker',
@@ -20,7 +23,7 @@ export class ThemePickerComponent implements OnInit {
 displayedColumns: string[] = ['themeName', 'primaryColor', 'accentColor', 'appliedStatus', 'actions'];
   selectedTheme: ThemeModel | null = null;
 
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService, private dialog: MatDialog, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.themeService.getThemes().subscribe((themes: ThemeModel[]) => {
@@ -51,9 +54,19 @@ displayedColumns: string[] = ['themeName', 'primaryColor', 'accentColor', 'appli
   }
 
   deleteTheme(id?: number) {
-    if (id === undefined) return;
-    this.themeService.deleteTheme(id).subscribe(() => {
-      this.themes = this.themes.filter(theme => theme.id !== id);
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '350px',
+      data: {
+        message: `Are you sure you want to delete the Theme: "${this.themes.find(t => t.id === id)?.['theme-name']}"?`
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true && id !== undefined) {
+        this.themeService.deleteTheme(id).subscribe(() => {
+          this.themes = this.themes.filter(theme => theme.id !== id);
+        });
+      }
     });
   }
 

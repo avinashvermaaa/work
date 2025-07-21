@@ -3,13 +3,7 @@
   /* position: static; */
   top: 0;
   z-index: 1000;
-   /* background: black; */
-      /* background:rgba(18, 22, 17, 0.466); */
-
-      /* background: linear-gradient(235deg,var(--primary-color),var(--accent-color)); */
-
-    /* background: var(--primary-color); */
-    background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),#7d7ace);
+  /* background: var(--primary-color); */
     background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),var(--primary-color));
     box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
   }
@@ -28,37 +22,30 @@
   font-size: 16px;           
   padding: 8px; 
   border-radius: 8px;
-  /* background: rgba(0, 0, 0, 1); */
-  /* background: rgba(5, 5, 5, 0.466); */
 
-    /* border: 1px solid; */
-  background: transparent;
-  background : var(--primary-color);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 1);
+  border: 2px solid;
+  border-color: #1a1a1a; 
+  background : var(--accent-color);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 1);
 
-
-  /* color: rgb(218, 209, 209); */
   color: white;
 }
 
 .header button:hover{
-  /* background: #333; */
-  /* background: rgba(0, 0, 0, 1); */
-  /* background: linear-gradient(70deg,var(--primary-color),var(--accent-color)); */
-  background: var(--accent-color);
+    border-color: var(--accent-color);
+    border-color: #333; 
 
-  cursor: pointer;
 }
 
 
-/* Hide desktop menu and show hamburger on small screens */
+
 @media (max-width: 768px) {
   .desktop-menu {
     display: none;
   }
 
     .hamburger-menu {
-    display: block;  /* Show hamburger button */
+    display: block;  
   }
 
   .header button.mat-icon-button {
@@ -67,16 +54,16 @@
 }
 
 @media (min-width: 769px) {
-  /* Ensure the hamburger menu button is hidden on large screens */
+  
   .desktop-menu {
-    display: flex;  /* Show desktop menu */
+    display: flex;  
   }
 
   .hamburger-menu {
-    display: none;  /* Hide hamburger button */
+    display: none;  
   }
 
   .header button.mat-icon-button {
-    display: none;  /* Hide hamburger button on large screens */
+    display: none;  
   }
 }

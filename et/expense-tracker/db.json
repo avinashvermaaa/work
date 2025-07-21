@@ -35,21 +35,15 @@
       "username": "a",
       "email": "avinashmdp88@gmail.com",
       "password": "125125"
+    },
+    {
+      "id": "a736",
+      "username": "avinash",
+      "email": "qwert@gmail.com",
+      "password": "123123"
     }
   ],
   "expense": [
-    {
-      "id": "1",
-      "userEmail": "avi@example.com",
-      "title": "Breakfast",
-      "amount": 80,
-      "category": "Food",
-      "payment": "Crypto",
-      "status": "Paid",
-      "date": "2025-07-14",
-      "notes": "Lunch with friends",
-      "receipt": "https://some-link.com"
-    },
     {
       "id": "2",
       "userEmail": "avi@example.com",
@@ -865,6 +859,17 @@
       "date": "2025-05-31",
       "notes": "Lunch with friends",
       "receipt": "https://some-link.com"
+    },
+    {
+      "id": "9304",
+      "title": "cab",
+      "amount": 1100,
+      "category": "transport",
+      "payment": "Cash",
+      "date": "2025-07-21",
+      "status": "Paid",
+      "notes": "asd",
+      "receipt": "dsa"
     }
   ],
   "themes": [
@@ -936,6 +941,20 @@
       "theme-name": "gray waala shade",
       "primary-color": "#4b3a3a",
       "secondary-color": "rgba(5, 5, 5, 0.466)",
+      "applied": "false"
+    },
+    {
+      "id": "44f5",
+      "theme-name": "askdjhasd",
+      "primary-color": "#7d7ace",
+      "secondary-color": "#f00f0f",
+      "applied": "false"
+    },
+    {
+      "id": "3010",
+      "theme-name": "qwert",
+      "primary-color": "#363535",
+      "secondary-color": "#d13333",
       "applied": "false"
     }
   ]
