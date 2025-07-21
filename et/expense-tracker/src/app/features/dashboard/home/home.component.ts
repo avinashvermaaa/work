@@ -69,8 +69,8 @@ allExpenses: Model[] = [];
       }
     };  
 
-    // Bar Chart 
-  barChartOptions: ChartOptions<'bar'> = {
+// Bar Chart 
+barChartOptions: ChartOptions<'bar'> = {
       responsive: true,
       maintainAspectRatio: false,  
       plugins: {
@@ -189,6 +189,8 @@ updateChartsForMonth(): void {
   });
 
   this.preparePieChart(filteredExpenses);
+  this.prepareBarChart(filteredExpenses);
+
 }
 
 
@@ -211,45 +213,58 @@ preparePieChart(expenses: Model[]): void {
 }
 
 
-  prepareBarChart(expenses: Model[]): void {
-    const dailyTotals: { [date: string]: number } = {};
-
-    for (const expense of expenses) {
-        const date = new Date(expense.date).toLocaleDateString('en-IN', {
-          day: '2-digit', month: 'short'
-        });
-
-        dailyTotals[date] = (dailyTotals[date] || 0) + expense.amount;
-    }
-
-      console.log('Bar Chart Labels:', this.barChartData.labels);
-      console.log('Bar Chart Data:', this.barChartData.datasets[0].data);
-
-    const colorPalette = [
-        'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'
-    ];
-
-      this.barChartData = {
-      labels: Object.keys(dailyTotals),
-      datasets: [ {
-          label: 'Daily Expenses',
-          data: Object.values(dailyTotals),
-            backgroundColor: colorPalette.slice(0, Object.keys(dailyTotals).length),
-            borderColor: colorPalette.slice(0, Object.keys(dailyTotals).length).map(color => color.replace('0.2', '1')),
-            borderWidth: 1
-        } ]
+prepareBarChart(expenses: Model[]): void {
+  if (expenses.length === 0) {
+    this.barChartData = {
+      labels: ['No Data'],
+      datasets: [{
+        label: 'Daily Expenses',
+        data: [0],
+        backgroundColor: ['rgba(200,200,200,0.5)'],
+        borderColor: ['rgba(200,200,200,1)'],
+        borderWidth: 1
+      }]
     };
-
+    return;
   }
 
-      sortData( sortState: Sort){
-      if (sortState.direction) {
-        this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-      } else {
-        this._liveAnnouncer.announce('Sorting cleared');
-      }
-      }
+  const dailyTotals: { [date: string]: number } = {};
+  for (const expense of expenses) {
+    const date = new Date(expense.date).toLocaleDateString('en-IN', {
+      day: '2-digit', month: 'short'
+    });
+    dailyTotals[date] = (dailyTotals[date] || 0) + expense.amount;
+  }
+
+  const labels = Object.keys(dailyTotals);
+  const data = Object.values(dailyTotals);
+
+  const colorPalette = [
+    'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
+    'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'
+  ];
+
+  this.barChartData = {
+    labels,
+    datasets: [{
+      label: 'Daily Expenses',
+      data,
+      backgroundColor: colorPalette.slice(0, labels.length),
+      borderColor: colorPalette.slice(0, labels.length).map(c => c.replace('0.2', '1')),
+      borderWidth: 1
+    }]
+  };
+}
+
+
+sortData( sortState: Sort){
+  if (sortState.direction) {
+    this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+  } else {
+    this._liveAnnouncer.announce('Sorting cleared');
+  }
+}
 
 
 }

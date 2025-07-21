@@ -22,6 +22,18 @@ export class AuthService {
     }
   }
 
+restoreUserSession(): Promise<void> {
+  return new Promise((resolve) => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      this.loggedIn = JSON.parse(userData); 
+    }
+    resolve(); 
+  });
+}
+
+
+
   login(email: string, password: string): Observable<any> {
     return this.http.get<any[]>(`${this.baseUrl}/users?email=${email}&password=${password}`).pipe(
       tap((res: any[]) => {

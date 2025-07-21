@@ -837,6 +837,18 @@
       "userEmail": "avinashmdp88@gmail.com"
     },
     {
+      "id": "71",
+      "title": "Milk",
+      "amount": 369,
+      "category": "Food",
+      "payment": "UPI",
+      "status": "Paid",
+      "date": "2025-05-30",
+      "notes": "Lunch with friends",
+      "receipt": "https://some-link.com",
+      "userEmail": "avinashmdp88@gmail.com"
+    },
+    {
       "id": "9304",
       "title": "cab",
       "amount": 1100,
@@ -948,7 +960,7 @@
       "theme-name": "GitHub Black UI",
       "primary-color": "#171717",
       "secondary-color": "#080808",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "d1a9",
@@ -983,7 +995,7 @@
       "theme-name": "BrightBlue Black",
       "primary-color": "#2980b9",
       "secondary-color": "#1a1a1a",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "4",
@@ -1018,6 +1030,13 @@
       "theme-name": "Coffee Black",
       "primary-color": "rgb(237,144,38)",
       "secondary-color": "rgba(5, 5, 5, 0.5)",
+      "applied": "false"
+    },
+    {
+      "id": "db73",
+      "theme-name": "Blood Red",
+      "primary-color": "#df1111",
+      "secondary-color": "#2c0202",
       "applied": "false"
     }
   ]

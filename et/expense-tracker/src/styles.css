@@ -22,3 +22,9 @@ button {
   --accent-color: #1a1a1a;
 }
 
+/*  Blood red */
+:root {
+  --primary-color: #df1111; 
+  --accent-color: #2c0202;
+}
+
