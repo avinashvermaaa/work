@@ -21,6 +21,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { ExpenseSummaryComponent } from './expense-summary/expense-summary.component';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,10 @@ import { ExpenseSummaryComponent } from './expense-summary/expense-summary.compo
     MatIconModule,
     MatSnackBarModule,
     MatPaginatorModule,
-    MatSort,MatSortModule
+    MatSort,MatSortModule,
+
+
+    MatDatepickerModule,MatNativeDateModule
   ]
 })
 export class ExpenseModule {}

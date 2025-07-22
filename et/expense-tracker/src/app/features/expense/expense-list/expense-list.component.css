@@ -69,7 +69,7 @@ button.add-expense:hover{
     border: 1px solid rgba(255, 255, 255, 0.125);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
 
-    /* min-height: 35rem; */
+    min-height: 35rem;
     border-collapse: separate;
     overflow: hidden; 
     width: 100%;
