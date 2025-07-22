@@ -75,6 +75,9 @@
         <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
+            <!-- <button mat-icon-button color="accent" (click)="openExpenseSummaryDialog()">
+            <mat-icon>info</mat-icon>
+          </button> -->
             <button mat-icon-button color="primary" (click)="onEdit(element)">
             <mat-icon>edit</mat-icon>
             </button>

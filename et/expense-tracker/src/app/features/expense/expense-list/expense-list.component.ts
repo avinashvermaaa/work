@@ -12,12 +12,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExpenseDialogComponent } from '../expense-dialog/expense-dialog.component';
 import { ConfirmDialogComponent } from '../../../shared/confirm-dialog/confirm-dialog.component';
 
+import { ExpenseSummaryComponent } from '../expense-summary/expense-summary.component'; 
+
+
 @Component({
   selector: 'app-expense-list',
   templateUrl: './expense-list.component.html',
   styleUrls: ['./expense-list.component.css']
 })
 export class ExpenseListComponent implements OnInit, AfterViewInit {
+
+    openExpenseSummaryDialog() {
+    const dialogRef = this.dialog.open(ExpenseSummaryComponent, {
+      width: '500px', 
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Dialog was closed');
+    });
+  }
 
   displayedColumns: string[] = [
     'date', 'title', 'amount', 'category',

@@ -1,0 +1,11 @@
+<h2>Expense Summary</h2>
+<div>
+  <p><strong>Date:</strong> {{ expenseDetails.date }}</p>
+  <p><strong>Title:</strong> {{ expenseDetails.title }}</p>
+  <p><strong>Amount:</strong> {{ expenseDetails.amount | currency: 'INR' }}</p>
+  <p><strong>Category:</strong> {{ expenseDetails.category }}</p>
+  <p><strong>Payment:</strong> {{ expenseDetails.payment }}</p>
+  <p><strong>Status:</strong> {{ expenseDetails.status }}</p>
+  <p><strong>Notes:</strong> {{ expenseDetails.notes }}</p>
+  <!-- <p><strong>Receipt:</strong> <a href="{{ expenseDetails.receipt }}" target="_blank">View Receipt</a></p> -->
+</div>

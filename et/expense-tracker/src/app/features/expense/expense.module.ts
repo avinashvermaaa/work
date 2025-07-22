@@ -19,12 +19,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { MatSort, MatSortModule } from '@angular/material/sort';
+import { ExpenseSummaryComponent } from './expense-summary/expense-summary.component';
 
 
 @NgModule({
   declarations: [
     ExpenseListComponent,
-    ExpenseDialogComponent
+    ExpenseDialogComponent,
+    ExpenseSummaryComponent
   ],
   imports: [
     CommonModule,

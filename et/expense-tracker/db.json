@@ -905,7 +905,7 @@
       "theme-name": "GitHub Black UI",
       "primary-color": "#171717",
       "secondary-color": "#080808",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "d1a9",
@@ -982,6 +982,13 @@
       "theme-name": "Blood Red",
       "primary-color": "#df1111",
       "secondary-color": "#2c0202",
+      "applied": "false"
+    },
+    {
+      "id": "ead0",
+      "theme-name": "111jehgfjjhskdjhfj",
+      "primary-color": "#7d7ace",
+      "secondary-color": "rgba(5, 5, 5, 0.466)",
       "applied": "false"
     }
   ]
