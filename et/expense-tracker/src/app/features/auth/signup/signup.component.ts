@@ -21,19 +21,25 @@ export class SignupComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
-    }, { validators: this.passwordMatchValidator });
-  }
-
-  passwordMatchValidator(group: FormGroup): { [key: string]: boolean } | null {
-    const pass = group.get('password')?.value;
-    const confirm = group.get('confirmPassword')?.value;
-    return pass === confirm ? null : { mismatch: true };
+    });
   }
 
   onSubmit(): void {
     if (this.signupForm.valid) {
-      const { username, email, password } = this.signupForm.value;
+      const { username, email, password, confirmPassword } = this.signupForm.value;
 
+      // Check if passwords match
+      if (password !== confirmPassword) {
+        this.snackBar.open('Passwords do not match!', 'Close', {
+          duration: 4000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          panelClass: 'error-snackbar'
+        });
+        return; // Prevent form submission if passwords don't match
+      }
+
+      // Proceed with signup if passwords match
       this.authService.signup({ username, email, password }).subscribe(
       (response) => {
         this.snackBar.open('Registration Successful!', 'Close', {
@@ -45,19 +51,24 @@ export class SignupComponent {
         // console.log('Signup successful!');
         this.router.navigate(['/login']);
       },
-          
         (error) => {
-        this.snackBar.open('Registration Unsuccessful!', 'Close', {
-          duration: 3000, 
-          horizontalPosition: 'center', 
-          verticalPosition: 'bottom',
-          panelClass: 'success-snackbar' 
-        });
-          // console.error('Signup failed:', error);
+          if (error.message === 'Email is already in use') {
+            this.snackBar.open('Email is already in use. Please use a different email or try login', 'Close', {
+              duration: 4000,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+              panelClass: 'error-snackbar'
+            });
+          } else {
+            this.snackBar.open('Registration Unsuccessful!', 'Close', {
+              duration: 3000, 
+              horizontalPosition: 'center', 
+              verticalPosition: 'bottom',
+              panelClass: 'error-snackbar' 
+            });
+          }
         }
       );
-    } else {
-      // console.warn('Signup form is invalid');
     }
   }
 }

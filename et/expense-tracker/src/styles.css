@@ -17,19 +17,25 @@ button {
 
  
 /* green black */
-:root {
+/* :root {
   --primary-color: #2ecc71; 
   --accent-color: #1a1a1a;
-}
+} */
 
 /*  Blood red */
-:root {
+/* :root {
   --primary-color: #df1111; 
   --accent-color: #2c0202;
-}
+} */
 /* Coffee pilo */
-:root {
+/* :root {
   --primary-color: rgb(237,144,38); 
   --accent-color: rgba(5, 5, 5, 0.5)	;
+} */
+
+/* Steel Blue */
+:root {
+  --primary-color: #34495e; 
+  --accent-color: rgb(5, 5, 5, 0.466)	;
 }
 

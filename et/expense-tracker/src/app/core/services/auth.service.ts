@@ -1,8 +1,8 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, tap, BehaviorSubject } from 'rxjs';
+import { Observable, tap, BehaviorSubject, throwError } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
-import { PLATFORM_ID } from '@angular/core';
+import { catchError, switchMap } from 'rxjs/operators';
 
 declare var localStorage: any;
 
@@ -33,8 +33,6 @@ restoreUserSession(): Promise<void> {
     resolve(); 
   });
 }
-
-
 
   login(email: string, password: string): Observable<any> {
     return this.http.get<any[]>(`${this.baseUrl}/users?email=${email}&password=${password}`).pipe(
@@ -70,6 +68,19 @@ restoreUserSession(): Promise<void> {
   }
 
   signup(userData: { username: string; email: string; password: string }): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/users`, userData);
+    return this.http.get<any[]>(`${this.baseUrl}/users?email=${userData.email}`).pipe(
+      switchMap((res: any[]) => {
+        if (res.length > 0) {
+          // Email exists already, throw an error.
+          return throwError(() => new Error('Email is already in use'));
+        } else {
+          // Proceed with creating a new user if email is unique
+          return this.http.post<any>(`${this.baseUrl}/users`, userData);
+        }
+      }),
+      catchError((error) => {
+        return throwError(() => error);
+      })
+    );
   }
 }
