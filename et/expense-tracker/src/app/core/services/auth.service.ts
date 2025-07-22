@@ -4,6 +4,8 @@ import { Observable, tap, BehaviorSubject } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 
+declare var localStorage: any;
+
 @Injectable({
   providedIn: 'root'
 })

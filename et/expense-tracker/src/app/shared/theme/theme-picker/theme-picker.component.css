@@ -37,6 +37,7 @@ button {
   display: flex;
   justify-content :right;
   margin-bottom: 10px;
+  background: transparent;
 }
 
 .add-theme mat-icon {
@@ -45,7 +46,7 @@ button {
 }
 
 button.add-theme:hover{
-  background: var(--accent-color);
+  /* background: var(--accent-color); */
 }
 
 

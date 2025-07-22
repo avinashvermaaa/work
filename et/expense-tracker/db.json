@@ -321,42 +321,6 @@
       "userEmail": "avinashmdp88@gmail.com"
     },
     {
-      "id": "28",
-      "title": "Fuel",
-      "amount": 500,
-      "category": "Transport",
-      "payment": "UPI",
-      "status": "Paid",
-      "date": "2025-07-07",
-      "notes": "Lunch with friends",
-      "receipt": "https://some-link.com",
-      "userEmail": "avinashmdp88@gmail.com"
-    },
-    {
-      "id": "29",
-      "title": "Breakfast",
-      "amount": 80,
-      "category": "Food",
-      "payment": "UPI",
-      "status": "Paid",
-      "date": "2025-07-07",
-      "notes": "Lunch with friends",
-      "receipt": "https://some-link.com",
-      "userEmail": "avinashmdp88@gmail.com"
-    },
-    {
-      "id": "30",
-      "title": "Lunch",
-      "amount": 70,
-      "category": "Food",
-      "payment": "UPI",
-      "status": "Paid",
-      "date": "2025-07-07",
-      "notes": "Lunch with friends",
-      "receipt": "https://some-link.com",
-      "userEmail": "avinashmdp88@gmail.com"
-    },
-    {
       "id": "31",
       "title": "Dinner",
       "amount": 120,
@@ -923,13 +887,6 @@
   ],
   "themes": [
     {
-      "id": "be15",
-      "theme-name": "Red Gray",
-      "primary-color": "#dd2727",
-      "secondary-color": "#2b2222",
-      "applied": "false"
-    },
-    {
       "id": "df99",
       "theme-name": "Red Black",
       "primary-color": "#d21e1e",
@@ -948,7 +905,7 @@
       "theme-name": "GitHub Black UI",
       "primary-color": "#171717",
       "secondary-color": "#080808",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "d1a9",
@@ -969,7 +926,7 @@
       "theme-name": "SteelBlue Black",
       "primary-color": "#34495e",
       "secondary-color": "rgba(5, 5, 5, 0.466)",
-      "applied": "true"
+      "applied": "false"
     },
     {
       "id": "2",

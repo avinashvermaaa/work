@@ -24,14 +24,15 @@
 
   border: 2px solid;
   border-color: #1a1a1a; 
-  background : var(--accent-color);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 1);
+  /* background: black; */
+  background: var(--accent-color);
+    box-shadow: 0px 8px 8px black;
+
 
   color: white;
 }
 
 .header button:hover{
-    border-color: var(--accent-color);
     border-color: #333; 
 }
 
