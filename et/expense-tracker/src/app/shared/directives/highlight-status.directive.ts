@@ -16,7 +16,7 @@ export class HighlightStatusDirective implements OnChanges {
 
     if (this.status === 'Paid') {
       this.renderer.addClass(element, 'paid-status');
-    } else if (this.status === 'Failed') {
+    } else if (this.status === 'Unpaid') {
       this.renderer.addClass(element, 'unpaid-status');
     }
 
