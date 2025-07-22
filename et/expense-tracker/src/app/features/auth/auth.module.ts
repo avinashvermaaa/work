@@ -46,6 +46,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 })
 export class AuthModule { 
       constructor() {
-    console.log('🌟 AuthModule loaded');
+    // console.log('🌟 AuthModule loaded');
   }
 }

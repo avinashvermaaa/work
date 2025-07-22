@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private expenseService: ExpenseService, private _liveAnnouncer: LiveAnnouncer,private router: Router) {
-    console.log('🌟 HomeComponent loaded');
+    // console.log('🌟 HomeComponent loaded');
   }
   selectedMonth: string = '';
 availableMonths: { value: string, label: string }[] = [];
