@@ -16,7 +16,7 @@ export class HeaderComponent {
     ngAfterViewInit() {
    
     if (this.menuTrigger) {
-      console.log('menuTrigger is initialized');
+      // console.log('menuTrigger is initialized');
     }
   }
 

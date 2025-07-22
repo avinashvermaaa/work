@@ -39,7 +39,7 @@ export class SignupComponent {
           verticalPosition: 'bottom',
           panelClass: 'success-snackbar' 
         });
-        console.log('Signup successful!');
+        // console.log('Signup successful!');
 
       },
           
@@ -50,11 +50,11 @@ export class SignupComponent {
           verticalPosition: 'bottom',
           panelClass: 'success-snackbar' 
         });
-          console.error('Signup failed:', error);
+          // console.error('Signup failed:', error);
         }
       );
     } else {
-      console.warn('Signup form is invalid');
+      // console.warn('Signup form is invalid');
     }
   }
 }

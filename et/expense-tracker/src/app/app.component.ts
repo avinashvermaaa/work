@@ -11,7 +11,7 @@ export class AppComponent {
     isAppReady = false;
 
     constructor(private authService: AuthService) {
-    console.log('🌟 AppComponent loaded');
+    // console.log('🌟 AppComponent loaded');
   }
 
     ngOnInit() {

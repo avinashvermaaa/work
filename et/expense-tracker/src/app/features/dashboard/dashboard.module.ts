@@ -53,6 +53,6 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 })
 export class DashboardModule {
         constructor() {
-    console.log('🌟 DashboardModule loaded');
+    // console.log('🌟 DashboardModule loaded');
   }
 }

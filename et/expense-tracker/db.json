@@ -386,7 +386,7 @@
       "amount": 123,
       "category": "Food",
       "payment": "UPI",
-      "status": "Failed",
+      "status": "Unpaid",
       "date": "2025-07-05",
       "notes": "Snacks",
       "receipt": "https://some-link.com",
@@ -883,6 +883,30 @@
       "notes": "asdasd",
       "receipt": "ASDASD",
       "userEmail": "dsa@gmail.com"
+    },
+    {
+      "id": "50e2",
+      "title": "adhj",
+      "amount": 45,
+      "category": "foof",
+      "payment": "Crypto",
+      "date": "2025-07-21",
+      "status": "Unpaid",
+      "notes": "akhjh",
+      "receipt": "skdhfjkh",
+      "userEmail": "avinashmdp88@gmail.com"
+    },
+    {
+      "id": "c629",
+      "title": "new added",
+      "amount": 456,
+      "category": "food",
+      "payment": "UPI",
+      "date": "2025-07-22",
+      "status": "Unpaid",
+      "notes": "sdkfjh",
+      "receipt": "sdffkjh",
+      "userEmail": "avinashmdp88@gmail.com"
     }
   ],
   "themes": [
