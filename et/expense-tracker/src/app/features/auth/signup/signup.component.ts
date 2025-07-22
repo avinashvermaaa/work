@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service'; 
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RouterModule,Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,8 +12,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SignupComponent {
   signupForm: FormGroup;
+  hide: boolean = true;
+  hide1: boolean = true;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private snackBar: MatSnackBar, private router: Router) {
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -40,7 +43,7 @@ export class SignupComponent {
           panelClass: 'success-snackbar' 
         });
         // console.log('Signup successful!');
-
+        this.router.navigate(['/login']);
       },
           
         (error) => {

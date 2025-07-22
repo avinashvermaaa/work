@@ -46,8 +46,6 @@ body, html {
   text-align: center;
   display: flex;
   font-weight: bold;
-  
-  
   color: white;
 }
 
@@ -55,14 +53,12 @@ body, html {
   width: 80%;
   margin: 15px 0;
 }
-input{
-}
 
 .login-text{
   color: whitesmoke;
 }
 
-button {
+.login-button {
   background: linear-gradient(70deg,var(--primary-color),var(--accent-color));
 
   width: 60%;
@@ -75,9 +71,12 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.login-button:hover {
   background: linear-gradient(290deg,var(--primary-color),var(--accent-color));
+}
 
+.visibility-button{
+  color: black;
 }
 
 ::ng-deep .login mat-error {

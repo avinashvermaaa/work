@@ -14,6 +14,8 @@ export class SigninComponent {
   email!: string;
   password!: string;
   loginForm: FormGroup;
+  hide: boolean = true;
+
 
   constructor(private fb: FormBuilder, private authService: AuthService, private snackBar: MatSnackBar,
     private router: Router

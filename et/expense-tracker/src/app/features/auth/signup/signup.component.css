@@ -30,7 +30,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 20px;
 }
 
@@ -59,7 +58,7 @@ body {
   color: white;
 }
 
-button {
+.signup-button {
   background: linear-gradient(70deg,var(--primary-color),var(--accent-color));
 
   width: 60%;
@@ -72,8 +71,16 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.signup-button:hover {
   background: linear-gradient(290deg,var(--primary-color),var(--accent-color));
+}
+
+.visibility-button{
+  color: black;
+}
+
+::ng-deep .signup mat-error {
+  color:  white; 
 }
 
 a {
@@ -86,9 +93,6 @@ a:hover {
   text-decoration: underline;
 }
 
-::ng-deep .signup mat-error {
-  color:  white; 
-}
 
 .success-snackbar {
   background-color: #4CAF50 !important; 
