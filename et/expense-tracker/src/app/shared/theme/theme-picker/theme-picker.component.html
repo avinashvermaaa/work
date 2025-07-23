@@ -41,8 +41,8 @@
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let theme">
           <button mat-icon-button (click)="applyPredefinedTheme(theme)"><mat-icon>done</mat-icon></button>
-          <button mat-icon-button (click)="openThemeDialog(theme)"><mat-icon>edit</mat-icon></button>
-          <button mat-icon-button (click)="deleteTheme(theme.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button class="purple" color="primary" (click)="openThemeDialog(theme)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button class="red" color="warn" (click)="deleteTheme(theme.id)"><mat-icon>delete</mat-icon></button>
         </td>
       </ng-container>
 

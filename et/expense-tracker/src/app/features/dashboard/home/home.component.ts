@@ -53,14 +53,14 @@ barChartOptions: ChartOptions<'bar'> = {
         }
   },
   layout: {
-    padding: {top: 10, bottom: 10, left: 15, right: 15 }
+    padding: {top: 5, bottom: 5, left: 5, right: 5 }
     },
     scales: {
       x: {
-        title: { display: true, text: 'Date', color: 'white', font: { size: 16 } },
+        title: { display: true, text: 'Date', color: 'white', font: { size: 18 } },
         ticks: {
-          color: 'white', font: { size: 16, weight: 'bold' },
-          autoSkip: false, maxRotation: 50, minRotation: 0
+          color: 'white', font: { size: 14, weight: 'bold' },
+          autoSkip: false, maxRotation: 70, minRotation: 0
         },
         grid: { display: false }
       },

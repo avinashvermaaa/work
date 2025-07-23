@@ -1,11 +1,11 @@
 <h2>Expense Summary</h2>
 <div>
-  <p><strong>Date:</strong> {{ expenseDetails.date }}</p>
-  <p><strong>Title:</strong> {{ expenseDetails.title }}</p>
-  <p><strong>Amount:</strong> {{ expenseDetails.amount | currency: 'INR' }}</p>
-  <p><strong>Category:</strong> {{ expenseDetails.category }}</p>
-  <p><strong>Payment:</strong> {{ expenseDetails.payment }}</p>
-  <p><strong>Status:</strong> {{ expenseDetails.status }}</p>
-  <p><strong>Notes:</strong> {{ expenseDetails.notes }}</p>
-  <!-- <p><strong>Receipt:</strong> <a href="{{ expenseDetails.receipt }}" target="_blank">View Receipt</a></p> -->
+  <p> <span class="dark"><strong>Date:</strong></span> {{ expenseDetails.date }}</p>
+  <p> <span class="dark"> <strong>Title:</strong></span> {{ expenseDetails.title }}</p>
+  <p> <span class="dark"> <strong>Amount:</strong></span> {{ expenseDetails.amount | currency: 'INR' }}</p>
+  <p> <span class="dark"> <strong>Category:</strong></span> {{ expenseDetails.category }}</p>
+  <p> <span class="dark"> <strong>Payment:</strong></span> {{ expenseDetails.payment }}</p>
+  <p> <span class="dark"> <strong>Status:</strong></span> {{ expenseDetails.status }}</p>
+  <p> <span class="dark"> <strong>Notes:</strong></span> {{ expenseDetails.notes }}</p>
+  <p> <span class="dark"> <strong>Receipt:</strong></span> <a href="{{ expenseDetails.receipt }}" target="_blank">View Receipt</a></p>
 </div>

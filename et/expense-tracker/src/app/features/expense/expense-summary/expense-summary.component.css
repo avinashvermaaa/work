@@ -1,4 +1,7 @@
+.dark{
+    color: #1a1a1a;
+}
 p{
     padding-left: 20px;
-    color: red;
+    color: #333;
 }

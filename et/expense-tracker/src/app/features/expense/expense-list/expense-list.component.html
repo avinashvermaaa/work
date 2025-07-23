@@ -51,7 +51,10 @@
 
       <ng-container matColumnDef="payment">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment </th>
-        <td mat-cell *matCellDef="let element"> {{ element.payment }} </td>
+        <td mat-cell *matCellDef="let element"> 
+          <!-- {{ element.payment }} </td> -->
+        <span [appHighlightStatus]="element.payment">{{ element.payment }}</span>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="status">

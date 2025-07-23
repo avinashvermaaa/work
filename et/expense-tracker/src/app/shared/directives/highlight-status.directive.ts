@@ -14,10 +14,27 @@ export class HighlightStatusDirective implements OnChanges {
     this.renderer.removeClass(element, 'paid-status');
     this.renderer.removeClass(element, 'unpaid-status');
 
+    this.renderer.removeClass(element, 'crypto-status');
+    this.renderer.removeClass(element, 'cash-status');
+
+    // Paid Status
     if (this.status === 'Paid') {
       this.renderer.addClass(element, 'paid-status');
     } else if (this.status === 'Unpaid') {
       this.renderer.addClass(element, 'unpaid-status');
+    }
+
+    // Payment Method
+    if (this.status === 'Crypto') {
+      this.renderer.addClass(element, 'crypto-status');
+    } else if (this.status === 'Cash') {
+      this.renderer.addClass(element, 'cash-status');
+    } else if (this.status === 'Card') {
+      this.renderer.addClass(element, 'card-status');
+    } else if (this.status === 'UPI') {
+      this.renderer.addClass(element, 'UPI-status');
+    } else if (this.status == 'Bank Transfer') {
+      this.renderer.addClass(element, 'Bank-status');
     }
 
     this.renderer.setStyle(element, 'padding', '6px 14px');

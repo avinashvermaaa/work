@@ -1,3 +1,9 @@
+.heading{
+  background: var(--primary-color);
+}
+h2{
+  color: white;
+}
 .form-content {
   display: flex;
   width: 100%;

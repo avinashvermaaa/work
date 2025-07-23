@@ -120,6 +120,8 @@ th.mat-sort-header-sorted {
   width: 100%;
 }
 
+/* Directive ke colors */
+/* Paid Status */
 .paid-status {
   color: green;
   font-weight: 600;
@@ -127,6 +129,31 @@ th.mat-sort-header-sorted {
 
 .unpaid-status {
   color: red;
+  font-weight: 600;
+}
+
+/* Payment Method */
+.crypto-status {
+  color: orangered;
+  font-weight: 600;
+}
+
+.cash-status {
+  color: blue;
+  font-weight: 600;
+}
+
+.card-status {
+  color: rgb(233, 14, 222);
+  font-weight: 600;
+}
+
+.UPI-status {
+  color: green;
+  font-weight: 600;
+}
+.Bank-status {
+  color: rgb(5, 169, 245);
   font-weight: 600;
 }
 
