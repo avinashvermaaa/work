@@ -1,6 +1,6 @@
 .header {
-  position: sticky;
-  /* position: static; */
+  /* position: sticky; */
+  position: static;
   top: 0;
   z-index: 1000;
   background: linear-gradient(235deg, rgba(5, 5, 5, 0.466),var(--primary-color));
@@ -9,7 +9,8 @@
   
 .header-title {
   font-size: 20px;
-  color: rgb(218, 209, 209);;
+  color: rgb(218, 209, 209);
+  cursor: pointer;
 }
 
 .spacer {
@@ -28,12 +29,13 @@
   background: var(--accent-color);
     box-shadow: 0px 8px 8px black;
 
-
   color: white;
+  transition: all 0.3s ease;
 }
 
-.header button:hover{
-    border-color: #333; 
+.header button.active , .header button:hover {
+  color: gray;
+  border-color: #333;
 }
 
 

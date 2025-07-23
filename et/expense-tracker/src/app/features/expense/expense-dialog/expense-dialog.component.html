@@ -28,7 +28,18 @@
 
         <mat-form-field class="full-width">
           <mat-label>Category</mat-label>
-          <input matInput formControlName="category" />
+          <!-- <input matInput formControlName="category" /> -->
+            <mat-select formControlName="category">
+            <mat-option value="Food">Food</mat-option>
+            <mat-option value="Transport">Transport</mat-option>
+            <mat-option value="Health">Health</mat-option>
+            <mat-option value="Entertainment">Entertainment</mat-option>
+            <mat-option value="Housing">Housing</mat-option>
+            <mat-option value="Utilities">Utilities</mat-option>
+            <mat-option value="Personal Care">Personal Care</mat-option>
+            <mat-option value="Miscellaneous">Miscellaneous</mat-option>
+            </mat-select>
+
           <mat-error *ngIf="showError('category')">Required</mat-error>
         </mat-form-field>
         

@@ -1,6 +1,6 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material/menu';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
@@ -9,36 +9,60 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @ViewChild(MatMenuTrigger, { static: false }) menuTrigger: MatMenuTrigger | undefined;
+  activeLink: string = '';
+  routerSubscription: Subscription | null = null;
+;
 
   constructor(private authService: AuthService, private router: Router) {}
 
-    ngAfterViewInit() {
-   
-    if (this.menuTrigger) {
-      // console.log('menuTrigger is initialized');
+  ngOnInit() {
+    this.routerSubscription = this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.setActiveLinkBasedOnUrl(event.urlAfterRedirects);
+      }
+    });
+
+    this.setActiveLinkBasedOnUrl(this.router.url);
+  }
+
+  ngOnDestroy() {
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
+  }
+
+  setActiveLinkBasedOnUrl(url: string) {
+    if (url.includes('dashboard')) {
+      this.activeLink = 'dashboard';
+    } else if (url.includes('expense')) {
+      this.activeLink = 'expense';
+    } else if (url.includes('theme')) {
+      this.activeLink = 'theme';
+    } else if (url.includes('login')) {
+      this.activeLink = 'logout';
+    } else {
+      this.activeLink = ''; 
     }
   }
 
   logout() {
+    this.activeLink = 'logout';
     this.authService.logout();
     this.router.navigate(['/login']);
   }
-  
+
   dashboard() {
+    this.activeLink = 'dashboard';
     this.router.navigate(['/dashboard']);
   }
-  
+
   expense() {
+    this.activeLink = 'expense';
     this.router.navigate(['/expense']);
   }
-  theme() {
-    this.router.navigate(['/theme']);
-  }
 
-  toggleMenu() {
-    if (this.menuTrigger) {
-      this.menuTrigger.openMenu(); 
-    }
+  theme() {
+    this.activeLink = 'theme';
+    this.router.navigate(['/theme']);
   }
 }

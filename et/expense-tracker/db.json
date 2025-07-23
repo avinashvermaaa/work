@@ -885,27 +885,15 @@
       "userEmail": "dsa@gmail.com"
     },
     {
-      "id": "50e2",
-      "title": "adhj",
-      "amount": 45,
-      "category": "foof",
-      "payment": "Crypto",
-      "date": "2025-07-21",
-      "status": "Unpaid",
-      "notes": "akhjh",
-      "receipt": "skdhfjkh",
-      "userEmail": "avinashmdp88@gmail.com"
-    },
-    {
-      "id": "c629",
-      "title": "new added",
-      "amount": 456,
-      "category": "food",
+      "id": "1fb1",
+      "title": "rent",
+      "amount": 6000,
+      "category": "Housing",
       "payment": "UPI",
-      "date": "2025-07-22",
-      "status": "Unpaid",
-      "notes": "sdkfjh",
-      "receipt": "sdffkjh",
+      "date": "2025-07-22T18:30:00.000Z",
+      "status": "Paid",
+      "notes": "rent ",
+      "receipt": "paytm url",
       "userEmail": "avinashmdp88@gmail.com"
     }
   ],
@@ -992,7 +980,7 @@
       "theme-name": "Initial Purple Black",
       "primary-color": "#7d7ace",
       "secondary-color": "rgba(5, 5, 5, 0.466)",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "8",

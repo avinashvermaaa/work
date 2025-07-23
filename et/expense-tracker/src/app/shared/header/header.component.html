@@ -1,6 +1,5 @@
-
 <mat-toolbar class="header">🧾
-  <span class="header-title">Expense Tracker</span>
+  <span class="header-title" (click)="dashboard()">Expense Tracker</span>
   <span class="spacer"></span>
 
   <!-- Hamburger Menu for smaller screens -->
@@ -10,18 +9,17 @@
 
   <!-- Main Navigation Menu (for larger screens) -->
   <div class="desktop-menu">
-    <button mat-button (click)="dashboard()">Dashboard</button>
-    <button mat-button (click)="expense()">Expense</button>
-    <button mat-button (click)="theme()">Theme</button>
-    <button mat-button (click)="logout()">Logout</button>
+    <button mat-button [class.active]="activeLink === 'dashboard'" (click)="dashboard()">Dashboard</button>
+    <button mat-button [class.active]="activeLink === 'expense'" (click)="expense()">Expense</button>
+    <button mat-button [class.active]="activeLink === 'theme'" (click)="theme()">Theme</button>
+    <button mat-button [class.active]="activeLink === 'logout'" (click)="logout()">Logout</button>
   </div>
 
   <!-- Dropdown Menu for Small Screens (Hamburger) -->
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="dashboard()">Dashboard</button>
-    <button mat-menu-item (click)="expense()">Expense</button>
-    <button mat-menu-item (click)="theme()">Theme</button>
-    <button mat-menu-item (click)="logout()">Logout</button>
+    <button mat-menu-item [class.active]="activeLink === 'dashboard'" (click)="dashboard()">Dashboard</button>
+    <button mat-menu-item [class.active]="activeLink === 'expense'" (click)="expense()">Expense</button>
+    <button mat-menu-item [class.active]="activeLink === 'theme'" (click)="theme()">Theme</button>
+    <button mat-menu-item [class.active]="activeLink === 'logout'" (click)="logout()">Logout</button>
   </mat-menu>
 </mat-toolbar>
-
