@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>{{ data ? 'Edit' : 'Add' }} Expense</h2>
+<h2 mat-dialog-title>{{ data ? 'Add' : 'Edit' }} Expense</h2>
 
 <mat-dialog-content [formGroup]="form" class ="form-content">
   <mat-tab-group [(selectedIndex)]="currentTab">
@@ -15,14 +15,18 @@
         <mat-form-field class="full-width">
           <mat-label>Title</mat-label>
           <input matInput formControlName="title" />
-          <mat-error *ngIf="showError('title')">Required</mat-error>
+          <mat-error *ngIf="showError('title')">
+          {{ controls['title'].hasError('required') ? 'Required' : 'Max 20 Char' }}
+
+            <!-- Required -->
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Amount</mat-label>
           <input matInput type="number" formControlName="amount" />
           <mat-error *ngIf="showError('amount')">
-            {{ controls['amount'].hasError('required') ? 'Required' : 'Min ₹1' }}
+            {{ controls['amount'].hasError('required') ? 'Required' : 'Min ₹1, Max ₹100,00,00,000 , Round of upto 2 digit Ex:- 1.23, 69' }}
           </mat-error>
         </mat-form-field>
 
@@ -95,13 +99,17 @@
       <mat-form-field class="full-width">
         <mat-label>Notes</mat-label>
         <textarea matInput formControlName="notes"></textarea>
-        <mat-error *ngIf="showError('notes')">Required</mat-error>
+        <mat-error *ngIf="showError('notes')">
+        {{ controls['notes'].hasError('required') ? 'Required' : 'Max 30 Char' }}
+        </mat-error>
       </mat-form-field>
       
       <mat-form-field class="full-width">
         <mat-label>Receipt URL</mat-label>
         <input matInput formControlName="receipt" />
-        <mat-error *ngIf="showError('receipt')">Required</mat-error>
+        <mat-error *ngIf="showError('receipt')">
+        {{ controls['receipt'].hasError('required') ? 'Required' : 'Max 55 Char & Example :- https://angular.dev/api/forms/PatternValid ' }}
+        </mat-error>
       </mat-form-field>
     </mat-tab>
 

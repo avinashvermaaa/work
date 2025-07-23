@@ -18,16 +18,19 @@ export class ExpenseDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.fb.group({
-      title: [data?.title || '', Validators.required],
-      amount: [data?.amount || '', [Validators.required, Validators.min(1)]],
-      category: [data?.category || '', Validators.required],
-      payment: [data?.payment || '', Validators.required],
-      date: [data?.date || '', Validators.required],
-      status: [data?.status || '', Validators.required],
-      notes: [data?.notes || '', Validators.required],
-      receipt: [data?.receipt || '', Validators.required],
+      title: [data?.title || '', [Validators.required, Validators.maxLength(20), Validators.pattern(/^\S+[\s\S]*$/)]],
+      amount: [data?.amount || '', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/), Validators.min(1), Validators.max(1000000000)]],
+      category: [data?.category || '', [Validators.required]],
+      payment: [data?.payment || '', [Validators.required]],
+      date: [data?.date || '', [Validators.required]],
+      status: [data?.status || '', [Validators.required]],
+      notes: [data?.notes || '', [Validators.required, Validators.maxLength(30), Validators.pattern(/^\S+[\s\S]*$/)]],
+      receipt: [data?.receipt || '', [Validators.required, Validators.maxLength(55), Validators.pattern("((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)")]]
     });
   }
+
+  
+
 
   get controls(): { [key: string]: any } {
     return this.form.controls;
