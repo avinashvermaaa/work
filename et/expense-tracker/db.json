@@ -23,13 +23,13 @@
     {
       "id": "2",
       "title": "Lunchwawa",
-      "amount": 70,
+      "amount": 2,
       "category": "Food",
       "payment": "Crypto",
       "status": "Paid",
       "date": "2025-07-14",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com",
+      "receipt": "https://somelink.com",
       "userEmail": "avinashmdp88@gmail.com"
     },
     {
@@ -873,18 +873,6 @@
       "userEmail": "qwert@gmail.com"
     },
     {
-      "id": "11ea",
-      "title": "Pattern Validtor",
-      "amount": 69,
-      "category": "Miscellaneous",
-      "payment": "Other",
-      "date": "2025-07-22T18:30:00.000Z",
-      "status": "Paid",
-      "notes": "Pattern Regex added",
-      "receipt": "https://angular.dev/api/forms/PatternValidator",
-      "userEmail": "avinashmdp88@gmail.com"
-    },
-    {
       "id": "05c2",
       "title": "osama bin laden",
       "amount": 911,
@@ -1362,6 +1350,20 @@
       "primary-color": "#7d7ace",
       "secondary-color": "rgba(5, 5, 5, 0.466)",
       "applied": "false"
+    },
+    {
+      "id": "d983",
+      "theme-name": "jhgsf",
+      "primary-color": "#d7d7e0",
+      "secondary-color": "#f4f0f0",
+      "applied": "false"
+    },
+    {
+      "id": "f2e1",
+      "theme-name": "asdsad",
+      "primary-color": "#7d7ace",
+      "secondary-color": "#0feb3b",
+      "applied": "true"
     }
   ]
 }

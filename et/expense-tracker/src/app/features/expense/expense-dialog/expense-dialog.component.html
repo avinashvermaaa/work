@@ -1,102 +1,83 @@
 <div class="heading">
-<h2 mat-dialog-title>{{ data ? 'Add' : 'Edit' }} Expense</h2>
+  <h2 mat-dialog-title>{{ data ? 'Edit' : 'Add' }} Expense</h2>
 </div>
-<mat-dialog-content [formGroup]="form" class ="form-content">
-  <mat-tab-group [(selectedIndex)]="currentTab">
-    
-    <!-- Tab 1: Basic Info -->
-    <mat-tab>
-      <ng-template mat-tab-label>
-        Basic Info
-        <mat-icon *ngIf="getTabIcon(0) === 'check_circle'" color="primary">check_circle</mat-icon>
-        <mat-icon *ngIf="getTabIcon(0) === 'error'" color="warn">error</mat-icon>
-      </ng-template>
 
-      <div class="form-group">
-        <mat-form-field class="full-width">
-          <mat-label>Title</mat-label>
-          <input matInput formControlName="title" />
-          <mat-error *ngIf="showError('title')">
-          {{ controls['title'].hasError('required') ? 'Required' : 'Max 20 Char' }}
+<!-- Stepper Progress Bar -->
+<div class="stepper">
+  <div
+    *ngFor="let step of steps; let i = index"
+    class="step"
+    [class.active]="currentStep === i"
+    [class.completed]="i < currentStep"
+  >
+    <div class="step-index">
+      <span *ngIf="i < currentStep" class="material-icons">check</span>
+      <span *ngIf="i >= currentStep">{{ i + 1 }}</span>
+    </div>
+    <div class="step-label">{{ step }}</div>
+  </div>
+</div>
 
-            <!-- Required -->
-          </mat-error>
-        </mat-form-field>
+<!-- Step Form Body -->
+<mat-dialog-content [formGroup]="form" class="form-content">
 
-        <mat-form-field class="full-width">
-          <mat-label>Amount</mat-label>
-          <input matInput type="number" formControlName="amount" />
-          <mat-error *ngIf="showError('amount')">
-            {{ controls['amount'].hasError('required') ? 'Required' : 'Min ₹1, Max ₹100,00,00,000 , Round of upto 2 digit Ex:- 1.23, 69' }}
-          </mat-error>
-        </mat-form-field>
+  <!-- Step 1: Basic Info -->
+  <ng-container *ngIf="currentStep === 0">
+    <mat-form-field class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+      <mat-error *ngIf="showError('title')">
+        {{ controls['title'].hasError('required') ? 'Required' : 'Max 20 Char' }}
+      </mat-error>
+    </mat-form-field>
 
-        <mat-form-field class="full-width">
-          <mat-label>Category</mat-label>
-          <!-- <input matInput formControlName="category" /> -->
-            <mat-select formControlName="category">
-            <mat-option value="Food">Food</mat-option>
-            <mat-option value="Transport">Transport</mat-option>
-            <mat-option value="Health">Health</mat-option>
-            <mat-option value="Entertainment">Entertainment</mat-option>
-            <mat-option value="Housing">Housing</mat-option>
-            <mat-option value="Shopping">Shopping</mat-option>
-            <mat-option value="Personal Care">Personal Care</mat-option>
-            <mat-option value="Miscellaneous">Miscellaneous</mat-option>
-            </mat-select>
+    <mat-form-field class="full-width">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" formControlName="amount" />
+      <mat-error *ngIf="showError('amount')">
+        {{ controls['amount'].hasError('required') ? 'Required' : 'Min ₹1, Max ₹100,00,00,000 , Round of upto 2 digit Ex:- 1.23, 69' }}
+      </mat-error>
+    </mat-form-field>
 
-          <mat-error *ngIf="showError('category')">Required</mat-error>
-        </mat-form-field>
-        
-        <mat-form-field class="full-width">
-          <mat-label>Payment Method</mat-label>
-          <mat-select formControlName="payment">
-            <mat-option value="Cash">Cash</mat-option>
-            <mat-option value="UPI">UPI</mat-option>
-            <mat-option value="Card">Card</mat-option>
-            <mat-option value="Crypto">Crypto</mat-option>
-            <mat-option value="Bank Transfer">Bank Transfer</mat-option>
-            <mat-option value="Other">Other</mat-option>
-          </mat-select>
-          <mat-error *ngIf="showError('payment')">Required</mat-error>
-        </mat-form-field>
-      </div>
-    </mat-tab>
+    <mat-form-field class="full-width">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let option of categoryOptions" [value]="option">{{ option }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="showError('category')">Required</mat-error>
+    </mat-form-field>
 
-    <!-- Tab 2: Timing & Status -->
-    <mat-tab>
-      <ng-template mat-tab-label>
-        Timing & Status
-        <mat-icon *ngIf="getTabIcon(1) === 'check_circle'" color="primary">check_circle</mat-icon>
-        <mat-icon *ngIf="getTabIcon(1) === 'error'" color="warn">error</mat-icon>
-      </ng-template>
+    <mat-form-field class="full-width">
+      <mat-label>Payment Method</mat-label>
+      <mat-select formControlName="payment">
+        <mat-option *ngFor="let method of paymentOptions" [value]="method">{{ method }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="showError('payment')">Required</mat-error>
+    </mat-form-field>
+  </ng-container>
 
-      <mat-form-field class="full-width">
-        <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="date" />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>        
-        <mat-error *ngIf="showError('date')">Required</mat-error>
-      </mat-form-field>
-      
-      <mat-form-field class="full-width">
-        <mat-label>Status</mat-label>
-        <mat-select formControlName="status">
-          <mat-option value="Paid">Paid</mat-option>
-          <mat-option value="Unpaid">Unpaid</mat-option>
-        </mat-select>
-        <mat-error *ngIf="showError('status')">Required</mat-error>
-      </mat-form-field>
-    </mat-tab>
-    
-    <!-- Tab 3: Notes & Receipt -->
-    <mat-tab>
-      <ng-template mat-tab-label>
-        Notes & Receipt
-        <mat-icon *ngIf="getTabIcon(2) === 'check_circle'" color="primary">check_circle</mat-icon>
-        <mat-icon *ngIf="getTabIcon(2) === 'error'" color="warn">error</mat-icon>
-      </ng-template>
+  <!-- Step 2: Timing & Status -->
+  <ng-container *ngIf="currentStep === 1">
+    <mat-form-field class="full-width">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="showError('date')">Required</mat-error>
+    </mat-form-field>
 
+    <mat-form-field class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Paid">Paid</mat-option>
+        <mat-option value="Unpaid">Unpaid</mat-option>
+      </mat-select>
+      <mat-error *ngIf="showError('status')">Required</mat-error>
+    </mat-form-field>
+  </ng-container>
+
+  <!-- Step 3: Notes & Receipt -->
+  <ng-container *ngIf="currentStep === 2">
       <mat-form-field class="full-width">
         <mat-label>Notes</mat-label>
         <textarea matInput formControlName="notes"></textarea>
@@ -112,27 +93,28 @@
         {{ controls['receipt'].hasError('required') ? 'Required' : 'Max 55 Char & Example :- https://angular.dev/api/forms/PatternValid ' }}
         </mat-error>
       </mat-form-field>
-    </mat-tab>
+  </ng-container>
 
-    <!-- Tab 4: Summary -->
-    <mat-tab label="Summary">
-      <div class="summary">
-        <p><strong>Title:</strong> {{ controls['title'].value }}</p>
-        <p><strong>Amount:</strong> ₹{{ controls['amount'].value }}</p>
-        <p><strong>Category:</strong> {{ controls['category'].value }}</p>
-        <p><strong>Payment:</strong> {{ controls['payment'].value }}</p>
-        <p><strong>Date:</strong> {{ controls['date'].value }}</p>
-        <p><strong>Status:</strong> {{ controls['status'].value }}</p>
-        <p><strong>Notes:</strong> {{ controls['notes'].value }}</p>
-        <p><strong>Receipt:</strong> {{ controls['receipt'].value }}</p>
-      </div>
-    </mat-tab>
-  </mat-tab-group>
+  <!-- Step 4: Summary -->
+  <ng-container *ngIf="currentStep === 3">
+    <div class="summary">
+      <p><strong>Title:</strong> {{ form.value.title }}</p>
+      <p><strong>Amount:</strong> ₹{{ form.value.amount }}</p>
+      <p><strong>Category:</strong> {{ form.value.category }}</p>
+      <p><strong>Payment:</strong> {{ form.value.payment }}</p>
+      <p><strong>Date:</strong> {{ form.value.date | date }}</p>
+      <p><strong>Status:</strong> {{ form.value.status }}</p>
+      <p><strong>Notes:</strong> {{ form.value.notes }}</p>
+      <p><strong>Receipt:</strong> {{ form.value.receipt }}</p>
+    </div>
+  </ng-container>
+
 </mat-dialog-content>
 
+<!-- Action Buttons -->
 <mat-dialog-actions align="end">
   <button mat-button (click)="cancel()">Cancel</button>
-  <button mat-button *ngIf="currentTab > 0 && currentTab <= 3" (click)="prevTab()">Back</button>
-  <button mat-button *ngIf="currentTab < 3" (click)="nextTab()">Continue</button>
-  <button mat-button color="primary" *ngIf="currentTab === 3" (click)="save()">Save</button>
+  <button mat-button *ngIf="currentStep > 0" (click)="prevStep()">Back</button>
+  <button mat-button *ngIf="currentStep < steps.length - 1" (click)="nextStep()">Continue</button>
+  <button mat-button color="primary" *ngIf="currentStep === steps.length - 1" (click)="save()">Save</button>
 </mat-dialog-actions>

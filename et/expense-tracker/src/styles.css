@@ -5,6 +5,7 @@ body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: var(--primary-color);
+    /* background: gray; */
     color: white;
 }
 
@@ -23,19 +24,23 @@ button {
 } */
 
 /*  Blood red */
-/* :root {
+:root {
   --primary-color: #df1111; 
   --accent-color: #2c0202;
-} */
+}
 /* Coffee pilo */
-/* :root {
+:root {
   --primary-color: rgb(237,144,38); 
   --accent-color: rgba(5, 5, 5, 0.5)	;
-} */
+}
 
 /* Steel Blue */
-:root {
+/* :root {
   --primary-color: #34495e; 
   --accent-color: rgb(5, 5, 5, 0.466)	;
-}
+} */
+/* :root {
+  --primary-color: #7d7ace;  	
+  --accent-color: #0feb3b;
+} */
 

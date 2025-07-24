@@ -13,7 +13,7 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './theme-picker.component.html',
   styleUrls: ['./theme-picker.component.css']
 })
-export class ThemePickerComponent implements OnInit, AfterViewInit {
+export class ThemePickerComponent  {
   primaryColor = '#7d7ace';
   accentColor = 'rgba(5, 5, 5, 0.466)';
   displayedColumns: string[] = ['themeName', 'primaryColor', 'accentColor', 'appliedStatus', 'actions'];

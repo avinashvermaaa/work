@@ -2,12 +2,12 @@
 
 <div class="dashboard-layout">
   <div class="left-pane">
-      <div class=" stat-box">
+      <div class="stat-box">
         <h2>Total All-Time Expense Amount:</h2>
         <p>₹{{ totalAllTimeAmount | number:'1.0-2' }}</p>
       </div>
         
-      <div class=" stat-box">
+      <div class="stat-box">
         <h2>Status Breakdown:</h2>
         <p>Paid: {{ paidCount }}</p>
         <p>Unpaid: {{ failedCount }}</p>
@@ -16,11 +16,19 @@
 
 
   <div class="right-pane">
+
+    <!-- pie chartwa -->
     <div class="dashboard-container-right">
-      
+      <label for="yearSelectPie">Select Year: </label>
+      <select id="yearSelectPie" [(ngModel)]="selectedYearPie" (change)="onPieSelectionChange()">
+        <option value="all">All Years</option>
+        <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+      </select>
+
       <label for="monthSelectPie">Select Month: </label>
-      <select id="monthSelectPie" [(ngModel)]="selectedMonthPie" (change)="onPieMonthChange()">
-        <option *ngFor="let month of availableMonths" [value]="month.value">{{ month.label }}</option>
+      <select id="monthSelectPie" [(ngModel)]="selectedMonthPie" (change)="onPieSelectionChange()">
+        <option value="all">All Months</option>
+        <option *ngFor="let month of months" [value]="month.value">{{ month.label }}</option>
       </select>
 
       <canvas baseChart class="pie-chart"
@@ -30,15 +38,20 @@
       </canvas>
     </div>
 
+    <!-- column chartwa -->
     <div class="dashboard-container-right" >
-      <label for="monthSelectBar">Select Year: </label>
-      <select id="monthSelectBar" [(ngModel)]="selectedMonthBar" (change)="onBarMonthChange()">
-        <option *ngFor="let month of availableMonths" [value]="month.value">{{ month.label }}</option>
+      <label for="yearSelect">Select Year: </label>
+      <select id="yearSelect" [(ngModel)]="selectedYearBar" (change)="onBarSelectionChange()">
+        <option value="all">All Time</option>
+        <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
       </select>
-      <label for="monthSelectBar">Select Month: </label>
-      <select id="monthSelectBar" [(ngModel)]="selectedMonthBar" (change)="onBarMonthChange()">
-        <option *ngFor="let month of availableMonths" [value]="month.value">{{ month.label }}</option>
+
+      <label for="monthSelect">Select Month: </label>
+      <select id="monthSelect" [(ngModel)]="selectedMonthBar" (change)="onBarSelectionChange()">
+        <option value="all">All Months</option>
+        <option *ngFor="let month of months" [value]="month.value">{{ month.label }}</option>
       </select>
+
 
       <canvas baseChart class="bar-chart"
         [data]="barChartData"

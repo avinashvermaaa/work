@@ -1,12 +1,12 @@
 import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
-import { Model } from '../../expense/model';
-import { ExpenseService } from '../../../core/services/expense.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, Sort } from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 import { ChartOptions, ChartData } from 'chart.js';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Router } from '@angular/router';
+
+import { Model } from '../../expense/model';
+import { ExpenseService } from '../../../core/services/expense.service';
 
 @Component({
   selector: 'app-home',
@@ -16,82 +16,73 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit, AfterViewInit {
   constructor(
     private expenseService: ExpenseService,
-    private _liveAnnouncer: LiveAnnouncer,
     private router: Router
   ) {}
 
   totalAllTimeAmount: number = 0;
-
-  selectedMonth: string = '';
-  availableMonths: { value: string; label: string }[] = [];
-  allExpenses: Model[] = [];
-selectedMonthPie: string = 'all';
-selectedMonthBar: string = 'all';
-onPieMonthChange(): void {
-  const filtered = this.selectedMonthPie === 'all'
-    ? this.allExpenses
-    : this.allExpenses.filter(exp => new Date(exp.date).toISOString().slice(0, 7) === this.selectedMonthPie);
-
-  this.preparePieChart(filtered);
-}
-
-onBarMonthChange(): void {
-  const filtered = this.selectedMonthBar === 'all'
-    ? this.allExpenses
-    : this.allExpenses.filter(exp => new Date(exp.date).toISOString().slice(0, 7) === this.selectedMonthBar);
-
-  this.prepareBarChart(filtered);
-}
-
   paidCount = 0;
   failedCount = 0;
+  allExpenses: Model[] = [];
 
+  // Pie Chart
+  selectedYearPie: string = 'all';
+selectedMonthPie: string = 'all';
+  // selectedYearPie: string = new Date().getFullYear().toString();
+  // selectedMonthPie: string = (new Date().getMonth() + 1).toString().padStart(2, '0');
+  availableMonths: { value: string; label: string }[] = [];
+  pieChartLabels: string[] = [];
+  pieChartData: number[] = [];
   allTimePieLabels: string[] = [];
   allTimePieData: number[] = [];
 
-  // displayedColumns: string[] = ['date', 'title', 'amount', 'category'];
-  dataSource = new MatTableDataSource<Model>();
+  // Bar Chart
+  selectedYearBar: string = 'all';
+  selectedMonthBar: string = 'all';
 
+  availableYears: string[] = [];
+  months = [
+    { value: '01', label: 'January' },
+    { value: '02', label: 'February' },
+    { value: '03', label: 'March' },
+    { value: '04', label: 'April' },
+    { value: '05', label: 'May' },
+    { value: '06', label: 'June' },
+    { value: '07', label: 'July' },
+    { value: '08', label: 'August' },
+    { value: '09', label: 'September' },
+    { value: '10', label: 'October' },
+    { value: '11', label: 'November' },
+    { value: '12', label: 'December' }
+  ];
+  barChartData: ChartData<'bar'> = { labels: [], datasets: [{ label: 'Daily Expenses', data: [] }] };
+
+  dataSource = new MatTableDataSource<Model>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
-  // Pie Chart (Monthly)
-  pieChartLabels: string[] = [];
-  pieChartData: number[] = [];
 
   pieChartOptions: ChartOptions<'pie'> = {
     responsive: true,
     plugins: {
       legend: {
         position: 'top',
-        labels: {
-          color: 'white',
-          font: { size: 12, weight: 'bold' }
-        }
+        labels: { color: 'white', font: { size: 12, weight: 'bold' } }
       },
       tooltip: {
-        callbacks: {
-          label: (context) => `₹${context.raw}`
-        }
+        callbacks: { label: (context) => `₹${context.raw}` }
       }
     }
   };
 
-  // Bar Chart
   barChartOptions: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
       tooltip: {
-        callbacks: {
-          label: (context) => `₹${context.raw}`
-        }
+        callbacks: { label: (context) => `₹${context.raw}` }
       }
     },
-    layout: {
-      padding: { top: 5, bottom: 5, left: 5, right: 5 }
-    },
+    layout: { padding: { top: 5, bottom: 5, left: 5, right: 5 } },
     scales: {
       x: {
         title: {
@@ -112,7 +103,7 @@ onBarMonthChange(): void {
       y: {
         title: {
           display: true,
-          text: this.selectedMonthBar === 'all' ? 'Total Monthly Expenses' : 'Total Daily Expenses',
+          text: 'Expenses',
           color: 'white',
           font: { size: 20 }
         },
@@ -128,14 +119,8 @@ onBarMonthChange(): void {
     }
   };
 
-  barChartData: ChartData<'bar'> = {
-    labels: [],
-    datasets: [{ label: 'Daily Expenses', data: [] }]
-  };
-
   ngOnInit(): void {
     this.loadExpenses();
-
     this.dataSource.filterPredicate = (data: Model, filter: string): boolean =>
       data.title.toLowerCase().includes(filter);
   }
@@ -143,14 +128,9 @@ onBarMonthChange(): void {
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-
     this.sort.active = 'date';
     this.sort.direction = 'desc';
     this.sort.sortChange.emit({ active: this.sort.active, direction: this.sort.direction });
-  }
-
-  expense(): void {
-    this.router.navigate(['/expense']);
   }
 
   applyFilter(event: Event): void {
@@ -163,83 +143,107 @@ onBarMonthChange(): void {
       next: (expenses) => {
         this.allExpenses = expenses;
         this.dataSource.data = expenses;
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
         this.totalAllTimeAmount = expenses.reduce((sum, exp) => sum + exp.amount, 0);
 
-        // Prepare month dropdown
+        // Pie dropdown
         const monthsSet = new Set<string>();
+        const yearsSet = new Set<string>();
         expenses.forEach(exp => {
-          const month = new Date(exp.date).toISOString().slice(0, 7);
+          const date = new Date(exp.date);
+          const month = date.toISOString().slice(0, 7);
           monthsSet.add(month);
+          yearsSet.add(date.getFullYear().toString());
         });
 
-this.availableMonths = [
-  { value: 'all', label: 'All Time' },
-  ...Array.from(monthsSet).sort().map(month => {
-    const [year, monthNum] = month.split('-');
-    const monthName = new Date(+year, +monthNum - 1).toLocaleString('default', { month: 'long' });
-    return { value: month, label: `${monthName} ${year}` };
-  })
-];
-
-this.selectedMonthPie = 'all';
-this.selectedMonthBar = 'all';
-this.onPieMonthChange();
-this.onBarMonthChange();
+        this.availableMonths = [
+          { value: 'all', label: 'All Time' },
+          ...Array.from(monthsSet).sort().map(month => {
+            const [year, monthNum] = month.split('-');
+            const monthName = new Date(+year, +monthNum - 1).toLocaleString('default', { month: 'long' });
+            return { value: month, label: `${monthName} ${year}` };
+          })
+        ];
+        this.availableYears = Array.from(yearsSet).sort();
+            this.availableMonths = this.months;
 
 
+        this.selectedMonthBar = 'all';
+        this.selectedMonthPie = 'all';
+        this.selectedYearPie = 'all';
+        this.selectedMonthPie = 'all';
 
-        // Count paid and failed
+        this.onPieSelectionChange();
+        this.onBarSelectionChange();
+
         this.paidCount = expenses.filter(e => e.status === 'Paid').length;
         this.failedCount = expenses.filter(e => e.status === 'Unpaid').length;
 
-        // All-time category pie
-        const allTimeCategoryMap: { [key: string]: number } = {};
-        for (const expense of expenses) {
-          const category = expense.category || 'Unknown';
-          allTimeCategoryMap[category] = (allTimeCategoryMap[category] || 0) + expense.amount;
+        // All-time pie summary
+        const categoryMap: { [key: string]: number } = {};
+        for (const exp of expenses) {
+          const category = exp.category || 'Unknown';
+          categoryMap[category] = (categoryMap[category] || 0) + exp.amount;
         }
-        this.allTimePieLabels = Object.keys(allTimeCategoryMap);
-        this.allTimePieData = Object.values(allTimeCategoryMap);
+        this.allTimePieLabels = Object.keys(categoryMap);
+        this.allTimePieData = Object.values(categoryMap);
       },
       error: (err) => console.error('Failed to load expenses:', err)
     });
   }
 
-  onMonthChange(): void {
-    this.updateChartsForMonth();
-  }
+onPieSelectionChange(): void {
+  const filtered = this.allExpenses.filter(exp => {
+    const date = new Date(exp.date);
+    const year = date.getFullYear().toString();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
 
-updateChartsForMonth(): void {
-  const filteredExpenses = this.selectedMonth === 'all'
-    ? this.allExpenses
-    : this.allExpenses.filter(exp => {
-        const month = new Date(exp.date).toISOString().slice(0, 7);
-        return month === this.selectedMonth;
-      });
+    const matchYear = this.selectedYearPie === 'all' || year === this.selectedYearPie;
+    const matchMonth = this.selectedMonthPie === 'all' || month === this.selectedMonthPie;
 
-  this.preparePieChart(filteredExpenses);
-  this.prepareBarChart(filteredExpenses);
+    return matchYear && matchMonth;
+  });
+
+  this.preparePieChart(filtered);
 }
 
 
-  preparePieChart(expenses: Model[]): void {
-    if (expenses.length === 0) {
-      this.pieChartLabels = ['No Data'];
-      this.pieChartData = [1];
-      return;
-    }
+  onBarSelectionChange(): void {
+    const filtered = this.allExpenses.filter(exp => {
+      const date = new Date(exp.date);
+      const year = date.getFullYear().toString();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
 
-    const categoryMap: { [key: string]: number } = {};
-    for (const expense of expenses) {
-      const category = expense.category || 'Unknown';
-      categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
-    }
+      const matchYear = this.selectedYearBar === 'all' || year === this.selectedYearBar;
+      const matchMonth = this.selectedMonthBar === 'all' || month === this.selectedMonthBar;
 
-    this.pieChartLabels = Object.keys(categoryMap);
-    this.pieChartData = Object.values(categoryMap);
+      return matchYear && matchMonth;
+    });
+
+    this.prepareBarChart(filtered);
   }
+
+preparePieChart(expenses: Model[]): void {
+  if (expenses.length === 0) {
+    this.pieChartLabels = ['No Data'];
+    this.pieChartData = [0]; 
+    return;
+  }
+
+  const categoryMap: { [key: string]: number } = {};
+  for (const expense of expenses) {
+    const category = expense.category || 'Unknown';
+    categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
+  }
+
+  this.pieChartLabels = Object.keys(categoryMap);
+  this.pieChartData = Object.values(categoryMap);
+}
+
+getMonthLabel(month: string): string {
+  const m = this.months.find(m => m.value === month);
+  return m ? m.label : month;
+}
+
 
 prepareBarChart(expenses: Model[]): void {
   if (expenses.length === 0) {
@@ -256,24 +260,26 @@ prepareBarChart(expenses: Model[]): void {
     return;
   }
 
-  const isAllTime = this.selectedMonthBar === 'all';
+  const isAllTime = this.selectedYearBar === 'all';
+  const isYearOnly = this.selectedYearBar !== 'all' && this.selectedMonthBar === 'all';
 
   const aggregationMap: { [key: string]: number } = {};
   for (const expense of expenses) {
     const dateObj = new Date(expense.date);
     const key = isAllTime
-      ? dateObj.toLocaleString('default', { month: 'short', year: 'numeric' }) // eg. "Jul 2025"
-      : dateObj.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }); // eg. "24 Jul"
+      ? dateObj.toLocaleString('default', { month: 'short', year: 'numeric' })
+      : isYearOnly
+        ? dateObj.toLocaleString('default', { month: 'short' })
+        : dateObj.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' });
 
     aggregationMap[key] = (aggregationMap[key] || 0) + expense.amount;
   }
 
-  const sortedEntries = Object.entries(aggregationMap)
-    .sort(([a], [b]) => {
-      const parseDate = (label: string) =>
-        isAllTime ? new Date(label + ' 01') : new Date('2025 ' + label); // Assuming year 2025 for sorting consistency
-      return parseDate(a).getTime() - parseDate(b).getTime();
-    });
+  const sortedEntries = Object.entries(aggregationMap).sort(([a], [b]) => {
+    const parseDate = (label: string) =>
+      isAllTime ? new Date(label + ' 01') : new Date('2025 ' + label); // Use dummy year
+    return parseDate(a).getTime() - parseDate(b).getTime();
+  });
 
   const labels = sortedEntries.map(([label]) => label);
   const data = sortedEntries.map(([, amount]) => amount);
@@ -286,10 +292,17 @@ prepareBarChart(expenses: Model[]): void {
     'rgba(64, 159, 255, 0.2)', 'rgba(255, 99, 255, 0.2)'
   ];
 
+  const label =
+    isAllTime
+      ? 'Monthly Expenses (All Time)'
+      : isYearOnly
+        ? `Monthly Expenses (${this.selectedYearBar})`
+        : `Daily Expenses (${this.getMonthLabel(this.selectedMonthBar)} ${this.selectedYearBar})`;
+
   this.barChartData = {
     labels,
     datasets: [{
-      label: isAllTime ? 'Monthly Expenses' : 'Daily Expenses',
+      label,
       data,
       backgroundColor: colorPalette.slice(0, labels.length),
       borderColor: colorPalette.slice(0, labels.length).map(c => c.replace('0.2', '1')),
@@ -298,12 +311,4 @@ prepareBarChart(expenses: Model[]): void {
   };
 }
 
-
-  sortData(sortState: Sort): void {
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
-  }
 }
