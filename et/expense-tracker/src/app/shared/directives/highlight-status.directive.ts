@@ -37,6 +37,13 @@ export class HighlightStatusDirective implements OnChanges {
       this.renderer.addClass(element, 'Bank-status');
     }
 
+    // Applied theme Status
+    if (this.status === 'Active') {
+      this.renderer.addClass(element, 'Active-status');
+    } else if (this.status === 'Inactive') {
+      this.renderer.addClass(element, 'Inactive-status');
+    }
+
     this.renderer.setStyle(element, 'padding', '6px 14px');
   }
 }

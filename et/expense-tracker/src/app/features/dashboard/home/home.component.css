@@ -7,72 +7,50 @@
   gap: 20px;
 }
 
-button.nav-expense{
-}
-
-.left-pane , .right-pane {
-  flex: 1;
+.left-pane {
+  flex: 0.4;
 }
 
 .right-pane {
+  flex: 0.6;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.dashboard-container-left , .dashboard-container-right  {
+.all-time-expenses {
+  background: var(--accent-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
+
+  margin-bottom: 20px;
+}
+
+.stat-box {
+  background: var(--accent-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
+  margin-bottom: 1rem;
+  align-content: center;
+  text-align: left;
+}
+
+
+.dashboard-container-right  {
   text-align: center;
   font-family: 'Inter', sans-serif;
   background: transparent;
   border-radius: 16px;
-}
 
-.dashboard-container-right {
   background: var(--accent-color);
   padding: 20px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
 }
 
-
-.dashboard-container-left table {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(20, 20, 20, 0.466);
-  
-  border-radius: 16px;
-  
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 1);
-  min-height: 46rem;
-
-  border-collapse: separate;
-  overflow: hidden; 
-}
-.dashboard-container-left table th{
-  color: white;
-  border-bottom: 1px solid #ddd;
-  border-color: white;
-}
-.dashboard-container-left table td{
-  border-color: rgb(63, 60, 60);
-  color: white;
-}
-
-
-.dashboard-container-left mat-paginator{
-  background: transparent;
-  color: white;
-  font-size: 1rem;
-
-}
-
-h{
-  color: rgb(218, 209, 209);
-}
-p{
-  color: rgb(218, 209, 209);
-}
   @media (max-width: 768px) {
     .dashboard-layout {
       flex-direction: column;
@@ -95,10 +73,6 @@ p{
   max-width: 300px;
 }
 
-.dashboard-container h2 {
-  text-align: center;
-  font-size: 1.2rem;
-}
 
 .right-pane .dashboard-container {
   margin-bottom: 10px;

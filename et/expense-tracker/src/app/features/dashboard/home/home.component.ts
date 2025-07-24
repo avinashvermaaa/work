@@ -1,11 +1,11 @@
-import { Component, ViewChild, OnInit, AfterViewInit} from '@angular/core';
+import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { Model } from '../../expense/model';
 import { ExpenseService } from '../../../core/services/expense.service';
-import { MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
-import { ChartOptions,ChartData  } from 'chart.js';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
+import { ChartOptions, ChartData } from 'chart.js';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,62 +14,114 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  constructor(private expenseService: ExpenseService, private _liveAnnouncer: LiveAnnouncer,private router: Router) {
-    // console.log('🌟 HomeComponent loaded');
-  }
+  constructor(
+    private expenseService: ExpenseService,
+    private _liveAnnouncer: LiveAnnouncer,
+    private router: Router
+  ) {}
+
+  totalAllTimeAmount: number = 0;
+
   selectedMonth: string = '';
-availableMonths: { value: string, label: string }[] = [];
-allExpenses: Model[] = [];
+  availableMonths: { value: string; label: string }[] = [];
+  allExpenses: Model[] = [];
+selectedMonthPie: string = 'all';
+selectedMonthBar: string = 'all';
+onPieMonthChange(): void {
+  const filtered = this.selectedMonthPie === 'all'
+    ? this.allExpenses
+    : this.allExpenses.filter(exp => new Date(exp.date).toISOString().slice(0, 7) === this.selectedMonthPie);
 
-    displayedColumns: string[] = ['date','title', 'amount', 'category'];
-    dataSource = new MatTableDataSource<Model>();
-  
-    @ViewChild(MatPaginator) paginator!: MatPaginator;
-    @ViewChild(MatSort) sort!: MatSort;
+  this.preparePieChart(filtered);
+}
 
-    // Pie Chart 
-    pieChartLabels: string[] = [];
-    pieChartData: number[] = [];
+onBarMonthChange(): void {
+  const filtered = this.selectedMonthBar === 'all'
+    ? this.allExpenses
+    : this.allExpenses.filter(exp => new Date(exp.date).toISOString().slice(0, 7) === this.selectedMonthBar);
 
-    pieChartOptions: ChartOptions<'pie'> = {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'top',
-          labels: { color: 'white', font: { size: 12, weight: 'bold' }}
+  this.prepareBarChart(filtered);
+}
+
+  paidCount = 0;
+  failedCount = 0;
+
+  allTimePieLabels: string[] = [];
+  allTimePieData: number[] = [];
+
+  // displayedColumns: string[] = ['date', 'title', 'amount', 'category'];
+  dataSource = new MatTableDataSource<Model>();
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  // Pie Chart (Monthly)
+  pieChartLabels: string[] = [];
+  pieChartData: number[] = [];
+
+  pieChartOptions: ChartOptions<'pie'> = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          color: 'white',
+          font: { size: 12, weight: 'bold' }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: (context) => `₹${context.raw}`
         }
       }
-    };  
+    }
+  };
 
-barChartOptions: ChartOptions<'bar'> = {
-      responsive: true,
-      maintainAspectRatio: false,  
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: (context) => `₹${context.raw}`
-          }
+  // Bar Chart
+  barChartOptions: ChartOptions<'bar'> = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: (context) => `₹${context.raw}`
         }
-  },
-  layout: {
-    padding: {top: 5, bottom: 5, left: 5, right: 5 }
+      }
+    },
+    layout: {
+      padding: { top: 5, bottom: 5, left: 5, right: 5 }
     },
     scales: {
       x: {
-        title: { display: true, text: 'Date', color: 'white', font: { size: 18 } },
+        title: {
+          display: true,
+          text: 'Date',
+          color: 'white',
+          font: { size: 18 }
+        },
         ticks: {
-          color: 'white', font: { size: 14, weight: 'bold' },
-          autoSkip: false, maxRotation: 70, minRotation: 0
+          color: 'white',
+          font: { size: 14, weight: 'bold' },
+          autoSkip: false,
+          maxRotation: 70,
+          minRotation: 0
         },
         grid: { display: false }
       },
       y: {
-        title: { display: true, text: 'Total Expenses', color: 'white', font: { size: 20 } },
+        title: {
+          display: true,
+          text: this.selectedMonthBar === 'all' ? 'Total Monthly Expenses' : 'Total Daily Expenses',
+          color: 'white',
+          font: { size: 20 }
+        },
         min: 0,
         ticks: {
-          color: 'white', font: { size: 16 },
-          callback: (value) => `₹${value}`, stepSize: 200
+          color: 'white',
+          font: { size: 16 },
+          callback: (value) => `₹${value}`,
+          stepSize: 200
         },
         grid: { color: 'rgba(255,255,255,0.1)' }
       }
@@ -92,11 +144,9 @@ barChartOptions: ChartOptions<'bar'> = {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
 
-      // Default sort by 'date' column in descending order
-  this.sort.active = 'date';
-  this.sort.direction = 'desc';
-  this.sort.sortChange.emit({ active: this.sort.active, direction: this.sort.direction });
-
+    this.sort.active = 'date';
+    this.sort.direction = 'desc';
+    this.sort.sortChange.emit({ active: this.sort.active, direction: this.sort.direction });
   }
 
   expense(): void {
@@ -108,70 +158,95 @@ barChartOptions: ChartOptions<'bar'> = {
     this.dataSource.filter = filterValue;
   }
 
-loadExpenses(): void {
-  this.expenseService.getExpenses().subscribe({
-    next: (expenses) => {
-      this.allExpenses = expenses;
-      this.dataSource.data = expenses;
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+  loadExpenses(): void {
+    this.expenseService.getExpenses().subscribe({
+      next: (expenses) => {
+        this.allExpenses = expenses;
+        this.dataSource.data = expenses;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.totalAllTimeAmount = expenses.reduce((sum, exp) => sum + exp.amount, 0);
 
-      const monthsSet = new Set<string>();
-      expenses.forEach(exp => {
-        const month = new Date(exp.date).toISOString().slice(0, 7); // 'YYYY-MM'
-        monthsSet.add(month);
-      });
+        // Prepare month dropdown
+        const monthsSet = new Set<string>();
+        expenses.forEach(exp => {
+          const month = new Date(exp.date).toISOString().slice(0, 7);
+          monthsSet.add(month);
+        });
 
-      this.availableMonths = Array.from(monthsSet).sort().map(month => {
-        const [year, monthNum] = month.split('-');
-        const monthName = new Date(+year, +monthNum - 1).toLocaleString('default', { month: 'long' });
-        return { value: month, label: `${monthName} ${year}` };
-      });
-      // Default: latest month
-      this.selectedMonth = this.availableMonths[this.availableMonths.length - 1]?.value || '';
-      this.updateChartsForMonth();
-    },
-    error: (err) => console.error('Failed to load expenses:', err)
-  });
-}
+this.availableMonths = [
+  { value: 'all', label: 'All Time' },
+  ...Array.from(monthsSet).sort().map(month => {
+    const [year, monthNum] = month.split('-');
+    const monthName = new Date(+year, +monthNum - 1).toLocaleString('default', { month: 'long' });
+    return { value: month, label: `${monthName} ${year}` };
+  })
+];
 
-onMonthChange(): void {
-  this.updateChartsForMonth();
-}
+this.selectedMonthPie = 'all';
+this.selectedMonthBar = 'all';
+this.onPieMonthChange();
+this.onBarMonthChange();
+
+
+
+        // Count paid and failed
+        this.paidCount = expenses.filter(e => e.status === 'Paid').length;
+        this.failedCount = expenses.filter(e => e.status === 'Unpaid').length;
+
+        // All-time category pie
+        const allTimeCategoryMap: { [key: string]: number } = {};
+        for (const expense of expenses) {
+          const category = expense.category || 'Unknown';
+          allTimeCategoryMap[category] = (allTimeCategoryMap[category] || 0) + expense.amount;
+        }
+        this.allTimePieLabels = Object.keys(allTimeCategoryMap);
+        this.allTimePieData = Object.values(allTimeCategoryMap);
+      },
+      error: (err) => console.error('Failed to load expenses:', err)
+    });
+  }
+
+  onMonthChange(): void {
+    this.updateChartsForMonth();
+  }
 
 updateChartsForMonth(): void {
-  const filteredExpenses = this.allExpenses.filter(exp => {
-    const month = new Date(exp.date).toISOString().slice(0, 7);
-    return month === this.selectedMonth;
-  });
+  const filteredExpenses = this.selectedMonth === 'all'
+    ? this.allExpenses
+    : this.allExpenses.filter(exp => {
+        const month = new Date(exp.date).toISOString().slice(0, 7);
+        return month === this.selectedMonth;
+      });
 
   this.preparePieChart(filteredExpenses);
   this.prepareBarChart(filteredExpenses);
 }
 
-preparePieChart(expenses: Model[]): void {
-  if (expenses.length === 0) {
-    this.pieChartLabels = ['No Data'];
-    this.pieChartData = [1];
-    return;
-  }
 
-  const categoryMap: { [key: string]: number } = {};
-  for (const expense of expenses) {
-    const category = expense.category || 'Unknown';
-    categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
-  }
+  preparePieChart(expenses: Model[]): void {
+    if (expenses.length === 0) {
+      this.pieChartLabels = ['No Data'];
+      this.pieChartData = [1];
+      return;
+    }
 
-  this.pieChartLabels = Object.keys(categoryMap);
-  this.pieChartData = Object.values(categoryMap);
-}
+    const categoryMap: { [key: string]: number } = {};
+    for (const expense of expenses) {
+      const category = expense.category || 'Unknown';
+      categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
+    }
+
+    this.pieChartLabels = Object.keys(categoryMap);
+    this.pieChartData = Object.values(categoryMap);
+  }
 
 prepareBarChart(expenses: Model[]): void {
   if (expenses.length === 0) {
     this.barChartData = {
       labels: ['No Data'],
       datasets: [{
-        label: 'Daily Expenses',
+        label: 'Expenses',
         data: [0],
         backgroundColor: ['rgba(200,200,200,0.5)'],
         borderColor: ['rgba(200,200,200,1)'],
@@ -181,19 +256,26 @@ prepareBarChart(expenses: Model[]): void {
     return;
   }
 
-  const dailyTotals: { [date: string]: number } = {};
+  const isAllTime = this.selectedMonthBar === 'all';
+
+  const aggregationMap: { [key: string]: number } = {};
   for (const expense of expenses) {
-    const rawDate = new Date(expense.date);
-    const dateKey = rawDate.toISOString().slice(0, 10); // YYYY-MM-DD for sorting
-    dailyTotals[dateKey] = (dailyTotals[dateKey] || 0) + expense.amount;
+    const dateObj = new Date(expense.date);
+    const key = isAllTime
+      ? dateObj.toLocaleString('default', { month: 'short', year: 'numeric' }) // eg. "Jul 2025"
+      : dateObj.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }); // eg. "24 Jul"
+
+    aggregationMap[key] = (aggregationMap[key] || 0) + expense.amount;
   }
 
-  const sortedEntries = Object.entries(dailyTotals)
-    .sort(([a], [b]) => new Date(a).getTime() - new Date(b).getTime());
+  const sortedEntries = Object.entries(aggregationMap)
+    .sort(([a], [b]) => {
+      const parseDate = (label: string) =>
+        isAllTime ? new Date(label + ' 01') : new Date('2025 ' + label); // Assuming year 2025 for sorting consistency
+      return parseDate(a).getTime() - parseDate(b).getTime();
+    });
 
-  const labels = sortedEntries.map(([date]) =>
-    new Date(date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' })
-  );
+  const labels = sortedEntries.map(([label]) => label);
   const data = sortedEntries.map(([, amount]) => amount);
 
   const colorPalette = [
@@ -207,7 +289,7 @@ prepareBarChart(expenses: Model[]): void {
   this.barChartData = {
     labels,
     datasets: [{
-      label: 'Daily Expenses',
+      label: isAllTime ? 'Monthly Expenses' : 'Daily Expenses',
       data,
       backgroundColor: colorPalette.slice(0, labels.length),
       borderColor: colorPalette.slice(0, labels.length).map(c => c.replace('0.2', '1')),

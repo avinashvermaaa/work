@@ -33,7 +33,9 @@
       <ng-container matColumnDef="appliedStatus">
         <th mat-header-cell *matHeaderCellDef> Applied Status </th>
         <td mat-cell *matCellDef="let theme">
-          {{ theme.applied === 'true' ? 'Active' : 'Inactive' }}
+          <!-- {{ theme.applied === 'true' ? 'Active' : 'Inactive' }} -->
+          <span [appHighlightStatus]="theme.applied">{{ theme.applied === 'true' ? 'Active' : 'Inactive' }}</span>
+
         </td>
       </ng-container>
 

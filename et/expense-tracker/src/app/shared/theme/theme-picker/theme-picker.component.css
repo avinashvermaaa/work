@@ -1,3 +1,12 @@
+.Active-status {
+  color: green;
+  font-weight: 600;
+}
+
+.Inactive-status {
+  color: red;
+  font-weight: 600;
+}
 .theme-container {
   font-family: 'Inter', sans-serif;
   margin: 10px;
