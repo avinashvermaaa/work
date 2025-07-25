@@ -2,7 +2,6 @@
   <h2 mat-dialog-title>{{ data ? 'Edit' : 'Add' }} Expense</h2>
 </div>
 
-<!-- Stepper Progress Bar -->
 <div class="stepper">
   <div
     *ngFor="let step of steps; let i = index"
@@ -18,10 +17,8 @@
   </div>
 </div>
 
-<!-- Step Form Body -->
 <mat-dialog-content [formGroup]="form" class="form-content">
 
-  <!-- Step 1: Basic Info -->
   <ng-container *ngIf="currentStep === 0">
     <mat-form-field class="full-width">
       <mat-label>Title</mat-label>
@@ -56,7 +53,6 @@
     </mat-form-field>
   </ng-container>
 
-  <!-- Step 2: Timing & Status -->
   <ng-container *ngIf="currentStep === 1">
     <mat-form-field class="full-width">
       <mat-label>Date</mat-label>
@@ -76,7 +72,6 @@
     </mat-form-field>
   </ng-container>
 
-  <!-- Step 3: Notes & Receipt -->
   <ng-container *ngIf="currentStep === 2">
       <mat-form-field class="full-width">
         <mat-label>Notes</mat-label>
@@ -90,12 +85,11 @@
         <mat-label>Receipt URL</mat-label>
         <input matInput formControlName="receipt" />
         <mat-error *ngIf="showError('receipt')">
-        {{ controls['receipt'].hasError('required') ? 'Required' : 'Max 55 Char & Example :- https://angular.dev/api/forms/PatternValid ' }}
+        {{ controls['receipt'].hasError('required') ? 'Required' : 'Max 55 Char & Example :- https://expensemanager.com ' }}
         </mat-error>
       </mat-form-field>
   </ng-container>
 
-  <!-- Step 4: Summary -->
   <ng-container *ngIf="currentStep === 3">
     <div class="summary">
       <p><strong>Title:</strong> {{ form.value.title }}</p>
@@ -111,7 +105,6 @@
 
 </mat-dialog-content>
 
-<!-- Action Buttons -->
 <mat-dialog-actions align="end">
   <button mat-button (click)="cancel()">Cancel</button>
   <button mat-button *ngIf="currentStep > 0" (click)="prevStep()">Back</button>

@@ -1,15 +1,15 @@
 <app-header></app-header>
 
 <div class="theme-container">
+  
+  <div class="add-theme-container">
+    <button class="add-theme" (click)="openThemeDialog()">
+      <mat-icon>add</mat-icon>
+      Add Theme
+    </button>
+  </div>
   <div class="theme-table">
-    
-    <div class="add-theme-container">
-      <button class="add-theme" (click)="openThemeDialog()">
-        <mat-icon>add</mat-icon>
-        Add Theme
-        </button>
-    </div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="themeName">
         <th mat-header-cell *matHeaderCellDef> Theme Name </th>

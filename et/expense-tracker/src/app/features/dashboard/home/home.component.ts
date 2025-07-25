@@ -143,9 +143,11 @@ selectedMonthPie: string = 'all';
       next: (expenses) => {
         this.allExpenses = expenses;
         this.dataSource.data = expenses;
-        this.totalAllTimeAmount = expenses.reduce((sum, exp) => sum + exp.amount, 0);
+        this.totalAllTimeAmount = expenses .filter(exp => exp.status === 'Paid')
+          .reduce((sum, exp) => sum + exp.amount, 0);
 
-        // Pie dropdown
+
+        // Pie chart ka dropdown
         const monthsSet = new Set<string>();
         const yearsSet = new Set<string>();
         expenses.forEach(exp => {

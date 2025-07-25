@@ -23,7 +23,7 @@
     {
       "id": "2",
       "title": "Lunchwawa",
-      "amount": 2,
+      "amount": 12,
       "category": "Food",
       "payment": "Crypto",
       "status": "Paid",
@@ -377,18 +377,6 @@
       "status": "Paid",
       "date": "2025-07-05",
       "notes": "Lunch with friends",
-      "receipt": "https://some-link.com",
-      "userEmail": "avinashmdp88@gmail.com"
-    },
-    {
-      "id": "37",
-      "title": "Snacks",
-      "amount": 123,
-      "category": "Food",
-      "payment": "UPI",
-      "status": "Unpaid",
-      "date": "2025-07-05",
-      "notes": "Snacks",
       "receipt": "https://some-link.com",
       "userEmail": "avinashmdp88@gmail.com"
     },
@@ -813,18 +801,6 @@
       "userEmail": "avinashmdp88@gmail.com"
     },
     {
-      "id": "22e2",
-      "title": "avinash",
-      "amount": 456,
-      "category": "Food",
-      "payment": "Cash",
-      "date": "2025-07-21",
-      "status": "Paid",
-      "notes": "asjdh",
-      "receipt": "asjh",
-      "userEmail": "avinashmdp88@gmail.com"
-    },
-    {
       "id": "2bc8",
       "title": "qwert",
       "amount": 456,
@@ -1243,6 +1219,54 @@
       "notes": "Movie night with friends",
       "receipt": "https://some-link.com",
       "userEmail": "avinashmdp88@gmail.com"
+    },
+    {
+      "id": "54f9",
+      "title": "april lunch",
+      "amount": 120,
+      "category": "Food",
+      "payment": "UPI",
+      "date": "2025-04-29T18:30:00.000Z",
+      "status": "Paid",
+      "notes": "april ",
+      "receipt": "https://april.com",
+      "userEmail": "avinashmdp88@gmail.com"
+    },
+    {
+      "id": "5fda",
+      "title": "4",
+      "amount": 4,
+      "category": "Food",
+      "payment": "UPI",
+      "date": "2025-07-24T18:30:00.000Z",
+      "status": "Paid",
+      "notes": "sdhgahds",
+      "receipt": "https://www.google.com",
+      "userEmail": "avinashmdp88@gmail.com"
+    },
+    {
+      "id": "2c55",
+      "title": "5",
+      "amount": 5,
+      "category": "Food",
+      "payment": "UPI",
+      "date": "2025-07-24T18:30:00.000Z",
+      "status": "Unpaid",
+      "notes": "unpaid",
+      "receipt": "https://www.google.com",
+      "userEmail": "avinashmdp88@gmail.com"
+    },
+    {
+      "id": "2f23",
+      "title": "askjdh",
+      "amount": 120,
+      "category": "Food",
+      "payment": "Cash",
+      "date": "2025-07-24T18:30:00.000Z",
+      "status": "Paid",
+      "notes": "sdkfjh",
+      "receipt": "https://expensemanager.com",
+      "userEmail": "avinashmdp88@gmail.com"
     }
   ],
   "themes": [
@@ -1251,7 +1275,7 @@
       "theme-name": "Red Black",
       "primary-color": "#d21e1e",
       "secondary-color": "#1c1212",
-      "applied": "false"
+      "applied": "true"
     },
     {
       "id": "e208",
@@ -1352,18 +1376,11 @@
       "applied": "false"
     },
     {
-      "id": "d983",
-      "theme-name": "jhgsf",
-      "primary-color": "#d7d7e0",
-      "secondary-color": "#f4f0f0",
-      "applied": "false"
-    },
-    {
       "id": "f2e1",
       "theme-name": "asdsad",
       "primary-color": "#7d7ace",
       "secondary-color": "#0feb3b",
-      "applied": "true"
+      "applied": "false"
     }
   ]
 }

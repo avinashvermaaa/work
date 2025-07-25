@@ -28,7 +28,6 @@ export class ExpenseListComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      // console.log('Dialog was closed');
     });
   }
 
@@ -48,7 +47,6 @@ export class ExpenseListComponent implements OnInit, AfterViewInit {
     private dialog: MatDialog,
     private snackBar: MatSnackBar
   ) {
-    // console.log('🌟 Expense-List-Component loaded');
   }
 
   ngOnInit(): void {
@@ -152,7 +150,6 @@ onEdit(expense: Model): void {
         this.expenseService.deleteExpense(expense.id).subscribe({
           next: () => {
             this.loadExpenses();
-            // console.log('Deleted:', expense.id);
             this.snackBar.open('Expense deleted successfully', 'Close', { duration: 3000 });
           },
           error: (err) => {

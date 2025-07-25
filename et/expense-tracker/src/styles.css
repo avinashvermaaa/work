@@ -4,9 +4,12 @@ html,body{
 body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: var(--primary-color);
-    /* background: gray; */
-    color: white;
+    /* background-color: var(--accent-color); */
+    /* background: rgb(68, 58, 58); */
+    background: #1a1a1a;
+    /* background: #380505; */
+
+    /* color: white; */
 }
 
 button {
@@ -18,21 +21,25 @@ button {
 
  
 /* green black */
-/* :root {
+:root {
   --primary-color: #2ecc71; 
   --accent-color: #1a1a1a;
-} */
+}
+:root {
+  --primary-color: #d21e1e	; 
+  --accent-color: #1c1212;
+}
 
 /*  Blood red */
-:root {
+/* :root {
   --primary-color: #df1111; 
   --accent-color: #2c0202;
-}
+} */
 /* Coffee pilo */
-:root {
+/* :root {
   --primary-color: rgb(237,144,38); 
   --accent-color: rgba(5, 5, 5, 0.5)	;
-}
+} */
 
 /* Steel Blue */
 /* :root {
@@ -43,4 +50,8 @@ button {
   --primary-color: #7d7ace;  	
   --accent-color: #0feb3b;
 } */
-
+/* :root {
+  --primary-color: #9b59b6;  	
+  --accent-color: #1a1a1a;
+} */
+		
