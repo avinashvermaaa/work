@@ -11,7 +11,6 @@ import { AuthService } from '../../core/services/auth.service';
 export class HeaderComponent {
   activeLink: string = '';
   routerSubscription: Subscription | null = null;
-;
 
   constructor(private authService: AuthService, private router: Router) {}
 

@@ -6,44 +6,32 @@ import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } fro
 export class HighlightStatusDirective implements OnChanges {
   @Input('appHighlightStatus') status: string = '';
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(private readonly el: ElementRef, private readonly renderer: Renderer2) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     const element = this.el.nativeElement;
     
-    this.renderer.removeClass(element, 'paid-status');
-    this.renderer.removeClass(element, 'unpaid-status');
-
-    this.renderer.removeClass(element, 'crypto-status');
-    this.renderer.removeClass(element, 'cash-status');
-
     // Paid Status
-    if (this.status === 'Paid') {
-      this.renderer.addClass(element, 'paid-status');
-    } else if (this.status === 'Unpaid') {
-      this.renderer.addClass(element, 'unpaid-status');
+    switch(this.status){
+      case 'Paid' : this.renderer.addClass(element, 'paid-status'); break;
+      case 'Unpaid' : this.renderer.addClass(element, 'unpaid-status'); break;
     }
 
     // Payment Method
-    if (this.status === 'Crypto') {
-      this.renderer.addClass(element, 'crypto-status');
-    } else if (this.status === 'Cash') {
-      this.renderer.addClass(element, 'cash-status');
-    } else if (this.status === 'Card') {
-      this.renderer.addClass(element, 'card-status');
-    } else if (this.status === 'UPI') {
-      this.renderer.addClass(element, 'UPI-status');
-    } else if (this.status == 'Bank Transfer') {
-      this.renderer.addClass(element, 'Bank-status');
+    switch(this.status){
+      case 'Cash' : this.renderer.addClass(element, 'cash-status'); break;
+      case 'Card' : this.renderer.addClass(element, 'card-status'); break;
+      case 'Crypto' : this.renderer.addClass(element, 'crypto-status'); break;
+      case 'UPI' : this.renderer.addClass(element, 'UPI-status'); break;
+      case 'Net Banking' : this.renderer.addClass(element, 'Bank-status'); break;
     }
 
     // Applied theme Status
-    if (this.status === 'Active') {
-      this.renderer.addClass(element, 'Active-status');
-    } else if (this.status === 'Inactive') {
-      this.renderer.addClass(element, 'Inactive-status');
+    switch(this.status){
+      case 'Active' : this.renderer.addClass(element, 'Active-status'); break;
+      case 'Inactive' : this.renderer.addClass(element, 'Inactive-status'); break;
     }
 
-    this.renderer.setStyle(element, 'padding', '6px 14px');
+    // this.renderer.setStyle(element, 'padding', '6px 14px');
   }
 }

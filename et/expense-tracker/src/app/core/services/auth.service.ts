@@ -71,10 +71,8 @@ restoreUserSession(): Promise<void> {
     return this.http.get<any[]>(`${this.baseUrl}/users?email=${userData.email}`).pipe(
       switchMap((res: any[]) => {
         if (res.length > 0) {
-          // Email exists already, throw an error.
           return throwError(() => new Error('Email is already in use'));
         } else {
-          // Proceed with creating a new user if email is unique
           return this.http.post<any>(`${this.baseUrl}/users`, userData);
         }
       }),

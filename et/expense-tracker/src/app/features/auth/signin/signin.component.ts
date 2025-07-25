@@ -34,11 +34,7 @@ onLogin(): void {
         if (response && response.length > 0) {
           const user = response[0];
 
-          
           localStorage.setItem('userEmail', user.email);
-
-          // console.log('Login successful!');
-          // console.log(`${user.username}, ${user.email}`);
 
           this.snackBar.open(`Welcome ${user.username}`, 'Close', {
             duration: 3000,
@@ -48,9 +44,7 @@ onLogin(): void {
           });
 
           this.router.navigate(['/dashboard']);
-          // console.log('🌟 Redirecting to /dashboard');
         } else {
-          // console.log('Login failed: Invalid credentials.');
           this.snackBar.open('Invalid credentials!', 'Close', {
             duration: 3000,
             horizontalPosition: 'center',
@@ -60,14 +54,11 @@ onLogin(): void {
         }
       },
       (error) => {
-        // console.error('Login error:', error);
       }
     );
   } else {
-    // console.warn('Form is invalid');
   }
 }
-
 
   onSubmit() {
     this.onLogin(); 

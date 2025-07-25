@@ -8,7 +8,9 @@
 }
 
 .filter-section input {
-  background-color: rgba(20, 20, 20, 0.466);  
+  /* background-color: rgba(20, 20, 20, 0.466);   */
+    background: var(--accent-color);
+
   width: 30%;
   padding: 8px;
   color: white;
@@ -99,7 +101,7 @@ table {
 
 .dashboard-container mat-paginator{
     background: transparent;
-    color: white;
+    color: black;
     font-size: 1rem;
 }
 

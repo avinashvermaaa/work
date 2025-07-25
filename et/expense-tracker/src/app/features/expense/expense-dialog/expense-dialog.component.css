@@ -13,6 +13,10 @@
   padding: 16px;
 }
 
+.cont-save{
+  background: var(--primary-color);
+}
+
 
 .form-group {
   min-height: 14rem;

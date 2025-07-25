@@ -24,14 +24,14 @@ export class ExpenseDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      title: [this.data?.title || '', [Validators.required, Validators.maxLength(20), Validators.pattern(/^\S+[\s\S]*$/)]],
+      title: [this.data?.title || '', [Validators.required, Validators.maxLength(15), Validators.pattern(/^\S+[\s\S]*$/)]],
       amount: [this.data?.amount || '', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/), Validators.min(1), Validators.max(1000000000)]],
       category: [this.data?.category || '', [Validators.required]],
       payment: [this.data?.payment || '', [Validators.required]],
       date: [this.data?.date || '', [Validators.required]],
       status: [this.data?.status || '', [Validators.required]],
-      notes: [this.data?.notes || '', [Validators.required, Validators.maxLength(30), Validators.pattern(/^\S+[\s\S]*$/)]],
-      receipt: [this.data?.receipt || '', [Validators.required, Validators.maxLength(55), Validators.pattern("((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)")]]
+      notes: [this.data?.notes || '', [Validators.required, Validators.maxLength(20), Validators.pattern(/^\S+[\s\S]*$/)]],
+      receipt: [this.data?.receipt || '', [Validators.required, Validators.maxLength(30), Validators.pattern("((http|https)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)")]]
     });
   }
 

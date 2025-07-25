@@ -26,20 +26,27 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   // Pie Chart
   selectedYearPie: string = 'all';
-selectedMonthPie: string = 'all';
-  // selectedYearPie: string = new Date().getFullYear().toString();
-  // selectedMonthPie: string = (new Date().getMonth() + 1).toString().padStart(2, '0');
+  selectedMonthPie: string = 'all';
   availableMonths: { value: string; label: string }[] = [];
-  pieChartLabels: string[] = [];
-  pieChartData: number[] = [];
+  availableYears: string[] = [];
+  pieChartData: ChartData<'pie'> = {
+    labels: [],
+    datasets: [{
+      data: [],
+      backgroundColor: []
+    }]
+  };
   allTimePieLabels: string[] = [];
   allTimePieData: number[] = [];
 
   // Bar Chart
   selectedYearBar: string = 'all';
   selectedMonthBar: string = 'all';
+  barChartData: ChartData<'bar'> = {
+    labels: [],
+    datasets: [{ label: 'Daily Expenses', data: [] }]
+  };
 
-  availableYears: string[] = [];
   months = [
     { value: '01', label: 'January' },
     { value: '02', label: 'February' },
@@ -54,7 +61,6 @@ selectedMonthPie: string = 'all';
     { value: '11', label: 'November' },
     { value: '12', label: 'December' }
   ];
-  barChartData: ChartData<'bar'> = { labels: [], datasets: [{ label: 'Daily Expenses', data: [] }] };
 
   dataSource = new MatTableDataSource<Model>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -143,11 +149,9 @@ selectedMonthPie: string = 'all';
       next: (expenses) => {
         this.allExpenses = expenses;
         this.dataSource.data = expenses;
-        this.totalAllTimeAmount = expenses .filter(exp => exp.status === 'Paid')
+        this.totalAllTimeAmount = expenses.filter(exp => exp.status === 'Paid')
           .reduce((sum, exp) => sum + exp.amount, 0);
 
-
-        // Pie chart ka dropdown
         const monthsSet = new Set<string>();
         const yearsSet = new Set<string>();
         expenses.forEach(exp => {
@@ -157,22 +161,12 @@ selectedMonthPie: string = 'all';
           yearsSet.add(date.getFullYear().toString());
         });
 
-        this.availableMonths = [
-          { value: 'all', label: 'All Time' },
-          ...Array.from(monthsSet).sort().map(month => {
-            const [year, monthNum] = month.split('-');
-            const monthName = new Date(+year, +monthNum - 1).toLocaleString('default', { month: 'long' });
-            return { value: month, label: `${monthName} ${year}` };
-          })
-        ];
         this.availableYears = Array.from(yearsSet).sort();
-            this.availableMonths = this.months;
-
+        this.availableMonths = this.months;
 
         this.selectedMonthBar = 'all';
         this.selectedMonthPie = 'all';
         this.selectedYearPie = 'all';
-        this.selectedMonthPie = 'all';
 
         this.onPieSelectionChange();
         this.onBarSelectionChange();
@@ -180,7 +174,7 @@ selectedMonthPie: string = 'all';
         this.paidCount = expenses.filter(e => e.status === 'Paid').length;
         this.failedCount = expenses.filter(e => e.status === 'Unpaid').length;
 
-        // All-time pie summary
+        // All-time summary
         const categoryMap: { [key: string]: number } = {};
         for (const exp of expenses) {
           const category = exp.category || 'Unknown';
@@ -193,21 +187,20 @@ selectedMonthPie: string = 'all';
     });
   }
 
-onPieSelectionChange(): void {
-  const filtered = this.allExpenses.filter(exp => {
-    const date = new Date(exp.date);
-    const year = date.getFullYear().toString();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  onPieSelectionChange(): void {
+    const filtered = this.allExpenses.filter(exp => {
+      const date = new Date(exp.date);
+      const year = date.getFullYear().toString();
+      const month = (date.getMonth() + 1).toString().padStart(2, '0');
 
-    const matchYear = this.selectedYearPie === 'all' || year === this.selectedYearPie;
-    const matchMonth = this.selectedMonthPie === 'all' || month === this.selectedMonthPie;
+      const matchYear = this.selectedYearPie === 'all' || year === this.selectedYearPie;
+      const matchMonth = this.selectedMonthPie === 'all' || month === this.selectedMonthPie;
 
-    return matchYear && matchMonth;
-  });
+      return matchYear && matchMonth;
+    });
 
-  this.preparePieChart(filtered);
-}
-
+    this.preparePieChart(filtered);
+  }
 
   onBarSelectionChange(): void {
     const filtered = this.allExpenses.filter(exp => {
@@ -224,93 +217,121 @@ onPieSelectionChange(): void {
     this.prepareBarChart(filtered);
   }
 
-preparePieChart(expenses: Model[]): void {
-  if (expenses.length === 0) {
-    this.pieChartLabels = ['No Data'];
-    this.pieChartData = [0]; 
-    return;
-  }
+  preparePieChart(expenses: Model[]): void {
+    if (expenses.length === 0) {
+      this.pieChartData = {
+        labels: ['No Data'],
+        datasets: [{
+          data: [0],
+          backgroundColor: ['rgba(200,200,200,0.5)']
+        }]
+      };
+      return;
+    }
 
-  const categoryMap: { [key: string]: number } = {};
-  for (const expense of expenses) {
-    const category = expense.category || 'Unknown';
-    categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
-  }
+    const categoryMap: { [key: string]: number } = {};
+    for (const expense of expenses) {
+      const category = expense.category || 'Unknown';
+      categoryMap[category] = (categoryMap[category] || 0) + expense.amount;
+    }
 
-  this.pieChartLabels = Object.keys(categoryMap);
-  this.pieChartData = Object.values(categoryMap);
-}
+    const labels = Object.keys(categoryMap);
+    const data = Object.values(categoryMap);
+    const colors = labels.map(() => this.getRandomColor());
 
-getMonthLabel(month: string): string {
-  const m = this.months.find(m => m.value === month);
-  return m ? m.label : month;
-}
-
-
-prepareBarChart(expenses: Model[]): void {
-  if (expenses.length === 0) {
-    this.barChartData = {
-      labels: ['No Data'],
+    this.pieChartData = {
+      labels,
       datasets: [{
-        label: 'Expenses',
-        data: [0],
-        backgroundColor: ['rgba(200,200,200,0.5)'],
-        borderColor: ['rgba(200,200,200,1)'],
+        data,
+        backgroundColor: colors,
+        borderColor: colors.map(c => this.darkenColor(c, 0.8)),
         borderWidth: 1
       }]
     };
-    return;
   }
 
-  const isAllTime = this.selectedYearBar === 'all';
-  const isYearOnly = this.selectedYearBar !== 'all' && this.selectedMonthBar === 'all';
+  prepareBarChart(expenses: Model[]): void {
+    if (expenses.length === 0) {
+      this.barChartData = {
+        labels: ['No Data'],
+        datasets: [{
+          label: 'Expenses',
+          data: [0],
+          backgroundColor: ['rgba(200,200,200,0.5)'],
+          borderColor: ['rgba(200,200,200,1)'],
+          borderWidth: 1
+        }]
+      };
+      return;
+    }
 
-  const aggregationMap: { [key: string]: number } = {};
-  for (const expense of expenses) {
-    const dateObj = new Date(expense.date);
-    const key = isAllTime
-      ? dateObj.toLocaleString('default', { month: 'short', year: 'numeric' })
-      : isYearOnly
-        ? dateObj.toLocaleString('default', { month: 'short' })
-        : dateObj.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' });
+    const isAllTime = this.selectedYearBar === 'all';
+    const isYearOnly = this.selectedYearBar !== 'all' && this.selectedMonthBar === 'all';
 
-    aggregationMap[key] = (aggregationMap[key] || 0) + expense.amount;
+    const aggregationMap: { [key: string]: number } = {};
+    for (const expense of expenses) {
+      const dateObj = new Date(expense.date);
+      const key = isAllTime
+        ? dateObj.toLocaleString('default', { month: 'short', year: 'numeric' })
+        : isYearOnly
+          ? dateObj.toLocaleString('default', { month: 'short' })
+          : dateObj.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' });
+
+      aggregationMap[key] = (aggregationMap[key] || 0) + expense.amount;
+    }
+
+    const sortedEntries = Object.entries(aggregationMap).sort(([a], [b]) => {
+      const parseDate = (label: string) =>
+        isAllTime ? new Date(label + ' 01') : new Date('2025 ' + label);
+      return parseDate(a).getTime() - parseDate(b).getTime();
+    });
+
+    const labels = sortedEntries.map(([label]) => label);
+    const data = sortedEntries.map(([, amount]) => amount);
+
+    const colorPalette = [
+      'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)',
+      'rgba(199, 199, 199, 0.2)', 'rgba(83, 102, 255, 0.2)',
+      'rgba(64, 159, 255, 0.2)', 'rgba(255, 99, 255, 0.2)'
+    ];
+
+    const label =
+      isAllTime
+        ? 'Monthly Expenses (All Time)'
+        : isYearOnly
+          ? `Monthly Expenses (${this.selectedYearBar})`
+          : `Daily Expenses (${this.getMonthLabel(this.selectedMonthBar)} ${this.selectedYearBar})`;
+
+    this.barChartData = {
+      labels,
+      datasets: [{
+        label,
+        data,
+        backgroundColor: colorPalette.slice(0, labels.length),
+        borderColor: colorPalette.slice(0, labels.length).map(c => c.replace('0.2', '1')),
+        borderWidth: 1
+      }]
+    };
   }
 
-  const sortedEntries = Object.entries(aggregationMap).sort(([a], [b]) => {
-    const parseDate = (label: string) =>
-      isAllTime ? new Date(label + ' 01') : new Date('2025 ' + label); // Use dummy year
-    return parseDate(a).getTime() - parseDate(b).getTime();
-  });
+  getRandomColor(): string {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgba(${r}, ${g}, ${b}, 0.7)`;
+  }
 
-  const labels = sortedEntries.map(([label]) => label);
-  const data = sortedEntries.map(([, amount]) => amount);
+  darkenColor(color: string, factor: number = 0.8): string {
+    const rgba = color.match(/\d+/g);
+    if (!rgba || rgba.length < 3) return color;
+    const [r, g, b] = rgba.map(Number);
+    return `rgba(${Math.floor(r * factor)}, ${Math.floor(g * factor)}, ${Math.floor(b * factor)}, 1)`;
+  }
 
-  const colorPalette = [
-    'rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)',
-    'rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)',
-    'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)',
-    'rgba(199, 199, 199, 0.2)', 'rgba(83, 102, 255, 0.2)',
-    'rgba(64, 159, 255, 0.2)', 'rgba(255, 99, 255, 0.2)'
-  ];
-
-  const label =
-    isAllTime
-      ? 'Monthly Expenses (All Time)'
-      : isYearOnly
-        ? `Monthly Expenses (${this.selectedYearBar})`
-        : `Daily Expenses (${this.getMonthLabel(this.selectedMonthBar)} ${this.selectedYearBar})`;
-
-  this.barChartData = {
-    labels,
-    datasets: [{
-      label,
-      data,
-      backgroundColor: colorPalette.slice(0, labels.length),
-      borderColor: colorPalette.slice(0, labels.length).map(c => c.replace('0.2', '1')),
-      borderWidth: 1
-    }]
-  };
-}
-
+  getMonthLabel(month: string): string {
+    const m = this.months.find(m => m.value === month);
+    return m ? m.label : month;
+  }
 }

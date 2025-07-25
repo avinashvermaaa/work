@@ -17,11 +17,7 @@ export class ThemeService {
     return this.http.get<ThemeModel[]>(this.baseUrl);
   }
 
-  updateTheme(primary: string, accent: string) {
-    document.documentElement.style.setProperty('--primary-color', primary);
-    document.documentElement.style.setProperty('--accent-color', accent);
-  }
-
+  
   createTheme(theme: ThemeModel): Observable<ThemeModel> {
     return this.http.post<ThemeModel>(this.baseUrl, theme);
   }
@@ -32,5 +28,10 @@ export class ThemeService {
 
   saveTheme(theme: ThemeModel): Observable<ThemeModel> {
     return this.http.put<ThemeModel>(`${this.baseUrl}/${theme.id}`, theme);
+  }
+  
+  updateTheme(primary: string, accent: string) {
+    document.documentElement.style.setProperty('--primary-color', primary);
+    document.documentElement.style.setProperty('--accent-color', accent);
   }
 }
