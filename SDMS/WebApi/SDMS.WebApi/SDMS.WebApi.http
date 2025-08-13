@@ -1,0 +1,6 @@
+@SDMS.WebApi_HostAddress = http://localhost:5001
+
+GET {{SDMS.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
